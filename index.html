@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#022450">
+<meta name="description" content="F&amp;I Calculators for marine finance: payment, loan vs. investment, pick your rate, warranty vs. repair, cost per day, and use cases.">
+<title>F&amp;I Calculators | Stover Advantage LLC</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23022450'/%3E%3Cpath d='M12 40c7-5 13-5 20 0s13 5 20 0' fill='none' stroke='%2301708E' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M20 30 32 20l12 10' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  /* Palette sampled from the Stover Advantage logo: navy #022450, teal #01708E */
+  --navy:#022450;--teal:#01708E;--teal-2:#0a8fb0;--teal-dark:#005a73;
+  --teal-pale:#e5f3f7;--navy-pale:#e9eef6;--ink:#122338;--muted:#55657a;--line:#dfe6ee;--bg:#f4f7fa;--card:#fff;
+  --err:#b42318;--err-bg:#fdf0ee;--radius:18px;
+  --shadow:0 1px 2px rgba(2,36,80,.05),0 8px 28px rgba(2,36,80,.07);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color:var(--ink);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);min-height:100vh}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid #7cc6dc;outline-offset:2px}
+.masthead{background:#fff;border-bottom:1px solid var(--line)}
+.masthead-inner{max-width:1180px;margin:auto;padding:18px 28px;display:flex;align-items:center;gap:22px}
+.brand-logo{display:block;height:56px;width:auto;flex:0 0 auto}
+.brand-divider{width:1px;align-self:stretch;background:var(--line);margin:4px 0}
+.brand-text{min-width:0}
+.brand-title{margin:0;font-size:1.65rem;line-height:1.1;font-weight:800;letter-spacing:-.025em;color:var(--navy)}
+.brand-title .amp{color:var(--teal)}
+.brand-by{margin:3px 0 0;font-size:.86rem;color:var(--muted)}
+.brand-by strong{color:var(--navy);font-weight:700}
+.tabbar{position:sticky;top:0;z-index:20;background:var(--navy);box-shadow:0 6px 20px rgba(2,36,80,.18)}
+.tabs{max-width:1180px;margin:auto;padding:8px 20px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1 0 auto;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:#c9d6e8;font-weight:650;font-size:.92rem;padding:11px 14px;border-radius:12px;white-space:nowrap;transition:background .15s,color .15s}
+.tab .num{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;background:rgba(255,255,255,.1);font-size:.72rem;font-weight:800}
+.tab:hover{background:rgba(255,255,255,.08);color:#fff}
+.tab[aria-selected="true"]{background:#fff;color:var(--navy)}
+.tab[aria-selected="true"] .num{background:var(--teal);color:#fff}
+main{max-width:1180px;margin:auto;padding:30px 28px 40px}
+.panel[hidden]{display:none}
+.panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.eyebrow{margin:0 0 6px;color:var(--teal);font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+.panel-head h2{margin:0;font-size:clamp(1.6rem,3.4vw,2.35rem);line-height:1.1;letter-spacing:-.03em;color:var(--navy)}
+.panel-head p.lede{margin:8px 0 0;color:var(--muted);max-width:640px}
+.actions{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:7px;border:1px solid #c7d3e0;background:#fff;color:var(--navy);padding:10px 15px;border-radius:12px;font-weight:700;font-size:.9rem;min-height:44px;text-decoration:none}
+.btn:hover{border-color:var(--teal);color:var(--teal)}
+.btn svg{width:17px;height:17px}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.primary:hover{background:var(--teal-dark);color:#fff}
+.grid{display:grid;grid-template-columns:minmax(320px,410px) minmax(0,1fr);gap:22px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+.card h3{margin:0 0 4px;font-size:1.05rem;color:var(--navy)}
+.card .sub{margin:0 0 16px;color:var(--muted);font-size:.88rem}
+.stack{display:grid;gap:18px}
+.stack[hidden]{display:none}
+.field{margin-bottom:16px}
+.field:last-child{margin-bottom:0}
+.field[hidden],.row2[hidden]{display:none}
+.field label,.lbl{display:block;font-weight:700;font-size:.86rem;color:#24364d;margin-bottom:6px}
+.inputwrap{position:relative;display:flex;align-items:center;background:#fff;border:1.5px solid #cfd9e4;border-radius:12px;transition:border-color .15s,box-shadow .15s}
+.inputwrap:focus-within{border-color:var(--teal);box-shadow:0 0 0 4px rgba(1,112,142,.13)}
+.inputwrap .pre,.inputwrap .suf{color:#6a7a8e;font-weight:650;padding:0 0 0 14px;user-select:none}
+.inputwrap .suf{padding:0 14px 0 0}
+.inputwrap input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:12px 14px;font-size:1.06rem;font-weight:650;color:var(--ink);font-variant-numeric:tabular-nums;min-height:48px}
+.inputwrap .pre+input{padding-left:6px}
+.field.invalid .inputwrap{border-color:var(--err);box-shadow:0 0 0 4px rgba(180,35,24,.1)}
+.ferr{display:none;margin:5px 0 0;color:var(--err);font-size:.8rem;font-weight:650}
+.field.invalid .ferr{display:block}
+.hint{margin:5px 0 0;color:#617185;font-size:.78rem;line-height:1.4}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.row2>*,.field,.grid>*{min-width:0}
+.inputwrap input{width:100%}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--navy-pale);border-radius:12px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;padding:10px;border-radius:9px;font-weight:700;color:#4a5b70;min-height:42px;line-height:1.2}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--navy);box-shadow:0 1px 4px rgba(2,36,80,.12)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{border:1px solid #cfd9e4;background:#fff;border-radius:999px;padding:6px 11px;font-size:.8rem;font-weight:650;color:#3b4d63;min-height:34px}
+.chip:hover{border-color:var(--teal);color:var(--teal)}
+.chip.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.range{width:100%;accent-color:var(--teal);margin:10px 0 2px}
+.ends{display:flex;justify-content:space-between;color:#7a8a9c;font-size:.75rem}
+.alert{display:none;align-items:flex-start;gap:10px;background:var(--err-bg);border:1px solid #f3c7c1;color:#7a1d14;border-radius:14px;padding:14px 16px;font-weight:600;font-size:.92rem}
+.alert.show{display:flex}
+.alert svg{flex:0 0 18px;width:18px;height:18px;margin-top:2px}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#063368 62%,var(--teal) 140%);color:#fff;border:0;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;bottom:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10),transparent 70%);pointer-events:none}
+.hero .k{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a9c7dd}
+.hero .big{display:block;font-size:clamp(2.6rem,6vw,3.8rem);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin:6px 0 4px;font-variant-numeric:tabular-nums}
+.hero .note{margin:8px 0 0;color:#d4e2ee;font-size:.92rem;max-width:560px;position:relative;z-index:1}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.metric{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;box-shadow:var(--shadow)}
+.metric span{display:block;font-size:.78rem;font-weight:700;color:var(--muted)}
+.metric strong{display:block;font-size:1.5rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
+.hero .metrics{margin-top:18px;position:relative;z-index:1}
+.hero .metric{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);box-shadow:none}
+.hero .metric span{color:#a9c7dd}.hero .metric strong{color:#fff}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;font-variant-numeric:tabular-nums}
+th{background:#f6f9fc;text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:#5d6e82;padding:11px 14px;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--line);white-space:nowrap}
+tr.current td{background:var(--teal-pale);font-weight:750;color:var(--navy)}
+details.disc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 18px}
+details.disc summary{cursor:pointer;padding:14px 0;font-weight:700;color:var(--navy);font-size:.92rem}
+details.disc .body{padding:0 0 14px;color:#4c5d72;font-size:.88rem}
+details.disc .body p{margin:0 0 10px}
+.fine{color:#617185;font-size:.8rem;margin:0}
+.meter{height:8px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden;margin-top:14px;position:relative;z-index:1}
+.meter span{display:block;height:100%;background:linear-gradient(90deg,#4fc3dc,#a8e6f2);border-radius:99px}
+.meterlabels{display:flex;justify-content:space-between;color:#a9c7dd;font-size:.75rem;margin-top:5px;position:relative;z-index:1}
+.chart-wrap svg{width:100%;height:auto;display:block}
+.key{display:flex;gap:16px;font-size:.8rem;color:var(--muted);margin-top:8px}
+.key i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.rep-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 40px;gap:8px;align-items:start;margin-bottom:8px}
+.rep-row .field{margin:0}
+.rep-row .inputwrap input{font-size:.95rem;min-height:44px;padding:10px 12px}
+.rep-row .inputwrap .pre+input{padding-left:4px}
+.iconbtn{width:40px;height:47px;border:1px solid #d8e1eb;border-radius:12px;background:#fff;color:#7a8a9c;display:grid;place-items:center}
+.iconbtn:hover{color:var(--err);border-color:#efc4be}
+.addbtn{border:1.5px dashed #b9c8d8;background:#fbfdff;color:var(--teal);font-weight:700;border-radius:12px;padding:10px;width:100%;min-height:44px;margin-top:2px}
+.addbtn:hover{border-color:var(--teal)}
+.addbtn[hidden]{display:none}
+.example-tag{display:inline-block;background:#fff4e0;color:#8a5205;font-size:.68rem;font-weight:800;letter-spacing:.08em;padding:2px 7px;border-radius:6px;vertical-align:middle;margin-left:6px}
+.rep-out{display:grid;gap:10px}
+.rep-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff}
+.rep-card .nm{font-weight:750;color:var(--navy)}
+.rep-card .cost{font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
+.rep-card .eq{grid-column:1/-1;color:#3e5068;font-size:.92rem}
+.rep-card .eq b{color:var(--teal);font-variant-numeric:tabular-nums}
+.bar{grid-column:1/-1;height:6px;background:var(--navy-pale);border-radius:9px;overflow:hidden}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--teal-2));border-radius:9px}
+.callout{background:#fff8ec;border:1px solid #f4dfb8;color:#6b4306;border-radius:12px;padding:12px 14px;font-size:.86rem}
+.pd td:first-child{font-weight:700;color:var(--navy)}
+.pd tr.total td{background:var(--teal-pale);font-weight:800;color:var(--navy)}
+.obj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;align-items:start}
+.obj{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.obj.open{border-color:#b5d6e1}
+.obj > button.q{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;font-weight:800;font-size:1.06rem;color:var(--navy)}
+.obj > button.q:focus-visible{outline:3px solid #7cc6dc;outline-offset:-3px}
+.obj > button.q .chev{flex:0 0 28px;width:28px;height:28px;border-radius:9px;background:var(--teal-pale);color:var(--teal);display:grid;place-items:center;transition:transform .2s}
+.obj.open > button.q .chev{transform:rotate(180deg)}
+.obj .ans{display:none;padding:0 20px 20px}
+.obj.open .ans{display:block}
+.obj .ans p{margin:0 0 14px;color:#3a4c62}
+.obj .live{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--navy-pale);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+.obj .live span{font-size:.8rem;color:#4a5b70;font-weight:700}
+.obj .live strong{font-size:1.35rem;color:var(--navy);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.obj .src{font-size:.75rem;color:#617185;margin:0 0 12px}
+footer{max-width:1180px;margin:0 auto;padding:10px 28px 40px;color:#617185;font-size:.8rem}
+footer .fbrand{font-weight:700;color:var(--navy)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);opacity:0;background:var(--navy);color:#fff;padding:12px 18px;border-radius:12px;font-weight:650;box-shadow:0 10px 30px rgba(2,36,80,.3);transition:.25s;pointer-events:none;z-index:50}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.print-stamp{display:none;color:#617185;font-size:.8rem;margin:0 0 12px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .masthead-inner{padding:10px 16px;gap:12px}
+  .brand-logo{height:34px}
+  .brand-title{font-size:1.12rem}
+  .brand-by{font-size:.7rem;margin-top:1px}
+  .tabs{padding:6px 10px}
+  .tab{font-size:.84rem;padding:9px 11px}
+  main{padding:20px 14px 30px}
+  .card{padding:18px}
+  .panel-head{margin-bottom:16px}
+  .actions{width:100%}.actions .btn{flex:1;justify-content:center}
+  .metric strong{font-size:1.3rem}
+  .obj-grid{grid-template-columns:1fr}
+  footer{padding:6px 16px 30px}
+}
+@media (max-width:380px){.brand-logo{height:28px}.brand-title{font-size:1rem}.brand-divider{display:none}}
+@media print{
+  .tabbar,.actions,.addbtn,.iconbtn,.chips,.range,.ends,.toast,.obj .btn{display:none!important}
+  body{background:#fff}main{padding:10px 0}
+  .card,.metric{box-shadow:none}
+  .hero,.tab,.bar span{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .grid{grid-template-columns:1fr 1.4fr}
+  .print-stamp{display:block!important}
+  .obj .ans{display:block}
+}
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="F&amp;I Calc">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <!-- BRAND LOGO: to swap the logo, replace ONLY the src="data:..." value on the next line with a new data URI. -->
+    <img id="brand-logo" class="brand-logo" alt="Stover Advantage LLC" src="data:image/png;base64,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">
+    <span class="brand-divider" aria-hidden="true"></span>
+    <div class="brand-text">
+      <h1 class="brand-title">F<span class="amp">&amp;</span>I Calculators</h1>
+      <p class="brand-by">brought to you by <strong>Stover Advantage LLC</strong></p>
+    </div>
+  </div>
+</header>
+
+<nav class="tabbar" aria-label="Calculators">
+  <div class="tabs" role="tablist">
+    <a class="tab" role="tab" id="tab-payment" href="#/payment" aria-controls="panel-payment"><span class="num">1</span>Standard Payment</a>
+    <a class="tab" role="tab" id="tab-cash" href="#/cash" aria-controls="panel-cash"><span class="num">2</span>Loan vs. Investment</a>
+    <a class="tab" role="tab" id="tab-rate" href="#/rate" aria-controls="panel-rate"><span class="num">3</span>Pick Your Rate</a>
+    <a class="tab" role="tab" id="tab-warranty" href="#/warranty" aria-controls="panel-warranty"><span class="num">4</span>Warranty vs. Repair Cost</a>
+    <a class="tab" role="tab" id="tab-perday" href="#/perday" aria-controls="panel-perday"><span class="num">5</span>Cost Per Day</a>
+    <a class="tab" role="tab" id="tab-usecase" href="#/usecase" aria-controls="panel-usecase"><span class="num">6</span>Use Case</a>
+  </div>
+</nav>
+
+<main>
+<p class="print-stamp" id="print-stamp"></p>
+
+<!-- ========== 1. STANDARD PAYMENT ========== -->
+<section class="panel" id="panel-payment" role="tabpanel" aria-labelledby="tab-payment">
+  <div class="panel-head">
+    <div><p class="eyebrow">Calculator 1</p><h2>Standard Payment</h2>
+      <p class="lede">Enter the amount financed, the annual rate provided by the lender, and the loan term. Sales staff do not quote rates.</p></div>
+    <div class="actions"><button class="btn" data-share="payment" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>Share</button><button class="btn" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>Loan details</h3><p class="sub">Principal and interest only.</p>
+      <div class="field"><label for="standard-amount">Amount financed</label><div class="inputwrap"><span class="pre">$</span><input id="standard-amount" data-t="money" data-min="100" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+      <div class="row2">
+        <div class="field"><label for="standard-rate">Annual rate (APR)</label><div class="inputwrap"><input id="standard-rate" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
+        <div class="field"><label for="standard-years">Term</label><div class="inputwrap"><input id="standard-years" data-t="int" data-min="1" data-max="30" inputmode="numeric" autocomplete="off"><span class="suf">years</span></div><p class="ferr"></p></div>
+      </div>
+      <p class="hint">9.0% is a starter example. Replace it with the lender’s quoted rate.</p>
+      <div class="chips" data-chips="standard-years" data-vals="5,10,12,15,20" data-suffix=" yr"></div>
+    </div>
+    <div class="stack">
+      <div class="alert" id="err-payment" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
+      <div class="stack" id="res-payment">
+        <div class="card hero" aria-live="polite">
+          <span class="k">Estimated monthly payment</span>
+          <strong class="big" id="std-monthly">—</strong>
+          <p class="note" id="std-note"></p>
+          <div class="metrics">
+            <div class="metric"><span>Total of estimated payments</span><strong id="std-total">—</strong></div>
+            <div class="metric"><span>Estimated loan interest</span><strong id="std-interest">—</strong></div>
+          </div>
+        </div>
+        <details class="disc"><summary>What this estimate includes</summary><div class="body"><p>This standard fixed-rate estimate uses monthly payments and principal and interest only. It does not include taxes, insurance, fees, down payment, or lender-specific payment rules. Enter a rate from a lender quote; this calculator does not provide a rate or loan offer.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. CASH CONVERSION ========== -->
+<section class="panel" id="panel-cash" role="tabpanel" aria-labelledby="tab-cash" hidden>
+  <div class="panel-head">
+    <div><p class="eyebrow">Calculator 2</p><h2>Loan vs. Investment</h2>
+      <p class="lede">Compare paying cash with financing and keeping the cash invested. Enter the price, loan terms, and an assumed investment return. The results are an illustration, not a recommendation.</p></div>
+    <div class="actions"><button class="btn" data-share="cash" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>Share</button><button class="btn" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>Scenario</h3><p class="sub">Same boat either way; only how it’s paid changes.</p>
+      <div class="field"><label for="cash-amount">Cash purchase / loan amount</label><div class="inputwrap"><span class="pre">$</span><input id="cash-amount" data-t="money" data-min="100" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+      <div class="row2">
+        <div class="field"><label for="cash-rate">Loan annual rate</label><div class="inputwrap"><input id="cash-rate" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
+        <div class="field"><label for="cash-months">Loan term</label><div class="inputwrap"><input id="cash-months" data-t="int" data-min="1" data-max="360" inputmode="numeric" autocomplete="off"><span class="suf">mo</span></div><p class="ferr"></p></div>
+      </div>
+      <p class="hint">9.0% is a starter example. Replace it with the lender’s quoted rate.</p>
+      <div class="chips" data-chips="cash-months" data-vals="60,120,180,240" data-suffix=" mo"></div>
+      <div class="field" style="margin-top:16px"><label for="cash-return">Assumed annual return</label><div class="inputwrap"><input id="cash-return" data-t="pct" data-min="-50" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p>
+        <p class="hint">5.0% is an editable scenario assumption, roughly half the S&amp;P 500’s long-run annualized total return with dividends reinvested. Historical returns are not a forecast. <a href="https://www.officialdata.org/us/stocks/s-p-500/1957?amount=1000&amp;endYear=2025" target="_blank" rel="noopener">View the 1957–2025 illustration</a>.</p></div>
+    </div>
+    <div class="stack">
+      <div class="alert" id="err-cash" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
+      <div class="stack" id="res-cash">
+        <div class="card hero" aria-live="polite">
+          <span class="k">Growth minus loan interest</span>
+          <strong class="big" id="cash-net">—</strong>
+          <p class="note" id="cash-summary"></p>
+          <div class="metrics">
+            <div class="metric"><span>Monthly loan payment</span><strong id="cash-payment">—</strong></div>
+            <div class="metric"><span>Total loan interest</span><strong id="cash-interest">—</strong></div>
+            <div class="metric"><span>Hypothetical investment growth</span><strong id="cash-growth">—</strong></div>
+          </div>
+        </div>
+        <div class="card"><h3>At the end of the selected term</h3><p class="sub">Side by side.</p>
+          <div class="table-scroll"><table><thead><tr><th></th><th>Pay cash</th><th>Finance &amp; retain cash</th></tr></thead>
+          <tbody><tr><td>Cash used at purchase</td><td id="cash-upfront">—</td><td>$0</td></tr>
+          <tr><td>Total loan payments</td><td>$0</td><td id="cash-total">—</td></tr>
+          <tr><td>Retained investment balance</td><td>$0</td><td id="cash-ending">—</td></tr></tbody></table></div>
+        </div>
+        <details class="disc"><summary>Understand this illustration</summary><div class="body">
+          <p>This comparison follows the cash-conversion workbook method: the full loan amount stays invested, loan payments come from other funds, and investment growth is credited at a constant monthly amount within each year, with compounding at each 12-month anniversary. A partial year accrues proportionately. Loan interest is calculated monthly on the declining principal balance.</p>
+          <p>Growth minus loan interest is a limited illustration, not a complete wealth comparison. The cash buyer could invest the monthly payments avoided; that alternative is not modeled. Both scenarios assume the same boat, with no down payment, fees, taxes, investment costs, or tax deductions included.</p>
+          <p>Returns can vary and investments can lose value. The assumed return is your input, not a forecast. Estimates are not financial, investment, tax, or lending advice.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========== 3. RATE CONVERSION ========== -->
+<section class="panel" id="panel-rate" role="tabpanel" aria-labelledby="tab-rate" hidden>
+  <div class="panel-head">
+    <div><p class="eyebrow">Calculator 3</p><h2>Pick Your Rate</h2>
+      <p class="lede">Enter the loan details, then adjust the extra monthly amount. The contract rate stays the same; this shows estimated payoff and interest effects.</p></div>
+    <div class="actions"><button class="btn" data-share="rate" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>Share</button><button class="btn" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>The loan</h3><p class="sub">Fixed rate, monthly payments.</p>
+      <div class="field"><label for="principal">Amount financed</label><div class="inputwrap"><span class="pre">$</span><input id="principal" data-t="money" data-min="100" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+      <div class="row2">
+        <div class="field"><label for="apr">Contract rate</label><div class="inputwrap"><input id="apr" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
+        <div class="field"><label for="term">Loan term</label><div class="inputwrap"><input id="term" data-t="int" data-min="1" data-max="30" inputmode="numeric" autocomplete="off"><span class="suf">years</span></div><p class="ferr"></p></div>
+      </div>
+      <div class="field"><label for="payment">Scheduled monthly payment</label><div class="inputwrap"><span class="pre">$</span><input id="payment" data-t="money" data-dec="2" data-min="0.01" data-max="1000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p><p class="hint">Auto-calculated (rounded up to the cent). You can adjust it to match the quote.</p></div>
+      <div class="field" style="margin-top:20px"><label for="extra">Extra each month</label><div class="inputwrap"><span class="pre">$</span><input id="extra" data-t="money" data-min="0" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p>
+        <input class="range" id="extra-range" type="range" min="0" max="600" step="5" aria-label="Extra each month slider"><div class="ends"><span>$0</span><span>$600+ (type any amount above)</span></div>
+        <div class="chips" id="rate-chips" aria-label="Choose extra monthly payment"></div>
+        <p class="hint" id="annual"></p></div>
+    </div>
+    <div class="stack">
+      <div class="alert" id="err-rate" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
+      <div class="stack" id="res-rate">
+        <div class="card hero" aria-live="polite">
+          <span class="k" id="rate-label">Illustrative comparison rate</span>
+          <strong class="big" id="equivalent">—</strong>
+          <span class="note" id="drop" style="display:block;font-weight:700;color:#a8e6f2"></span>
+          <div class="meter" aria-hidden="true"><span id="meter-fill"></span></div>
+          <div class="meterlabels"><span>0%</span><span id="contract-label"></span></div>
+          <p class="note" id="result-description"></p>
+          <div class="metrics">
+            <div class="metric"><span>Payoff</span><strong id="payoff">—</strong></div>
+            <div class="metric"><span>Time saved</span><strong id="time-saved">—</strong></div>
+            <div class="metric"><span>Interest paid</span><strong id="interest-paid">—</strong></div>
+            <div class="metric"><span>Interest saved</span><strong id="interest-saved">—</strong></div>
+          </div>
+        </div>
+        <div class="card"><h3>Compare extra payments</h3><p class="sub">How each choice affects payoff and total interest.</p>
+          <div class="table-scroll"><table><thead><tr><th>Extra / mo</th><th>Illustrative rate</th><th>Payoff</th><th>Time saved</th><th>Interest</th><th>Saved</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+        <div class="card"><h3>Balance over time</h3><p class="sub">Scheduled payments compared with the extra monthly payment.</p>
+          <div class="chart-wrap" id="chart"></div>
+          <div class="key"><span><i style="background:#8b9bb0"></i>Scheduled</span><span><i style="background:#01708E"></i>With extra</span></div></div>
+        <details class="disc"><summary>How the comparison rate is calculated</summary><div class="body">
+          <p>Extra payments reduce principal sooner, so less interest accrues. We calculate the total interest with the selected extra payment, then find the hypothetical rate that would produce the same interest over the original term and financed amount.</p>
+          <p>This is a comparison tool, not a new loan offer, quoted APR, savings guarantee, or change to the contract rate. The estimate assumes a fixed rate, monthly payments, and all extra amounts applied to principal. It excludes taxes, insurance, fees, and any prepayment restrictions. Check the loan agreement and lender’s payment rules.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. WARRANTY VS REPAIR ========== -->
+<section class="panel" id="panel-warranty" role="tabpanel" aria-labelledby="tab-warranty" hidden>
+  <div class="panel-head">
+    <div><p class="eyebrow">Calculator 4</p><h2>Warranty vs. Repair Cost</h2>
+      <p class="lede">See what coverage costs per month and per day, next to what a single repair can cost.</p></div>
+    <div class="actions"><button class="btn" data-share="warranty" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>Share</button><button class="btn" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
+  </div>
+  <div class="grid">
+    <div class="stack">
+      <div class="card">
+        <h3>Coverage</h3><p class="sub">Use the actual contract price and terms.</p>
+        <div class="field"><label for="w-price">Warranty / service contract price</label><div class="inputwrap"><span class="pre">$</span><input id="w-price" data-t="money" data-min="0" data-max="100000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+        <div class="field"><span class="lbl" id="w-fin-lbl">How is it paid?</span>
+          <div class="seg" role="group" aria-labelledby="w-fin-lbl"><button type="button" data-seg="w-fin" data-v="1">Financed</button><button type="button" data-seg="w-fin" data-v="0">Paid in cash</button></div></div>
+        <div class="row2" id="w-loan">
+          <div class="field"><label for="w-apr">APR</label><div class="inputwrap"><input id="w-apr" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
+          <div class="field"><label for="w-term">Loan term</label><div class="inputwrap"><input id="w-term" data-t="int" data-min="1" data-max="360" inputmode="numeric" autocomplete="off"><span class="suf">mo</span></div><p class="ferr"></p></div>
+        </div>
+        <div class="field"><label for="w-years">Coverage length</label><div class="inputwrap"><input id="w-years" data-t="int" data-min="1" data-max="20" inputmode="numeric" autocomplete="off"><span class="suf">years</span></div><p class="ferr"></p><p class="hint" id="w-years-hint">Used for the cash calculation and to flag payments that outlast coverage.</p></div>
+      </div>
+      <div class="card">
+        <h3>Repair costs <span class="example-tag">EXAMPLES</span></h3><p class="sub">Example figures only. Replace them with real quotes from your service department.</p>
+        <div id="rep-list"></div>
+        <button class="addbtn" id="rep-add" type="button">+ Add a repair</button>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="alert" id="err-warranty" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
+      <div class="stack" id="res-warranty">
+        <div class="card hero" aria-live="polite">
+          <span class="k" id="w-k">Coverage cost per month</span>
+          <strong class="big" id="w-monthly">—</strong>
+          <p class="note" id="w-note"></p>
+          <div class="metrics">
+            <div class="metric"><span>Per day</span><strong id="w-daily">—</strong></div>
+            <div class="metric"><span id="w-total-lbl">Total cost</span><strong id="w-total">—</strong></div>
+          </div>
+        </div>
+        <div class="card"><h3>One repair equals…</h3><p class="sub">Each example repair measured in months and years of coverage cost.</p>
+          <div class="rep-out" id="rep-out"></div></div>
+        <div class="callout"><strong>Repair costs shown are examples.</strong> Replace them with real quotes. Coverage, exclusions, and deductibles depend on the contract; review the contract terms with the customer.</div>
+        <details class="disc"><summary>How this is calculated</summary><div class="body">
+          <p>Financed: monthly cost uses the standard payment formula on the contract price at the APR and loan term entered. Paid in cash: monthly cost is the price divided by the coverage length in months. Daily cost is monthly × 12 ÷ 365.</p>
+          <p>“Months of warranty payments” is the repair cost divided by the monthly coverage cost; years is that number ÷ 12. This is an illustration, not a statement of what any contract covers.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. COST PER DAY ========== -->
+<section class="panel" id="panel-perday" role="tabpanel" aria-labelledby="tab-perday" hidden>
+  <div class="panel-head">
+    <div><p class="eyebrow">Calculator 5</p><h2>Cost Per Day</h2>
+      <p class="lede">Break a boat or a product down into per-month, per-week and per-day cost.</p></div>
+    <div class="actions"><button class="btn" data-share="perday" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>Share</button><button class="btn" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>Amounts</h3><p class="sub">The add-on uses the same terms as the main amount.</p>
+      <div class="field"><label for="d-amount">Boat or product amount</label><div class="inputwrap"><span class="pre">$</span><input id="d-amount" data-t="money" data-min="1" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+      <div class="field"><label for="d-addon">Add-on product amount</label><div class="inputwrap"><span class="pre">$</span><input id="d-addon" data-t="money" data-min="0" data-max="1000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p><p class="hint">For example a service contract or protection package. Enter 0 for none.</p></div>
+      <div class="field"><span class="lbl" id="d-mode-lbl">How is it paid?</span>
+        <div class="seg" role="group" aria-labelledby="d-mode-lbl"><button type="button" data-seg="d-mode" data-v="fin">Financed</button><button type="button" data-seg="d-mode" data-v="cash">Cash, over years owned</button></div></div>
+      <div class="row2" id="d-loan">
+        <div class="field"><label for="d-apr">APR</label><div class="inputwrap"><input id="d-apr" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
+        <div class="field"><label for="d-term">Loan term</label><div class="inputwrap"><input id="d-term" data-t="int" data-min="1" data-max="360" inputmode="numeric" autocomplete="off"><span class="suf">mo</span></div><p class="ferr"></p></div>
+      </div>
+      <div class="field" id="d-own"><label for="d-years">Years owned</label><div class="inputwrap"><input id="d-years" data-t="int" data-min="1" data-max="40" inputmode="numeric" autocomplete="off"><span class="suf">years</span></div><p class="ferr"></p></div>
+    </div>
+    <div class="stack">
+      <div class="alert" id="err-perday" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
+      <div class="stack" id="res-perday">
+        <div class="card hero" aria-live="polite">
+          <span class="k">Combined cost per day</span>
+          <strong class="big" id="d-tot-day">—</strong>
+          <p class="note" id="d-note"></p>
+          <div class="metrics">
+            <div class="metric"><span>Combined per week</span><strong id="d-tot-week">—</strong></div>
+            <div class="metric"><span>Combined per month</span><strong id="d-tot-month">—</strong></div>
+          </div>
+        </div>
+        <div class="card"><h3>Breakdown</h3><p class="sub" id="d-sub"></p>
+          <div class="table-scroll"><table class="pd"><thead><tr><th></th><th>Per month</th><th>Per week</th><th>Per day</th></tr></thead>
+          <tbody><tr><td>Boat / product</td><td id="d-month">—</td><td id="d-week">—</td><td id="d-day">—</td></tr>
+          <tr><td>Add-on</td><td id="d-add-month">—</td><td id="d-add-week">—</td><td id="d-add-day">—</td></tr>
+          <tr class="total"><td>Combined</td><td id="d-tot-month2">—</td><td id="d-tot-week2">—</td><td id="d-tot-day2">—</td></tr></tbody></table></div></div>
+        <details class="disc"><summary>How this is calculated</summary><div class="body">
+          <p>Financed: monthly cost is the standard payment formula on each amount at the APR and term entered. Cash: monthly cost is the amount divided by (years owned × 12). Per week = monthly × 12 ÷ 52. Per day = monthly × 12 ÷ 365. Combined figures add the unrounded amounts, then round.</p>
+          <p>Principal and interest only; excludes taxes, fees, insurance, storage, fuel and maintenance. Enter a rate from a lender quote; this is not a financing offer.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. OBJECTIONS ========== -->
+<section class="panel" id="panel-usecase" role="tabpanel" aria-labelledby="tab-usecase" hidden>
+  <div class="panel-head">
+    <div><p class="eyebrow">Talk track</p><h2>Use Case</h2>
+      <p class="lede">Tap an objection for a short, low-pressure response. Each one shows a live number from its calculator, using the inputs you’ve entered.</p></div>
+    <div class="actions"><button class="btn" data-share="usecase" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>Share</button><button class="btn" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
+  </div>
+  <div class="obj-grid" id="obj-grid"></div>
+  <p class="fine" style="margin-top:18px">Talking points only. Never quote or promise a rate, approval, return, or savings. Follow your dealership’s compliance policies and applicable law.</p>
+</section>
+</main>
+
+<footer>
+  <p><span class="fbrand">F&amp;I Calculators</span>, brought to you by <span class="fbrand">Stover Advantage LLC</span>, is an educational planning tool. Figures are estimates and are not a financing offer, and results are illustrations, not financial, investment, tax, or lending advice. Sales staff do not quote rates. Rates, terms, and lender rules vary; confirm loan details with the lender.</p>
+  <p>© <span id="yr"></span> Stover Advantage LLC</p>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const usd0=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+const usd2=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});
+const fix=(v,d)=>{const s=v.toFixed(d);return /^-0\.?0*$/.test(s)?s.slice(1):s};
+
+/* ---------- Math (same formulas as the verified source pages) ---------- */
+function payment(p,r,n){const m=r/1200;return m===0?p/n:p*m/(1-Math.pow(1+m,-n))}
+function schedule(p,r,monthly,maxMonths){let b=p,interest=0,balances=[p];const m=r/1200;for(let i=0;i<maxMonths&&b>.005;i++){const charge=b*m;if(monthly<=charge+.000001)return null;interest+=charge;b=Math.max(0,b+charge-monthly);balances.push(b)}return b>.005?null:{months:balances.length-1,interest,balances}}
+function equivalentRate(p,interest,n){let lo=0,hi=60;for(let i=0;i<65;i++){const mid=(lo+hi)/2;const total=payment(p,mid,n)*n-p;if(total<interest)lo=mid;else hi=mid}return(lo+hi)/2}
+function cashProjection(p,r,n,ret){const pay=payment(p,r,n),interest=Math.max(0,pay*n-p);let balance=p;for(let m=0;m<n;){const count=Math.min(12,n-m);balance+=balance*ret/100*count/12;m+=count;}return{pay,interest,balance,growth:balance-p,net:balance-p-interest}}
+function duration(m){if(!m)return '—';const y=Math.floor(m/12),mo=m%12;return y?(mo?`${y} yr ${mo} mo`:`${y} yr`):`${mo} mo`}
+function money(n){return usd0.format(Math.max(0,Math.round(n)))}
+const perWeek=m=>m*12/52, perDay=m=>m*12/365;
+
+/* ---------- Defaults & state ---------- */
+const DEFAULTS={'standard-amount':49297,'standard-rate':9,'standard-years':15,'cash-amount':100000,'cash-rate':9,'cash-months':180,'cash-return':5,
+ principal:49297,apr:9,term:15,payment:null,extra:100,'w-price':3000,'w-apr':9,'w-term':180,'w-years':5,
+ 'd-amount':100000,'d-addon':2500,'d-apr':9,'d-term':180,'d-years':10};
+const DEFAULT_REPAIRS=[['Powerhead / engine',12000],['Lower unit',4500],['Electronics',3000],['Trim / tilt',1800]];
+const SEG={'w-fin':'1','d-mode':'fin'};
+let repairs=DEFAULT_REPAIRS.map(([n,c])=>({name:n,cost:String(c)}));
+const fields=[...document.querySelectorAll('input[data-t]')];
+const ROUTES=['payment','cash','rate','warranty','perday','usecase'];
+
+/* ---------- Input formatting & parsing ---------- */
+const group=s=>s.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+function formatMoneyText(v,decLimit){
+  v=String(v);const neg=/^\s*-/.test(v);let clean=v.replace(/[^\d.]/g,'');const i=clean.indexOf('.');
+  if(i>=0)clean=clean.slice(0,i+1)+clean.slice(i+1).replace(/\./g,'').slice(0,decLimit);
+  let [int,dec]=clean.split('.');int=int.replace(/^0+(?=\d)/,'');
+  return (neg?'-':'')+group(int)+(dec!==undefined?'.'+dec:'');
+}
+function liveFormat(el){
+  const v=el.value,caret=el.selectionStart??v.length;
+  const sig=v.slice(0,caret).replace(/[^\d.-]/g,'').length;
+  const out=formatMoneyText(v,2);if(out===v)return;
+  let pos=0,c=0;while(pos<out.length&&c<sig){if(/[\d.-]/.test(out[pos]))c++;pos++}
+  el.value=out;try{el.setSelectionRange(pos,pos)}catch(e){}
+}
+function setVal(el,v){
+  if(v===null||v===undefined||v==='')return void(el.value='');
+  if(el.dataset.t==='money'){const n=Number(String(v).replace(/,/g,''));el.value=Number.isFinite(n)?formatMoneyText(el.dataset.dec?n.toFixed(2):String(Math.round(n*100)/100),2):String(v)}
+  else el.value=String(v);
+}
+function rawOf(el){return el.value.replace(/,/g,'').trim()}
+function bound(t,x){return t==='money'?usd0.format(x):(t==='pct'?x+'%':String(x))}
+function readField(el,type){
+  const t=type||el.dataset.t,raw=rawOf(el),min=Number(el.dataset.min),max=Number(el.dataset.max);
+  let msg='',v=NaN;
+  if(raw==='')msg='Required';
+  else if(!/^-?(\d+\.?\d*|\.\d+)$/.test(raw))msg='Enter a number';
+  else{v=Number(raw);
+    if(!Number.isFinite(v))msg='Enter a number';
+    else if(v<0&&min>=0)msg='Negative values aren’t allowed';
+    else if(t==='int'&&!Number.isInteger(v))msg='Enter a whole number';
+    else if(v<min||v>max)msg=`Enter ${bound(t,min)} to ${bound(t,max)}`;}
+  const f=el.closest('.field');
+  if(f){f.classList.toggle('invalid',!!msg);const e=f.querySelector('.ferr');if(e)e.textContent=msg}
+  el.setAttribute('aria-invalid',msg?'true':'false');
+  return msg?{ok:false,msg}:{ok:true,v};
+}
+function readSet(ids){const out={},bad=[];for(const id of ids){const r=readField($(id));if(r.ok)out[id]=r.v;else bad.push(id)}return{ok:!bad.length,v:out,bad}}
+function clearField(id){const el=$(id),f=el.closest('.field');f.classList.remove('invalid');el.setAttribute('aria-invalid','false')}
+function labelOf(id){if(id==='__rep')return 'the repair costs';const l=document.querySelector(`label[for="${id}"]`);return l?l.textContent.trim():id}
+function showErr(tab,c){
+  const a=$('err-'+tab),r=$('res-'+tab);
+  const msg=c.ok?'':(c.custom||`Check ${c.bad.map(labelOf).join(', ')}. Results update as soon as the inputs are valid.`);
+  a.classList.toggle('show',!!msg);a.querySelector('span').textContent=msg;r.hidden=!!msg;return !msg;
+}
+function setText(id,t){const e=$(id);if(e)e.textContent=t}
+
+/* ---------- 1. Standard ---------- */
+function calcStandard(){const s=readSet(['standard-amount','standard-rate','standard-years']);if(!s.ok)return{ok:false,bad:s.bad};
+  const p=s.v['standard-amount'],r=s.v['standard-rate'],years=s.v['standard-years'],months=years*12,monthly=payment(p,r,months),total=monthly*months;
+  const lower=Math.max(0,r-1),perPoint=monthly-payment(p,lower,months);
+  return{ok:true,p,r,years,months,monthly,total,interest:Math.max(0,total-p),perPoint}}
+function renderStandard(){const c=calcStandard();if(!showErr('payment',c))return c;
+  setText('std-monthly',usd2.format(c.monthly));setText('std-total',usd0.format(c.total));setText('std-interest',usd0.format(c.interest));
+  setText('std-note',`${usd0.format(c.p)} financed at ${fix(c.r,2)}% for ${c.years} ${c.years===1?'year':'years'} (${c.months} payments). Estimate only; not a financing offer.`);return c}
+
+/* ---------- 2. Cash ---------- */
+function calcCash(){const s=readSet(['cash-amount','cash-rate','cash-months','cash-return']);if(!s.ok)return{ok:false,bad:s.bad};
+  const p=s.v['cash-amount'],r=s.v['cash-rate'],n=s.v['cash-months'],ret=s.v['cash-return'];return{ok:true,p,r,n,ret,...cashProjection(p,r,n,ret)}}
+function renderCash(){const c=calcCash();if(!showErr('cash',c))return c;
+  setText('cash-payment',usd2.format(c.pay));setText('cash-interest',usd0.format(c.interest));setText('cash-growth',usd0.format(c.growth));setText('cash-net',usd0.format(c.net));
+  setText('cash-upfront',usd0.format(c.p));setText('cash-total',usd0.format(c.p+c.interest));setText('cash-ending',usd0.format(c.balance));
+  $('cash-net').style.color=c.net>=0?'#fff':'#ffd59a';
+  setText('cash-summary',`At an assumed ${fix(c.ret,2)}% annual return over ${duration(c.n)}, hypothetical investment growth ${c.net>=0?'exceeds':'falls short of'} loan interest by ${usd0.format(Math.abs(c.net))}. This does not establish which option is better for you.`);return c}
+
+/* ---------- 3. Rate conversion ---------- */
+const presets=[0,50,100,150,200,250,300,500];
+function autoPayment(){const s=readSet(['principal','apr','term']);if(s.ok){const pay=payment(s.v.principal,s.v.apr,s.v.term*12);setVal($('payment'),(Math.ceil(pay*100-1e-8)/100).toFixed(2))}}
+function calcRate(){const s=readSet(['principal','apr','term','payment','extra']);if(!s.ok)return{ok:false,bad:s.bad};
+  const p=s.v.principal,r=s.v.apr,term=s.v.term,pay=s.v.payment,ex=s.v.extra,n=Math.round(term*12);
+  const base=schedule(p,r,pay,n+12);
+  if(!base)return{ok:false,custom:'The scheduled payment is too low to repay this loan. Increase it or adjust the other inputs.'};
+  if(base.months>n+1)return{ok:false,custom:'The scheduled payment does not repay the loan within the selected term.'};
+  const chosen=schedule(p,r,pay+ex,n+12),er=equivalentRate(p,chosen.interest,n),saved=base.interest-chosen.interest;
+  return{ok:true,p,r,term,n,pay,ex,base,chosen,er,saved}}
+function svgPath(values,maxX,maxY){return values.map((v,i)=>`${i?'L':'M'} ${(44+i/maxX*668).toFixed(1)} ${(226-v/maxY*196).toFixed(1)}`).join(' ')}
+function axis(v){return v>=1e6?(v/1e6).toFixed(v>=1e7?0:1)+'M':v>=1000?Math.round(v/1000)+'k':String(Math.round(v))}
+function chart(base,chosen,p){const maxX=Math.max(base.months,chosen.months,1),maxY=p*1.05,lines=[0,.25,.5,.75,1].map(f=>`<line x1="44" y1="${(226-f*196).toFixed(1)}" x2="712" y2="${(226-f*196).toFixed(1)}" stroke="#e3e9f0" stroke-width="1"/><text x="2" y="${(230-f*196).toFixed(1)}" fill="#6a7a8e" font-size="11">${f?axis(p*f):'0'}</text>`).join('');
+  $('chart').innerHTML=`<svg viewBox="0 0 730 265" role="img" aria-label="Loan balance over time: scheduled payoff in ${duration(base.months)} and payoff with extra payments in ${duration(chosen.months)}"><g>${lines}<path d="${svgPath(base.balances,maxX,maxY)}" fill="none" stroke="#8b9bb0" stroke-width="3" stroke-linejoin="round"/><path d="${svgPath(chosen.balances,maxX,maxY)}" fill="none" stroke="#01708E" stroke-width="4" stroke-linejoin="round"/></g><text x="44" y="255" fill="#6a7a8e" font-size="11">Start</text><text x="712" y="255" fill="#6a7a8e" font-size="11" text-anchor="end">${duration(maxX)}</text></svg>`}
+function renderRate(){const c=calcRate();if(!showErr('rate',c))return c;
+  const{p,r,n,pay,ex,base,chosen,er,saved}=c;
+  setText('annual',`${money(ex*12)} extra per year.`);setText('rate-label',`Illustrative ${c.term}-year comparison rate`);setText('equivalent',fix(er,2)+'%');
+  setText('drop',`↓ ${fix(Math.max(0,r-er),2)} percentage points from ${fix(r,2)}% · contract rate unchanged`);setText('contract-label',`Contract ${fix(r,2)}%`);
+  $('meter-fill').style.width=`${Math.max(0,Math.min(100,r?er/r*100:0))}%`;
+  setText('result-description',ex?`Paying ${money(pay+ex)} instead of ${money(pay)} each month is estimated to save ${money(saved)} in interest. The contract rate remains ${fix(r,2)}%.`:`At the scheduled payment, this is the estimated payoff. Add a monthly extra payment to see how much time and interest it could save.`);
+  setText('payoff',duration(chosen.months));setText('time-saved',duration(base.months-chosen.months));setText('interest-paid',money(chosen.interest));setText('interest-saved',money(saved));
+  if(document.activeElement!==$('extra-range'))$('extra-range').value=String(Math.min(600,ex));
+  $('rate-chips').innerHTML=presets.map(x=>`<button type="button" class="chip ${x===ex?'active':''}" data-extra="${x}" aria-pressed="${x===ex}">${x?'+'+money(x):'Minimum'}</button>`).join('');
+  const opts=[...new Set([0,...presets,ex])].sort((a,b)=>a-b);
+  $('rows').innerHTML=opts.map(x=>{const s=schedule(p,r,pay+x,n+12),rate=equivalentRate(p,s.interest,n),cur=x===ex;return `<tr class="${cur?'current':''}" data-x="${x}"><td>${x?'+'+money(x):'—'}${cur?' · now':''}</td><td>${fix(rate,2)}%</td><td>${duration(s.months)}</td><td>${duration(base.months-s.months)}</td><td>${money(s.interest)}</td><td>${money(base.interest-s.interest)}</td></tr>`}).join('');
+  chart(base,chosen,p);return c}
+/* ---------- 4. Warranty ---------- */
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function repairRowHTML(rp,i){return `<div class="rep-row" data-i="${i}"><div class="field"><div class="inputwrap"><input aria-label="Repair ${i+1} name" data-rep-name="${i}" maxlength="40" placeholder="Repair name" value="${esc(rp.name)}"></div></div><div class="field"><div class="inputwrap"><span class="pre">$</span><input aria-label="Repair ${i+1} cost (example)" id="rep-cost-${i}" data-rep-cost="${i}" data-min="0" data-max="1000000" inputmode="decimal" autocomplete="off" value="${esc(formatMoneyText(rp.cost,2))}"></div><p class="ferr"></p></div><button type="button" class="iconbtn" data-rep-del="${i}" aria-label="Remove repair ${i+1}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>`}
+function drawRepairs(){$('rep-list').innerHTML=repairs.map(repairRowHTML).join('');$('rep-add').hidden=repairs.length>=10}
+function calcWarranty(){const fin=SEG['w-fin']==='1';const ids=['w-price','w-years'].concat(fin?['w-apr','w-term']:[]);if(!fin){clearField('w-apr');clearField('w-term')}
+  const s=readSet(ids);
+  const reps=repairs.map((rp,i)=>({name:rp.name.trim()||`Repair ${i+1}`,r:readField($('rep-cost-'+i),'money')}));const badRep=reps.some(x=>!x.r.ok);
+  if(!s.ok||badRep)return{ok:false,bad:s.bad.concat(badRep?['__rep']:[])};
+  const price=s.v['w-price'],years=s.v['w-years'],covMonths=years*12;
+  const monthly=fin?payment(price,s.v['w-apr'],s.v['w-term']):price/covMonths;
+  const total=fin?monthly*s.v['w-term']:price;
+  const items=reps.map(x=>({name:x.name,cost:x.r.v,months:monthly>0?x.r.v/monthly:null,years:monthly>0?x.r.v/monthly/12:null}));
+  return{ok:true,fin,price,years,covMonths,apr:s.v['w-apr'],term:s.v['w-term'],monthly,daily:perDay(monthly),total,items}}
+function renderWarranty(){const fin=SEG['w-fin']==='1';$('w-loan').hidden=!fin;const c=calcWarranty();if(!showErr('warranty',c))return c;
+  setText('w-k',c.fin?'Coverage cost per month · financed':'Coverage cost per month · cash over coverage');
+  setText('w-monthly',usd2.format(c.monthly));setText('w-daily',usd2.format(c.daily));
+  setText('w-total-lbl',c.fin?'Total paid over the loan':'Total price');setText('w-total',usd2.format(c.total));
+  let note=c.fin?`${usd2.format(c.price)} financed at ${fix(c.apr,2)}% for ${c.term} months.`:`${usd2.format(c.price)} paid in cash ÷ ${c.covMonths} months of coverage.`;
+  if(c.fin&&c.term>c.covMonths)note+=` Note: payments run ${c.term-c.covMonths} months past the ${c.years}-year coverage.`;
+  if(c.price===0)note='No coverage cost entered.';
+  setText('w-note',note);
+  const maxCost=Math.max(1,...c.items.map(i=>i.cost));
+  $('rep-out').innerHTML=c.items.length?c.items.map((it,i)=>`<div class="rep-card" data-rep-out="${i}"><span class="nm">${esc(it.name)}</span><span class="cost">${usd0.format(it.cost)}</span><div class="bar"><span style="width:${(it.cost/maxCost*100).toFixed(1)}%"></span></div><span class="eq">${it.months===null?'Coverage cost is $0, so there are no payments to compare.':`This repair = <b data-k="months">${fix(it.months,1)}</b> months of warranty payments · <b data-k="years">${fix(it.years,1)}</b> years of coverage`}</span></div>`).join(''):'<p class="fine">Add a repair to compare.</p>';
+  return c}
+
+/* ---------- 5. Cost per day ---------- */
+function calcPerDay(){const fin=SEG['d-mode']==='fin';const ids=['d-amount','d-addon'].concat(fin?['d-apr','d-term']:['d-years']);
+  if(fin)clearField('d-years');else{clearField('d-apr');clearField('d-term')}
+  const s=readSet(ids);if(!s.ok)return{ok:false,bad:s.bad};
+  const a=s.v['d-amount'],b=s.v['d-addon'];const mo=x=>fin?payment(x,s.v['d-apr'],s.v['d-term']):x/(s.v['d-years']*12);
+  const m1=mo(a),m2=b>0?mo(b):0,mt=m1+m2;
+  return{ok:true,fin,a,b,apr:s.v['d-apr'],term:s.v['d-term'],years:s.v['d-years'],m1,m2,mt,w1:perWeek(m1),w2:perWeek(m2),wt:perWeek(mt),d1:perDay(m1),d2:perDay(m2),dt:perDay(mt)}}
+function renderPerDay(){const fin=SEG['d-mode']==='fin';$('d-loan').hidden=!fin;$('d-own').hidden=fin;const c=calcPerDay();if(!showErr('perday',c))return c;
+  const u=usd2.format;
+  [['d-month',c.m1],['d-week',c.w1],['d-day',c.d1],['d-add-month',c.m2],['d-add-week',c.w2],['d-add-day',c.d2],['d-tot-month',c.mt],['d-tot-week',c.wt],['d-tot-day',c.dt],['d-tot-month2',c.mt],['d-tot-week2',c.wt],['d-tot-day2',c.dt]].forEach(([id,v])=>setText(id,u(v)));
+  const what=`${usd0.format(c.a)}${c.b?` + ${usd0.format(c.b)} add-on`:''}`;
+  setText('d-note',c.fin?`${what} financed at ${fix(c.apr,2)}% for ${c.term} months.`:`${what} paid in cash, spread over ${c.years} ${c.years===1?'year':'years'} of ownership.`);
+  setText('d-sub',c.fin?'Financed: payment formula at the APR and term entered.':'Cash: amount ÷ (years owned × 12).');return c}
+
+/* ---------- 6. Use Case ---------- */
+const OBJ=[
+ {id:'cash',q:'“I’ll pay cash.”',a:'That’s a great position to be in, and paying cash is a perfectly good choice. Some buyers like to see the trade-off first: keeping their cash invested while a loan is paid from other funds. Here’s an illustration with your numbers. It isn’t a recommendation, and investment returns aren’t guaranteed.',tab:'cash',label:'Growth minus loan interest (illustration)',key:()=>{const c=calcCash();return c.ok?usd0.format(c.net):null}},
+ {id:'rate',q:'“My rate is too high.”',a:'Understood. We don’t set or quote rates; the lender sets them based on credit, term, and the boat. What you can control is how you pay it down. Extra principal each month cuts total interest. Here’s the illustrative comparison rate with an extra payment. The contract rate itself doesn’t change.',tab:'rate',label:'Illustrative comparison rate',key:()=>{const c=calcRate();return c.ok?fix(c.er,2)+'%':null}},
+ {id:'warranty',q:'“I don’t need a warranty.”',a:'That’s your call, and plenty of owners decide that. Many just like to compare what coverage costs per day with what a single repair can cost. The repair figures here are examples; real quotes and the contract’s coverage and exclusions are what matter.',tab:'warranty',label:'Coverage cost per day',key:()=>{const c=calcWarranty();return c.ok?usd2.format(c.daily):null}},
+ {id:'cost',q:'“It costs too much.”',a:'Let’s make sure it fits your budget. Sometimes it helps to see the cost by month, week, and day. If it still doesn’t feel right, we can look at a different amount or term. There’s no pressure either way.',tab:'perday',label:'Combined cost per day',key:()=>{const c=calcPerDay();return c.ok?usd2.format(c.dt):null}},
+ {id:'think',q:'“I’ll think about it.”',a:'Of course, take the time you need. I can share a summary of these numbers so you can review them at home. Reach out whenever you have questions.',tab:'payment',label:'Estimated monthly payment',key:()=>{const c=calcStandard();return c.ok?usd2.format(c.monthly):null}},
+ {id:'bank',q:'“My bank will do it cheaper.”',a:'It’s smart to compare. To keep it apples to apples, compare the same amount, term, and APR, plus any fees. Here’s roughly how much one point of APR changes the monthly payment on this loan, so you can weigh any offer.',tab:'payment',label:'Payment change per 1 point of APR',key:()=>{const c=calcStandard();return c.ok?usd2.format(c.perPoint)+'/mo':null}},
+ {id:'early',q:'“I’ll pay it off early anyway.”',a:'That can save real money. Check the loan agreement for any prepayment rules. Here’s what the extra monthly payment could save in interest based on your numbers. It’s an estimate, not a guarantee.',tab:'rate',label:'Estimated interest saved',key:()=>{const c=calcRate();return c.ok?money(c.saved):null}}];
+const TABNAME={payment:'Standard Payment',cash:'Loan vs. Investment',rate:'Pick Your Rate',warranty:'Warranty vs. Repair Cost',perday:'Cost Per Day'};
+function drawObjections(){$('obj-grid').innerHTML=OBJ.map(o=>`<article class="obj" id="obj-${o.id}"><button class="q" type="button" aria-expanded="false" aria-controls="ans-${o.id}"><span>${o.q}</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="ans" id="ans-${o.id}"><p>${o.a}</p><div class="live"><span>${o.label}</span><strong id="obj-key-${o.id}">—</strong></div><p class="src">Live from ${TABNAME[o.tab]}, using its current inputs.</p><a class="btn primary" href="#/${o.tab}" data-goto="${o.tab}">Show the numbers →</a></div></article>`).join('')}
+function renderObjections(){for(const o of OBJ){const v=o.key();setText('obj-key-'+o.id,v===null?'Check inputs':v)}}
+
+/* ---------- URL state ---------- */
+function curRoute(){const r=(location.hash.match(/^#\/(\w+)/)||[])[1];return ROUTES.includes(r)?r:'payment'}
+function writeURL(){const q=new URLSearchParams();for(const el of fields)q.set(el.id,rawOf(el));q.set('w-fin',SEG['w-fin']);q.set('d-mode',SEG['d-mode']);
+  q.set('w-rep',repairs.map(r=>`${r.name.replace(/[~|]/g,' ')}~${String(r.cost).replace(/,/g,'')}`).join('|'));
+  try{history.replaceState(null,'',location.pathname+'?'+q.toString()+'#/'+curRoute())}catch(e){}}
+function readURL(){const q=new URLSearchParams(location.search);
+  for(const el of fields){const k=el.id;setVal(el,q.has(k)?q.get(k):DEFAULTS[k])}
+  if(q.get('w-fin')==='0'||q.get('w-fin')==='1')SEG['w-fin']=q.get('w-fin');
+  if(q.get('d-mode')==='cash'||q.get('d-mode')==='fin')SEG['d-mode']=q.get('d-mode');
+  if(q.has('w-rep')){const s=q.get('w-rep');repairs=s?s.split('|').slice(0,10).map(x=>{const[a,b='']=x.split('~');return{name:(a||'').slice(0,40),cost:b}}):[]}
+  if(!q.has('payment'))autoPayment();}
+
+/* ---------- Render all ---------- */
+function renderAll(){renderStandard();renderCash();renderRate();renderWarranty();renderPerDay();renderObjections();
+  document.querySelectorAll('[data-seg]').forEach(b=>b.setAttribute('aria-pressed',String(SEG[b.dataset.seg]===b.dataset.v)));
+  document.querySelectorAll('[data-chips]').forEach(box=>{const id=box.dataset.chips,cur=rawOf($(id));box.innerHTML=box.dataset.vals.split(',').map(v=>`<button type="button" class="chip ${cur===v?'active':''}" data-set="${id}" data-v="${v}" aria-pressed="${cur===v}">${v}${box.dataset.suffix}</button>`).join('')});
+  writeURL();}
+
+/* ---------- Routing ---------- */
+function route(){const r=curRoute();
+  for(const x of ROUTES){const on=x===r;$('panel-'+x).hidden=!on;const t=$('tab-'+x);t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;if(on&&t.scrollIntoView)t.scrollIntoView({block:'nearest',inline:'center'})}
+  document.title=`${$('tab-'+r).textContent.replace(/^\d/,'')} | F&I Calculators`;}
+
+/* ---------- Events ---------- */
+document.addEventListener('input',e=>{const el=e.target;
+  if(el.dataset.t==='money'||el.dataset.repCost!==undefined)liveFormat(el);
+  if(el.dataset.repName!==undefined)repairs[+el.dataset.repName].name=el.value;
+  if(el.dataset.repCost!==undefined)repairs[+el.dataset.repCost].cost=el.value;
+  if(el.id==='extra-range')setVal($('extra'),el.value);
+  if(['principal','apr','term'].includes(el.id))autoPayment();
+  renderAll();});
+document.addEventListener('click',e=>{const t=e.target.closest('button,a');if(!t)return;
+  if(t.dataset.seg){SEG[t.dataset.seg]=t.dataset.v;renderAll();return}
+  if(t.dataset.set){setVal($(t.dataset.set),t.dataset.v);if(t.dataset.set==='term')autoPayment();renderAll();return}
+  if(t.dataset.extra!==undefined){setVal($('extra'),t.dataset.extra);renderAll();return}
+  if(t.dataset.repDel!==undefined){repairs.splice(+t.dataset.repDel,1);drawRepairs();renderAll();return}
+  if(t.id==='rep-add'){if(repairs.length<10){repairs.push({name:'',cost:'0'});drawRepairs();renderAll();const n=document.querySelector(`[data-rep-name="${repairs.length-1}"]`);if(n)n.focus()}return}
+  if(t.classList.contains('q')){const card=t.closest('.obj');const open=!card.classList.contains('open');card.classList.toggle('open',open);t.setAttribute('aria-expanded',String(open));return}
+  if(t.dataset.goto){window.scrollTo({top:0});return}
+  if(t.dataset.print!==undefined){setText('print-stamp',`F&I Calculators · Stover Advantage LLC · Printed ${new Date().toLocaleString('en-US',{dateStyle:'medium',timeStyle:'short'})}. Estimates only; not a financing offer.`);window.print();return}
+  if(t.dataset.share){share(t.dataset.share)}});
+document.querySelector('.tabs').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const i=ROUTES.indexOf(curRoute());const n=ROUTES[(i+(e.key==='ArrowRight'?1:ROUTES.length-1))%ROUTES.length];location.hash='#/'+n;$('tab-'+n).focus()});
+window.addEventListener('hashchange',()=>{route();writeURL()});
+function summary(tab){
+  if(tab==='payment'){const c=calcStandard();return c.ok&&`Payment estimate: ${usd0.format(c.p)} financed at ${fix(c.r,2)}% for ${c.years} years. Estimated monthly payment ${usd2.format(c.monthly)}; total interest about ${usd0.format(c.interest)}. Estimate only; not a financing offer.`}
+  if(tab==='cash'){const c=calcCash();return c.ok&&`Cash vs. financing: ${$('cash-summary').textContent}`}
+  if(tab==='rate'){const c=calcRate();return c.ok&&`Loan scenario: ${money(c.p)} financed at ${fix(c.r,2)}% for ${c.term} years. ${money(c.ex)} extra each month could save about ${money(c.saved)} in interest and pay off in ${duration(c.chosen.months)}. Estimate only; contract rate does not change.`}
+  if(tab==='warranty'){const c=calcWarranty();return c.ok&&`Coverage cost: ${usd2.format(c.monthly)} per month, about ${usd2.format(c.daily)} per day. Repair costs shown are examples; get real quotes and review the contract terms.`}
+  if(tab==='perday'){const c=calcPerDay();return c.ok&&`Cost breakdown: ${usd2.format(c.mt)} per month, ${usd2.format(c.wt)} per week, ${usd2.format(c.dt)} per day. Estimate only; not a financing offer.`}
+  return 'F&I Calculators: payment, loan vs. investment, pick your rate, warranty vs. repair cost, and cost-per-day illustrations.'}
+async function share(tab){const s=summary(tab);if(!s){toast('Fix the highlighted inputs to share this scenario');return}
+  const url=location.href,text=`${s} ${url}`;
+  try{if(navigator.share&&/^https?:$/.test(location.protocol)){await navigator.share({title:'F&I Calculators',text:s,url});return}
+    if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text)}else{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}
+    toast('Scenario and link copied')}catch(e){if(e.name!=='AbortError')toast('Sharing is unavailable on this device')}}
+let tt;function toast(t){const el=$('toast');el.textContent=t;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2600)}
+
+/* ---------- Boot ---------- */
+setText('yr',String(new Date().getFullYear()));
+readURL();drawRepairs();drawObjections();route();renderAll();
+window.FI_READY=true;
+})();
+</script>
+<script>if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("sw.js");</script>
+</body>
+</html>
