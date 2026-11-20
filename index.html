@@ -413,7 +413,7 @@ footer .fbrand{font-weight:700;color:var(--navy)}
         <div class="field"><label for="cash-rate">Loan annual rate</label><div class="inputwrap"><input id="cash-rate" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
         <div class="field"><label for="cash-months">Loan term</label><div class="inputwrap"><input id="cash-months" data-t="int" data-min="1" data-max="360" inputmode="numeric" autocomplete="off"><span class="suf">mo</span></div><p class="ferr"></p></div>
       </div>
-      <p class="hint">9.0% is a starter example. Replace it with the lender’s quoted rate.</p>
+      <p class="hint">5.5% is a starter example. Replace it with the lender’s quoted rate.</p>
       <div class="chips" data-chips="cash-months" data-vals="60,120,180,240" data-suffix=" mo"></div>
       <div class="field" style="margin-top:16px"><label for="cash-return">Assumed annual return</label><div class="inputwrap"><input id="cash-return" data-t="pct" data-min="-50" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p>
         <p class="hint">5.0% is an editable scenario assumption, roughly half the S&amp;P 500’s long-run annualized total return with dividends reinvested. Historical returns are not a forecast. <a href="https://www.officialdata.org/us/stocks/s-p-500/1957?amount=1000&amp;endYear=2025" target="_blank" rel="noopener">View the 1957–2025 illustration</a>.</p></div>
@@ -701,7 +701,7 @@ function money(n){return usd0.format(Math.max(0,Math.round(n)))}
 const perWeek=m=>m*12/52, perDay=m=>m*12/365;
 
 /* ---------- Defaults & state ---------- */
-const DEFAULTS={'standard-amount':49297,'standard-rate':9,'standard-years':15,'cash-amount':100000,'cash-rate':9,'cash-months':180,'cash-return':5,
+const DEFAULTS={'standard-amount':49297,'standard-rate':9,'standard-years':15,'cash-amount':100000,'cash-rate':5.5,'cash-months':180,'cash-return':5,
  principal:49297,apr:9,term:15,payment:null,extra:100,'w-price':3000,'w-apr':9,'w-term':180,'w-years':5,
  'd-amount':100000,'d-addon':2500,'d-apr':9,'d-term':180,'d-years':10,
  'm-amount':100000,'m-apr':9,'m-term':180,'m-tax':0};
