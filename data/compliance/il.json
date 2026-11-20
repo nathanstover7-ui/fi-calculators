@@ -1,0 +1,205 @@
+{
+  "code": "IL",
+  "name": "Illinois",
+  "lastReviewed": "2026-11-20",
+  "groups": [
+    {
+      "id": "vsc",
+      "title": "Vehicle service contract / extended warranty",
+      "onDealLabel": "A vehicle service contract or extended service plan is on this deal",
+      "note": "The Illinois Service Contract Act, 215 ILCS 152, covers a contract sold for separate, identifiable consideration and a stated period to repair, replace, or maintain an automobile, system, or consumer product, or to pay for that work. A boat sold for personal use is a consumer product under that definition. A warranty included for no separate consideration is not a service contract. No Illinois statute was verified that requires a service contract to say it is optional for credit; the federal items below cover that when the charge is financed.",
+      "items": [
+        {
+          "id": "il-vsc-who",
+          "summary": "The contract, in clear language, names and gives the address of the provider and states the total price the holder paid.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/30(1)-(2)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K30.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-vsc-service",
+          "summary": "The contract states how to get service, including the name, address, and phone number of anyone who must approve repairs before work starts, and it states any deductible.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/30(3)-(4)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K30.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-vsc-scope",
+          "summary": "The contract states the merchandise and services provided, any limits, exceptions, or exclusions, whether normal wear and tear is covered, and any limits on transfer.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/30(5), (6), (8)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K30.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-vsc-cancel",
+          "summary": "The contract states that the holder may cancel. Within 30 days, if no service was provided, the refund is the full price minus a stated cancellation fee of not more than the lesser of 10 percent of the price or $50. Later, the refund is pro rata for the unused term, using a measure disclosed in the contract, minus the value of service received and that fee.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/30(7); 215 ILCS 152/35(a)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K35.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-vsc-insurer",
+          "conditional": true,
+          "condition": "Use this when the provider meets the Act's financial requirement with a reimbursement insurance policy. The reserve-account and net-worth options do not add this contract sentence.",
+          "summary": "The contract states that the provider's obligations are covered by a reimbursement insurance policy, names and gives the address of the insurer, and states that the holder may file directly with that insurer if covered service is not provided within 60 days of proof of loss.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/15(1)(C)-(D)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1272&ChapterID=22",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "gap",
+      "title": "GAP / debt cancellation",
+      "onDealLabel": "A GAP waiver or debt cancellation product is on this deal",
+      "note": "No Illinois statute was verified that sets GAP-waiver form language comparable to Texas Finance Code Chapter 354. The verified buyer disclosures are the consideration disclosures below, plus the federal Truth in Lending items when the charge is financed. Use the motor-vehicle item or the general retail-installment item that matches the contract, and mark the other not on this deal.",
+      "items": [
+        {
+          "id": "il-gap-mv",
+          "conditional": true,
+          "condition": "Use this when the product is purchased under a motor vehicle retail installment contract. A motor vehicle under this Act uses the Illinois Vehicle Code definition and expressly excludes bicycles, motorcycles, motor scooters, snowmobiles, trailers, farm equipment, and manufactured homes.",
+          "summary": "The seller discloses to the buyer that the seller, the holder, or their affiliate may receive something of value in connection with the debt cancellation contract, insurance, or other product purchased with the motor vehicle retail installment contract.",
+          "placement": "Disclosure to the obligor. The statute does not require a specific form or font.",
+          "citation": "815 ILCS 375/9.03; 815 ILCS 375/2.1",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/081503750K9.03.htm",
+          "sources": [
+            {"citation": "815 ILCS 375/9.03", "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/081503750K9.03.htm"},
+            {"citation": "815 ILCS 375/2.1", "url": "https://www.ilga.gov/ftp/ILCS/Ch%200815/Act%200375/081503750K2.1.html"},
+            {"citation": "625 ILCS 5/1-217", "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/062500050K1-217.htm"}
+          ],
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-gap-goods",
+          "conditional": true,
+          "condition": "Use this when the product is purchased under a retail installment contract governed by the Retail Installment Sales Act, 815 ILCS 405, rather than the Motor Vehicle Retail Installment Sales Act.",
+          "summary": "The seller or holder discloses to the buyer that the seller, the holder, or their affiliate may receive something of value in connection with the debt cancellation contract, insurance, or other product purchased with the retail installment contract.",
+          "placement": "Disclosure to the obligor. The statute does not require a specific form or font.",
+          "citation": "815 ILCS 405/11.1",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/081504050K11.1.htm",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "title": "Service contract",
+      "onDealLabel": "Another service contract (tire and wheel, dent, windshield, key, or a vehicle protection product) is on this deal",
+      "note": "The Service Contract Act uses one definition for a repair contract and for several add-on contracts, including tire and wheel road-hazard coverage, paintless dent repair, windshield repair, key replacement, and specified incidental costs tied to a vehicle protection product. The disclosure duties are the same. A vehicle protection product warranty included for no separate price is excluded from the definition.",
+      "items": [
+        {
+          "id": "il-sc-who",
+          "summary": "The contract, in clear language, names and gives the address of the provider and states the total price the holder paid.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/30(1)-(2)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K30.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-sc-service",
+          "summary": "The contract states how to get service, who must approve repairs, and any deductible.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/30(3)-(4)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K30.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-sc-scope",
+          "summary": "The contract states what is provided, the limits and exclusions, whether normal wear and tear is covered, and any transfer limits.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/30(5), (6), (8)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K30.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-sc-cancel",
+          "summary": "The contract states the holder's cancellation right, the 30-day full refund if no service was provided, the later pro rata refund, and a cancellation fee of not more than the lesser of 10 percent of the price or $50.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/35(a)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K35.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-sc-vpp",
+          "conditional": true,
+          "condition": "Use this when the contract includes incidental-cost coverage tied to a vehicle protection product under section 5(6) of the Act.",
+          "summary": "The contract states whether the holder is entitled to a refund of the purchase price of the vehicle protection product and, if so, the terms of that refund.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/35(b)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/021501520K35.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "il-sc-insurer",
+          "conditional": true,
+          "condition": "Use this when a reimbursement insurance policy is the provider's financial security for this contract.",
+          "summary": "The contract states that the provider's obligations are covered by a reimbursement insurance policy, names the insurer and its address, and states that the holder may file with the insurer if covered service is not provided within 60 days of proof of loss.",
+          "placement": "In the service contract",
+          "citation": "215 ILCS 152/15(1)(C)-(D)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1272&ChapterID=22",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "doc",
+      "title": "Documentary fees",
+      "onDealLabel": "A documentary fee is charged on this deal",
+      "note": "The verified documentary-fee cap and the required notice are in the Motor Vehicle Retail Installment Sales Act. That Act applies to a motor vehicle as defined in 815 ILCS 375/2.1, which points to the Illinois Vehicle Code and then excludes bicycles, motorcycles, motor scooters, snowmobiles, trailers, farm equipment, and manufactured homes. Under the Vehicle Code, a vehicle is a device transported or drawn on a highway, or a device that must be titled under 625 ILCS 5/3-101(d). No Illinois statute was verified that sets a documentary-fee dollar cap or a required documentary-fee legend for a sale that is outside this Act. The notice below quotes the statutory base of $300 as of January 1, 2020. The Act adjusts that base by the Consumer Price Index; this checklist does not compute the current adjusted maximum.",
+      "items": [
+        {
+          "id": "il-doc-notice",
+          "conditional": true,
+          "condition": "Use this when the documentary fee is charged on a motor vehicle retail installment contract under 815 ILCS 375. Mark it not on this deal if the sale is not that kind of contract.",
+          "summary": "The contract contains, or is accompanied by, the statutory documentary-fee notice. The fee cannot exceed the $300 base that began January 1, 2020, after the annual Consumer Price Index adjustment.",
+          "quote": "DOCUMENTARY FEE. A DOCUMENTARY FEE IS NOT AN OFFICIAL FEE. A DOCUMENTARY FEE IS NOT REQUIRED BY LAW, BUT MAY BE CHARGED TO BUYERS FOR HANDLING DOCUMENTS AND PERFORMING SERVICES RELATED TO CLOSING OF A SALE. THE BASE DOCUMENTARY FEE BEGINNING JANUARY 1, 2020, WAS $300. THE MAXIMUM AMOUNT THAT MAY BE CHARGED FOR A DOCUMENTARY FEE IS THE BASE DOCUMENTARY FEE OF $300, WHICH SHALL BE SUBJECT TO AN ANNUAL RATE ADJUSTMENT EQUAL TO THE PERCENTAGE OF CHANGE IN THE BUREAU OF LABOR STATISTICS CONSUMER PRICE INDEX. THIS NOTICE IS REQUIRED BY LAW.",
+          "placement": "In the retail installment contract, or in a notice that accompanies it",
+          "citation": "815 ILCS 375/11.1(b)",
+          "url": "https://www.ilga.gov/documents/legislation/ilcs/documents/081503750K11.1.htm",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "federal",
+      "title": "Federal — optional products in a credit sale",
+      "onDealLabel": "An optional product is being financed, or its charge is being left out of the finance charge",
+      "note": "Regulation Z applies in every state. A charge for debt cancellation written with the credit sale is a finance charge unless the exclusion conditions are met. The same is true of voluntary credit life, accident, health, or loss-of-income insurance. These items are the written disclosures and signature required to keep a qualifying voluntary charge out of the finance charge.",
+      "items": [
+        {
+          "id": "fed-gap-tila",
+          "summary": "For GAP or other debt-cancellation coverage for amounts above the value of the collateral, the writing says the coverage is not required, states the fee for the initial term (and the term, if it is shorter than the credit), and the consumer signs or initials a request for the coverage after receiving those disclosures.",
+          "placement": "In writing, before the consumer agrees. Signed or initialed request.",
+          "citation": "12 C.F.R. §§ 1026.4(b)(10), 1026.4(d)(3)",
+          "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.4",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "fed-credit-ins",
+          "conditional": true,
+          "condition": "Use this when credit life, accident, health, or loss-of-income insurance is sold with the credit.",
+          "summary": "The writing says that credit life, accident, health, or loss-of-income insurance is not required, states the premium for the initial term (and the term, if shorter than the credit), and the consumer signs or initials a request for the insurance after receiving those disclosures.",
+          "placement": "In writing, before the consumer agrees. Signed or initialed request.",
+          "citation": "12 C.F.R. § 1026.4(d)(1)",
+          "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.4",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "fed-property-ins",
+          "conditional": true,
+          "condition": "Use this when property insurance is sold through the creditor and its premium is left out of the finance charge.",
+          "summary": "The writing says property insurance may be obtained from a person the consumer chooses, and, if it is obtained through the creditor, states the premium for the initial term and the term if it is shorter than the credit.",
+          "placement": "In writing with the credit disclosures",
+          "citation": "12 C.F.R. § 1026.4(d)(2)",
+          "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.4",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    }
+  ]
+}
