@@ -167,7 +167,7 @@ footer .fbrand{font-weight:700;color:var(--navy)}
 .pkname input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:10px 12px 10px 0;font-weight:750;color:var(--c);min-height:44px}
 .mprod{margin-top:22px}
 .mprod .alert{margin-bottom:12px}
-.mp-row{display:grid;grid-template-columns:minmax(230px,2.6fr) repeat(var(--n),minmax(92px,1fr)) 40px;gap:8px;align-items:center;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.mp-row{display:grid;grid-template-columns:auto minmax(190px,2.2fr) repeat(var(--n),minmax(88px,1fr)) 44px;gap:8px;align-items:center;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .mp-row:last-of-type{border-bottom:0}
 .mp-prod .mp-note{margin-top:6px}
 .mp-prod .mp-note input{min-height:38px!important;padding:7px 10px!important;font-size:.88rem!important;font-weight:600;color:#3e5068}
@@ -186,6 +186,97 @@ footer .fbrand{font-weight:700;color:var(--navy)}
 .mp-cell .inputwrap:focus-within{border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 14%,transparent)}
 .mp-cell.invalid .inputwrap{border-color:var(--err)}
 .mp-prod input{font-weight:750!important}
+.mp-order{display:flex;align-items:center;gap:4px}
+.mp-order .iconbtn{width:44px;height:44px;flex:0 0 44px}
+.mp-order .iconbtn:hover{color:var(--teal);border-color:var(--teal)}
+.mp-order .iconbtn:disabled{opacity:.35;cursor:not-allowed}
+.mp-drag{cursor:grab;touch-action:none}
+.mp-drag:active,.mp-row.mp-dragging .mp-drag{cursor:grabbing}
+.mp-pri{min-width:1.1rem;text-align:center;font-weight:800;font-size:.8rem;color:var(--teal);font-variant-numeric:tabular-nums}
+.mp-pri-label{display:none;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5d6e82;margin-right:2px}
+.mp-del{width:44px;height:44px}
+.mp-row.mp-dragging{position:relative;z-index:3;outline:2px solid var(--teal);background:#f3fbfd;box-shadow:var(--shadow)}
+body.mp-reordering{user-select:none;cursor:grabbing}
+.inputwrap.mp-custom{border-color:#c4a15a;background:#fff8ec}
+.mp-cell.mp-custom:not(.invalid) .inputwrap{border-color:#c4a15a;background:#fff8ec}
+.inputwrap.mp-custom:focus-within{border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(1,112,142,.13)}
+.mp-cell.mp-custom:not(.invalid) .inputwrap:focus-within{border-color:var(--c);background:#fff;box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 14%,transparent)}
+.mp-mini{display:block;border:0;background:transparent;color:#8a5205;font-weight:800;font-size:.78rem;padding:6px 0 0;min-height:40px;text-align:left}
+.mp-mini:hover{color:var(--navy)}
+.mp-mini[hidden],.mp-def[hidden]{display:none!important}
+.mp-def{margin:2px 0 0;font-size:.72rem;font-weight:700;color:#8a5205;line-height:1.3}
+.mprod-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px 18px;flex-wrap:wrap;margin-bottom:14px}
+.mprod-head .sub{margin:0}
+.mprod-tools{display:flex;flex-wrap:wrap;gap:8px}
+.mprod-tools .btn:disabled,.mtpl-actions .btn:disabled{opacity:.45;cursor:not-allowed}
+.mtpl{margin-top:22px}
+.mtpl-grid{display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:0 16px;align-items:end}
+.mtpl-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.inputwrap select{flex:1;min-width:0;width:100%;border:0;outline:0;background:transparent;padding:12px 36px 12px 14px;font-weight:650;font-size:1rem;min-height:48px;color:var(--ink);appearance:none;background-image:linear-gradient(45deg,transparent 50%,#5d6e82 50%),linear-gradient(135deg,#5d6e82 50%,transparent 50%);background-position:calc(100% - 18px) 22px,calc(100% - 12px) 22px;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.pkrec{display:block;margin-top:4px;border:0;background:transparent;color:var(--teal);font-weight:800;font-size:.75rem;min-height:36px;padding:2px 2px 0;text-align:left}
+.pkrec[aria-pressed="true"]{color:#9A7520}
+.mp-icons{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.mp-icons button{width:40px;height:40px;border:1.5px solid #d5deea;border-radius:12px;background:#fff;color:var(--navy);display:grid;place-items:center;padding:0}
+.mp-icons button svg{width:20px;height:20px}
+.mp-icons button[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-pale);color:var(--teal)}
+.mp-inc{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:800;color:var(--c,#24364d);margin:0 0 6px}
+.mp-inc input{width:18px;height:18px;accent-color:var(--teal)}
+.mp-sub{margin-top:6px}
+.mp-sub input{min-height:36px!important;padding:6px 8px!important;font-size:.8rem!important;font-weight:650}
+.mp-grid{overflow-x:auto}
+.mv{color:var(--ink)}
+.mv-top{display:flex;align-items:center;gap:16px;padding:18px 22px 8px}
+.mv-logo{height:42px;width:auto}
+.mv-brand{display:flex;flex-direction:column;line-height:1.15}
+.mv-brand strong{color:var(--navy);font-size:1.15rem;letter-spacing:-.02em}
+.mv-brand span{color:var(--teal);font-weight:700;font-size:.86rem}
+.mv-meta{margin-left:auto;display:flex;gap:22px}
+.mv-meta span{display:flex;flex-direction:column;min-width:72px}
+.mv-meta small,.mv-facts small{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6a7a8e}
+.mv-meta b,.mv-facts b{color:var(--navy);font-weight:800;font-variant-numeric:tabular-nums}
+.mv-facts{display:grid;grid-template-columns:1.05fr .95fr 1.35fr;gap:12px;padding:8px 18px 4px}
+.mv-panel{background:#f6f9fc;border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:grid;gap:7px}
+.mv-panel div{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.mv-panel b{text-align:right}
+.mv-panel .mv-bal b{color:var(--teal);font-size:1.05rem}
+.mv-terms{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mv-term{background:#fff;border-radius:12px;padding:8px;border-top:4px solid var(--navy)}
+.mv-term:last-child{border-top-color:var(--teal)}
+.mv-term div{display:flex;justify-content:space-between;gap:8px;font-size:.82rem}
+.mv-term div b,.mv-term strong{white-space:nowrap}
+.mv-term strong{display:block;margin-top:6px;color:var(--navy);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.mv-products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:14px 18px}
+.mv-prod{display:grid;grid-template-columns:42px minmax(0,1fr);gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 12px;box-shadow:0 1px 0 rgba(2,36,80,.04)}
+.mv-ico{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--teal-pale);color:var(--teal)}
+.mv-ico svg{width:22px;height:22px}
+.mv-prod strong{display:block;color:var(--navy);font-size:.92rem;line-height:1.2}
+.mv-prod p{margin:3px 0 0;color:#4c5d72;font-size:.78rem;line-height:1.35}
+.mv-tiers{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:12px;padding:0 18px 16px;align-items:stretch}
+.mv-tier{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:0;box-shadow:var(--shadow)}
+.mv-tier header{padding:12px 12px 8px;border-top:6px solid var(--c);background:color-mix(in srgb,var(--c) 8%,#fff)}
+.mv-tier header strong{display:block;color:var(--c);font-size:1.02rem;letter-spacing:-.02em}
+.mv-tier header em{display:inline-block;margin-top:4px;font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--teal);border-radius:999px;padding:3px 8px}
+.mv-tier.rec{border-color:var(--teal);box-shadow:0 0 0 3px rgba(1,112,142,.18),var(--shadow)}
+.mv-list{list-style:none;margin:0;padding:4px 12px 8px;display:grid;gap:8px;flex:1}
+.mv-list li{padding-bottom:8px;border-bottom:1px solid var(--line)}
+.mv-list li:last-child{border-bottom:0}
+.mv-list .nm{display:block;font-weight:800;color:var(--navy);font-size:.84rem;line-height:1.25}
+.mv-list .pl{display:block;color:#3e5068;font-size:.78rem;margin-top:2px}
+.mv-list .meta{display:block;color:#617185;font-size:.74rem;margin-top:2px}
+.mv-empty{color:#7a8a9c;font-size:.84rem;padding:8px 0}
+.mv-pays{display:grid;gap:6px;padding:8px 12px 4px}
+.mv-choice{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;font-weight:750;color:var(--navy);line-height:1.3;min-height:32px}
+.mv-choice input{width:18px;height:18px;margin-top:1px;accent-color:var(--navy);flex:0 0 auto}
+.mv-x{display:flex;align-items:flex-end;gap:8px;margin:10px 12px 14px;color:var(--navy);font-weight:800}
+.mv-x i{flex:1;border-bottom:1.5px solid #6b7785;height:1.2em}
+.mv-foot{margin:0;padding:4px 22px 16px;text-align:center;color:#55657a;font-size:.78rem;font-weight:650;line-height:1.45}
+@media (max-width:860px){
+  .mv-top,.mv-facts,.mv-products,.mv-tiers{padding-left:12px;padding-right:12px}
+  .mv-top{flex-wrap:wrap}
+  .mv-meta{margin-left:0;width:100%}
+  .mv-facts,.mv-tiers{grid-template-columns:1fr}
+}
 .menu-board{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .mb-head{display:flex;align-items:center;gap:16px;background:var(--navy);color:#fff;padding:16px 24px;border-bottom:4px solid var(--teal)}
 .mb-shield{height:46px;width:auto;flex:0 0 auto}
@@ -238,9 +329,12 @@ footer .fbrand{font-weight:700;color:var(--navy)}
 @media (max-width:860px){
   .mp-row:not(.mp-head){display:flex;flex-wrap:wrap;gap:8px;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;background:#fbfdff}
   .mp-head{display:none}
-  .mp-prod{order:0;flex:1 1 calc(100% - 56px);min-width:0}
-  .mp-row .iconbtn{order:1;flex:0 0 40px;height:46px}
+  .mp-order{order:0;flex:1 1 100%}
+  .mp-pri-label{display:inline}
+  .mp-prod{order:1;flex:1 1 calc(100% - 56px);min-width:0}
+  .mp-row>.mp-del{order:2;flex:0 0 44px;height:44px}
   .mp-cell{order:3;flex:0 1 calc(33.333% - 5.34px);min-width:0}
+  .mtpl-grid{grid-template-columns:1fr}
   .mp-cell .inputwrap .pre{padding-left:8px}.mp-cell .inputwrap input{padding:10px 4px 10px 2px}.mp-chk{padding-right:6px}
   .mp-prod input{font-size:.92rem!important}
   .mp-lbl{display:block;font-size:.72rem;font-weight:800;color:var(--c);margin:0 0 3px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -311,7 +405,13 @@ footer .fbrand{font-weight:700;color:var(--navy)}
   .sig span{position:absolute;top:100%;left:0;font-size:.66rem;color:#6a7a8e;margin-top:2px}
   .menu-board .mb-disc{border-top:0;padding:10px 0 0}
   .mb-table tr,.mb-table td{break-inside:avoid}
-  html[data-route="menu"]{font-size:10.5px}
+  html[data-route="menu"]{font-size:11.5px}
+  .mv-facts{grid-template-columns:1.05fr .95fr 1.35fr!important}
+  .mv-tiers{grid-template-columns:repeat(var(--n,4),minmax(0,1fr))!important}
+  .mv-products{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .mv-tier,.mv-prod,.mv-panel{break-inside:avoid}
+  .mv-choice input{appearance:auto;-webkit-appearance:checkbox;width:13px;height:13px}
+  .mv-tier header,.mv-ico,.mv-tier.rec{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   html[data-route="menu"] main{padding:0}
   .menu-board .mb-head{padding:10px 16px}.menu-board .mb-shield{height:36px}
   .menu-board .mb-deal{padding:8px 16px}
@@ -428,7 +528,7 @@ footer .fbrand{font-weight:700;color:var(--navy)}
           <div class="metrics">
             <div class="metric"><span>Monthly loan payment</span><strong id="cash-payment">—</strong></div>
             <div class="metric"><span>Total loan interest</span><strong id="cash-interest">—</strong></div>
-            <div class="metric"><span>Hypothetical investment growth</span><strong id="cash-growth">—</strong></div>
+            <div class="metric"><span>Potential investment growth</span><strong id="cash-growth">—</strong></div>
           </div>
         </div>
         <div class="card"><h3>At the end of the selected term</h3><p class="sub">Side by side.</p>
@@ -489,7 +589,7 @@ footer .fbrand{font-weight:700;color:var(--navy)}
           <div class="chart-wrap" id="chart"></div>
           <div class="key"><span><i style="background:#8b9bb0"></i>Scheduled</span><span><i style="background:#01708E"></i>With extra</span></div></div>
         <details class="disc"><summary>How the comparison rate is calculated</summary><div class="body">
-          <p>Extra payments reduce principal sooner, so less interest accrues. We calculate the total interest with the selected extra payment, then find the hypothetical rate that would produce the same interest over the original term and financed amount.</p>
+          <p>Extra payments reduce principal sooner, so less interest accrues. We calculate the total interest with the selected extra payment, then find the potential rate that would produce the same interest over the original term and financed amount.</p>
           <p>This is a comparison tool, not a new loan offer, quoted APR, savings guarantee, or change to the contract rate. The estimate assumes a fixed rate, monthly payments, and all extra amounts applied to principal. It excludes taxes, insurance, fees, and any prepayment restrictions. Check the loan agreement and lender’s payment rules.</p></div></details>
       </div>
     </div>
@@ -594,35 +694,52 @@ footer .fbrand{font-weight:700;color:var(--navy)}
 <section class="panel" id="panel-menu" role="tabpanel" aria-labelledby="tab-menu" hidden>
   <div class="panel-head">
     <div><p class="eyebrow">Calculator 6</p><h2>Customer Menu</h2>
-      <p class="lede">Build a good-better-best protection menu. Enter the deal, choose how many packages to show, and price each product in the packages that include it. Each package shows its estimated payment and the added cost per day.</p></div>
+      <p class="lede">Build the protection menu for this deal. Set the priority order, the coverage in each tier, and this deal’s prices. The presentation below shows the balance, both term payments, and a signature line under every tier.</p></div>
     <div class="actions"><button class="btn" data-share="menu" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>Share</button><button class="btn" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
   </div>
   <div class="grid">
     <div class="card">
-      <h3>Deal</h3><p class="sub">Amount financed before any protection products.</p>
+      <h3>Deal</h3><p class="sub">These facts print on the menu. They are not stored in a template.</p>
       <div class="row2">
-        <div class="field"><label for="m-cust">Customer <span class="opt">optional</span></label><div class="inputwrap"><input id="m-cust" data-menu-text maxlength="60" autocomplete="off" placeholder="Name"></div></div>
-        <div class="field"><label for="m-unit">Boat / unit <span class="opt">optional</span></label><div class="inputwrap"><input id="m-unit" data-menu-text maxlength="60" autocomplete="off" placeholder="Year, make, model"></div></div>
+        <div class="field"><label for="m-sale">Sale # <span class="opt">optional</span></label><div class="inputwrap"><input id="m-sale" maxlength="24" autocomplete="off" placeholder="1842"></div></div>
+        <div class="field"><label for="m-cust">Name <span class="opt">optional</span></label><div class="inputwrap"><input id="m-cust" maxlength="60" autocomplete="off" placeholder="Customer"></div></div>
       </div>
-      <div class="field"><label for="m-amount">Amount financed</label><div class="inputwrap"><span class="pre">$</span><input id="m-amount" data-t="money" data-min="100" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
       <div class="row2">
-        <div class="field"><label for="m-apr">APR</label><div class="inputwrap"><input id="m-apr" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
-        <div class="field"><label for="m-term">Loan term</label><div class="inputwrap"><input id="m-term" data-t="int" data-min="1" data-max="360" inputmode="numeric" autocomplete="off"><span class="suf">mo</span></div><p class="ferr"></p></div>
+        <div class="field"><label for="m-stock">Stock # <span class="opt">optional</span></label><div class="inputwrap"><input id="m-stock" maxlength="24" autocomplete="off"></div></div>
+        <div class="field"><label for="m-unit">Vehicle <span class="opt">optional</span></label><div class="inputwrap"><input id="m-unit" maxlength="60" autocomplete="off" placeholder="Year, make, model"></div></div>
       </div>
-      <p class="hint">9.0% is a starter example. Replace it with the lender’s quoted rate.</p>
-      <div class="chips" data-chips="m-term" data-vals="60,120,180,240" data-suffix=" mo"></div>
-      <div class="field" style="margin-top:16px"><label for="m-tax">Sales tax on products <span class="opt">optional</span></label><div class="inputwrap"><input id="m-tax" data-t="pct" data-min="0" data-max="20" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p><p class="hint">Leave at 0 if products aren’t taxed. Tax is added to the amount financed.</p></div>
+      <div class="row2">
+        <div class="field"><label for="m-miles">Miles <span class="opt">optional</span></label><div class="inputwrap"><input id="m-miles" maxlength="16" autocomplete="off" inputmode="numeric"></div></div>
+        <div class="field"><label for="m-sp">Salesperson <span class="opt">optional</span></label><div class="inputwrap"><input id="m-sp" maxlength="40" autocomplete="off"></div></div>
+      </div>
+      <div class="field"><label for="m-mgr">Manager <span class="opt">optional</span></label><div class="inputwrap"><input id="m-mgr" maxlength="40" autocomplete="off"></div></div>
+      <div class="field"><label for="m-price">Sale price</label><div class="inputwrap"><span class="pre">$</span><input id="m-price" data-t="money" data-min="100" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+      <div class="row2">
+        <div class="field"><label for="m-trade">Trade allowance</label><div class="inputwrap"><span class="pre">$</span><input id="m-trade" data-t="money" data-min="0" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+        <div class="field"><label for="m-cashreb">Cash &amp; rebates</label><div class="inputwrap"><span class="pre">$</span><input id="m-cashreb" data-t="money" data-min="0" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+      </div>
+      <div class="field"><label for="m-fees">Tax &amp; fees</label><div class="inputwrap"><span class="pre">$</span><input id="m-fees" data-t="money" data-min="0" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p><p class="hint">Balance = sale price − trade allowance − cash &amp; rebates + tax &amp; fees. Payments use that balance.</p></div>
+      <p class="lbl" style="margin-top:8px">Two terms on the menu</p>
+      <div class="row2">
+        <div class="field"><label for="m-term1">Term 1</label><div class="inputwrap"><input id="m-term1" data-t="int" data-min="1" data-max="360" inputmode="numeric" autocomplete="off"><span class="suf">mo</span></div><p class="ferr"></p></div>
+        <div class="field"><label for="m-rate1">Rate 1</label><div class="inputwrap"><input id="m-rate1" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="m-term2">Term 2</label><div class="inputwrap"><input id="m-term2" data-t="int" data-min="1" data-max="360" inputmode="numeric" autocomplete="off"><span class="suf">mo</span></div><p class="ferr"></p></div>
+        <div class="field"><label for="m-rate2">Rate 2</label><div class="inputwrap"><input id="m-rate2" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
+      </div>
+      <p class="hint">9.0% is a starter example. Replace both rates with the lender’s quoted rates.</p>
     </div>
     <div class="stack">
       <div class="alert" id="err-menu" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
       <div class="stack" id="res-menu">
         <div class="card hero" aria-live="polite">
-          <span class="k">Payment without protection</span>
+          <span class="k">Balance before protection</span>
           <strong class="big" id="m-base">—</strong>
           <p class="note" id="m-note"></p>
           <div class="metrics">
-            <div class="metric"><span>Lowest package, per day</span><strong id="m-low">—</strong></div>
-            <div class="metric"><span>Top package, per day</span><strong id="m-high">—</strong></div>
+            <div class="metric"><span id="m-t1-lbl">Term 1 payment</span><strong id="m-p1">—</strong></div>
+            <div class="metric"><span id="m-t2-lbl">Term 2 payment</span><strong id="m-p2">—</strong></div>
           </div>
         </div>
       </div>
@@ -634,36 +751,53 @@ footer .fbrand{font-weight:700;color:var(--navy)}
     </div>
   </div>
 
+  <div class="card mtpl" id="m-tpl-card">
+    <h3>Menu templates</h3>
+    <p class="sub">Saves the products, benefit lines, icons, order, tier names, which tier is marked Recommended, and each tier’s plan, term, deductible, and price. The customer, vehicle, and loan numbers stay with this deal. Templates are stored in this browser; export a JSON file to move them.</p>
+    <div class="mtpl-grid">
+      <div class="field"><label for="m-tpl-pick">Saved templates</label><div class="inputwrap"><select id="m-tpl-pick"></select></div></div>
+      <div class="mtpl-actions">
+        <button class="btn primary" id="m-tpl-load" type="button" disabled>Load</button>
+        <button class="btn" id="m-tpl-overwrite" type="button" disabled>Overwrite</button>
+        <button class="btn" id="m-tpl-rename" type="button" disabled>Rename</button>
+        <button class="btn" id="m-tpl-delete" type="button" disabled>Delete</button>
+      </div>
+      <div class="field"><label for="m-tpl-name">Template name</label><div class="inputwrap"><input id="m-tpl-name" maxlength="40" autocomplete="off" placeholder="e.g. Standard 3-pack"></div></div>
+      <div class="mtpl-actions">
+        <button class="btn primary" id="m-tpl-save" type="button">Save as new</button>
+        <button class="btn" id="m-tpl-export" type="button" disabled>Export</button>
+        <button class="btn" id="m-tpl-import" type="button">Import</button>
+        <input id="m-tpl-file" type="file" accept="application/json,.json" hidden>
+      </div>
+    </div>
+    <p class="hint" id="m-tpl-status" aria-live="polite"></p>
+  </div>
+  <p class="sr" id="m-live" aria-live="polite"></p>
+
   <div class="card mprod" id="m-prod-card">
-    <h3>Products &amp; prices</h3><p class="sub">Enter each product’s price in the packages that include it. Leave a price blank when a package doesn’t include that product. Nothing is pre-priced.</p>
+    <div class="mprod-head">
+      <div>
+        <h3>Products &amp; prices</h3>
+        <p class="sub">Drag a product into the order it should appear, or use the arrow buttons. Check a tier to include the product, then set the plan, term or miles, deductible, and this deal’s price. A gold field is a change from the remembered default.</p>
+      </div>
+      <div class="mprod-tools">
+        <button class="btn" id="m-remember" type="button">Remember as defaults</button>
+        <button class="btn" id="m-reset-all" type="button" disabled>Reset all to defaults</button>
+      </div>
+    </div>
+    <p class="hint">Prices start blank. A checked tier still lists the product; its price counts as $0 until you enter one. Reset restores that product’s description, inclusion, and prices. Payments add the tier’s prices to the balance.</p>
     <div class="alert" id="m-perr" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
     <div class="mp-grid" id="m-rows"></div>
     <button class="addbtn" id="m-add" type="button">+ Add a product</button>
   </div>
 
   <div class="menu-board" id="menu-board" aria-label="Customer protection menu">
-    <div class="mb-head">
-      <img class="mb-shield" alt="" src="data:image/png;base64,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">
-      <div class="mb-title"><strong>STOVER ADVANTAGE LLC</strong><span>Protection Plan Options</span></div>
-      <div class="mb-who" id="mb-who"></div>
-    </div>
-    <div class="mb-deal" id="mb-deal"></div>
-    <div class="mb-table-wrap"><table class="mb-table" id="mb-table"></table></div>
-    <div class="mb-cards" id="mb-cards"></div>
-    <div class="mb-sign">
-      <h4>Customer acknowledgement</h4>
-      <p>I have reviewed the optional protection plans shown above. I understand these products are optional and are not required to obtain financing.</p>
-      <div class="sig-grid">
-        <div class="sig"><span>Selected package</span></div><div class="sig"><span>Decline all optional products · customer initials</span></div><div></div>
-        <div class="sig"><span>Customer signature / Date</span></div><div class="sig"><span>Co-buyer signature / Date</span></div><div class="sig"><span>F&amp;I manager signature / Date</span></div>
-      </div>
-    </div>
-    <p class="mb-disc">Products are optional and not required to obtain financing. Payments are estimates; final terms subject to lender approval.</p>
+    <div id="mb-root"></div>
   </div>
   <details class="disc" style="margin-top:18px"><summary>How this menu is calculated</summary><div class="body">
-    <p>Payment without protection uses the standard payment formula on the amount financed at the APR and term entered (amount ÷ term when the APR is 0%). For each package: products total = the sum of the prices entered in that package; tax = products total × the sales tax rate, rounded to the cent; total financed = amount + products + tax; the package payment uses the same formula on the total financed.</p>
-    <p>Increase = package payment − payment without protection. Per day = increase × 12 ÷ 365. Per week = increase × 12 ÷ 52. A blank price means the package does not include that product; a package with no prices shows dashes.</p>
-    <p>Prices, terms and coverage come from the product provider’s current rate card and contract. Products are optional and not required to obtain financing. Payments are estimates; final terms subject to lender approval.</p></div></details>
+    <p>Balance = sale price − trade allowance − cash &amp; rebates + tax &amp; fees. Each term’s payment without protection uses the standard payment formula on that balance at that term’s rate (balance ÷ number of payments when the rate is 0%).</p>
+    <p>A tier’s price is the sum of the prices entered for products checked in that tier. A blank price counts as $0. Each checkbox is that same formula on balance + tier price, at that column’s rate and term. Products are listed in the priority order set above. Reset puts a product back to the description, inclusion, and prices you remembered or last loaded.</p>
+    <p>Plan names, terms, deductibles, and prices come from the provider’s current rate card and contract. Buying a protection product is not required to obtain financing. Payments are estimates.</p></div></details>
 </section>
 
 <!-- ========== 7. USE CASE (objections) ========== -->
@@ -704,7 +838,7 @@ const perWeek=m=>m*12/52, perDay=m=>m*12/365;
 const DEFAULTS={'standard-amount':49297,'standard-rate':9,'standard-years':15,'cash-amount':100000,'cash-rate':9,'cash-months':180,'cash-return':5,
  principal:49297,apr:9,term:15,payment:null,extra:100,'w-price':3000,'w-apr':9,'w-term':180,'w-years':5,
  'd-amount':100000,'d-addon':2500,'d-apr':9,'d-term':180,'d-years':10,
- 'm-amount':100000,'m-apr':9,'m-term':180,'m-tax':0};
+ 'm-price':100000,'m-trade':0,'m-cashreb':0,'m-fees':0,'m-rate1':9,'m-term1':60,'m-rate2':9,'m-term2':72};
 const DEFAULT_REPAIRS=[['Powerhead / engine',12000],['Lower unit',4500],['Electronics',3000],['Trim / tilt',1800]];
 const SEG={'w-fin':'1','d-mode':'fin'};
 let repairs=DEFAULT_REPAIRS.map(([n,c])=>({name:n,cost:String(c)}));
@@ -774,7 +908,7 @@ function renderCash(){const c=calcCash();if(!showErr('cash',c))return c;
   setText('cash-payment',usd2.format(c.pay));setText('cash-interest',usd0.format(c.interest));setText('cash-growth',usd0.format(c.growth));setText('cash-net',usd0.format(c.net));
   setText('cash-upfront',usd0.format(c.p));setText('cash-total',usd0.format(c.p+c.interest));setText('cash-ending',usd0.format(c.balance));
   $('cash-net').style.color=c.net>=0?'#fff':'#ffd59a';
-  setText('cash-summary',`At an assumed ${fix(c.ret,2)}% annual return over ${duration(c.n)}, hypothetical investment growth ${c.net>=0?'exceeds':'falls short of'} loan interest by ${usd0.format(Math.abs(c.net))}. This does not establish which option is better for you.`);return c}
+  setText('cash-summary',`At an assumed ${fix(c.ret,2)}% annual return over ${duration(c.n)}, potential investment growth ${c.net>=0?'exceeds':'falls short of'} loan interest by ${usd0.format(Math.abs(c.net))}. This does not establish which option is better for you.`);return c}
 
 /* ---------- 3. Rate conversion ---------- */
 const presets=[0,50,100,150,200,250,300,500];
@@ -804,86 +938,703 @@ function renderRate(){const c=calcRate();if(!showErr('rate',c))return c;
   chart(base,chosen,p);return c}
 /* ---------- 6. Customer menu ---------- */
 const MENU_COLORS=['#022450','#9A7520','#5B6B7C','#01708E','#7A2E3B','#3E6B48'];   // navy, gold, slate, teal, burgundy, green (same as the spreadsheet)
-const MENU_NAMES={1:['Protection Plan'],2:['Best','Better'],3:['Best','Better','Good'],4:['Platinum','Gold','Silver','Select'],5:['Platinum','Gold','Silver','Select','Basic'],6:['Platinum','Gold','Silver','Select','Basic','Custom']};
-const MENU_PRESETS=[['Extended Service Plan - Boat Motor/Engine','Helps cover engine and drivetrain repairs after the factory warranty'],
- ['Extended Service Plan - Accessories/Electronics','Helps cover repairs to onboard electronics, gauges and accessories'],
- ['GAP (Guaranteed Asset Protection)','May help cover what you owe beyond insurance after a total loss'],
- ['Tire & Wheel (Trailer)','Helps cover trailer tire and wheel damage from road hazards']];
-const MENU_PKG=6,MENU_MAX_ROWS=8;
+const MENU_NAMES={1:['Protection'],2:['Platinum','Gold'],3:['Platinum','Gold','Silver'],4:['Platinum','Gold','Silver','Bronze'],5:['Platinum','Gold','Silver','Bronze','Basic'],6:['Platinum','Gold','Silver','Bronze','Basic','Custom']};
+const MENU_ICON_SVG={
+  engine:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="13" height="9" rx="2"/><path d="M16 11h4v4h-4M7 8V5h2M8 17v2M13 17v2"/></svg>',
+  screen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M8 20h8M12 16v4"/></svg>',
+  gap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16V8l8-4 8 4v8l-8 4-8-4z"/><path d="M12 8v8M8.5 10.5 12 12l3.5-1.5"/></svg>',
+  wheel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 5v3M12 16v3M5 12h3M16 12h3"/></svg>',
+  shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.2 2.8 6.8 7 8 4.2-1.2 7-3.8 7-8V6l-7-3z"/></svg>'
+};
+const MENU_PRESETS=[
+ {name:'Engine service agreement',benefit:'Helps pay covered engine and drivetrain repairs after the factory warranty.',icon:'engine',inc:['1','1','1','1','',''],plans:['Premier','Plus','Powertrain','Essential','',''],covers:['7 yr','5 yr','4 yr','3 yr','',''],deds:['$0','$100','$200','$250','','']},
+ {name:'Onboard electronics',benefit:'Helps pay covered repairs to gauges, screens, and other onboard electronics.',icon:'screen',inc:['1','1','1','','',''],plans:['Full','Select','Essential','','',''],covers:['5 yr','4 yr','3 yr','','',''],deds:['$0','$50','$100','','','']},
+ {name:'Payoff difference waiver',benefit:'Can help when a total loss leaves a payoff higher than the insurance settlement.',icon:'gap',inc:['1','1','','','',''],plans:['Waiver','Waiver','','','',''],covers:['Full term','Full term','','','',''],deds:['$0','$0','','','','']},
+ {name:'Trailer tire and wheel',benefit:'Helps with covered tire and wheel damage on the trailer from road hazards.',icon:'wheel',inc:['1','1','1','1','',''],plans:['Road hazard','Road hazard','Road hazard','Road hazard','',''],covers:['3 yr','3 yr','2 yr','1 yr','',''],deds:['$0','$0','$25','$50','','']}
+];
+const MENU_PKG=6,MENU_MAX_ROWS=8,TPL_KEY='fi-menu-templates-v1',TPL_MAX=40;
 const blank6=()=>Array(MENU_PKG).fill('');
-let menuN=3,menuNames=blank6(),menuRows=MENU_PRESETS.map(([name])=>({name,note:'',prices:blank6()}));
-const menuDesc=n=>{const p=MENU_PRESETS.find(x=>x[0]===String(n).trim());return p?p[1]:''};
+function arr6(src){const a=blank6();for(let i=0;i<MENU_PKG;i++) a[i]=src&&src[i]!=null?String(src[i]):'';return a}
+function parseMenuRow(x){
+  const a=String(x).split('~');
+  if(a[0]==='v2'){
+    const spec={name:(a[1]||'').slice(0,60),benefit:(a[2]||'').slice(0,140),icon:a[3]||'shield',inc:[],prices:[],plans:[],covers:[],deds:[]};
+    let p=4;
+    for(let i=0;i<MENU_PKG;i++){
+      spec.inc[i]=a[p]==='1'?'1':'';
+      spec.prices[i]=normPrice(a[p+1]||'');
+      spec.plans[i]=(a[p+2]||'').slice(0,24);
+      spec.covers[i]=(a[p+3]||'').slice(0,24);
+      spec.deds[i]=(a[p+4]||'').slice(0,16);
+      p+=5;
+    }
+    return menuRow(spec);
+  }
+  const prices=Array.from({length:MENU_PKG},(_,i)=>normPrice(formatMoneyText((a[2+i]||'').trim(),2)));
+  return menuRow({name:(a[0]||'').slice(0,60),benefit:'',icon:'shield',inc:prices.map(v=>v!==''?'1':''),prices,covers:Array(MENU_PKG).fill((a[1]||'').slice(0,24))});
+}
+function menuRow(spec){
+  spec=spec||{};
+  const benefit=String(spec.benefit||''), icon=MENU_ICON_SVG[spec.icon]?spec.icon:'shield';
+  const inc=arr6(spec.inc), prices=arr6(spec.prices), plans=arr6(spec.plans), covers=arr6(spec.covers), deds=arr6(spec.deds);
+  return {
+    name:String(spec.name||''), benefit, icon,
+    baseBenefit:spec.baseBenefit==null?benefit:String(spec.baseBenefit),
+    baseIcon:spec.baseIcon&&MENU_ICON_SVG[spec.baseIcon]?spec.baseIcon:icon,
+    inc, baseInc:spec.baseInc?arr6(spec.baseInc):inc.slice(),
+    prices, basePrices:spec.basePrices?arr6(spec.basePrices):prices.slice(),
+    plans, basePlans:spec.basePlans?arr6(spec.basePlans):plans.slice(),
+    covers, baseCovers:spec.baseCovers?arr6(spec.baseCovers):covers.slice(),
+    deds, baseDeds:spec.baseDeds?arr6(spec.baseDeds):deds.slice()
+  };
+}
+let menuN=4,menuNames=blank6(),menuRows=MENU_PRESETS.map(p=>menuRow(p)),menuRec=1;
+let menuTemplates=[], menuTemplateId='', menuSuppressClick=false, menuDrag=null, tplArm=null, tplArmMsg='';
+const menuDesc=n=>{const p=MENU_PRESETS.find(x=>x.name===String(n).trim());return p?p.benefit:''};
 const pkName=i=>(menuNames[i]||'').trim()||MENU_NAMES[menuN][i];
 const rowName=(r,i)=>r.name.trim()||`Product ${i+1}`;
 const round2=x=>Math.round(x*100+1e-7)/100;
-const XSVG='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+function normPrice(v){
+  const s=String(v??'').replace(/,/g,'').trim();
+  if(s===''||s==='.') return '';
+  if(!/^\d*\.?\d*$/.test(s)) return s;
+  const n=Number(s);
+  return Number.isFinite(n)?String(round2(n)):s;
+}
+function cellPriceOK(p){const n=normPrice(p);return n===''||/^\d+(\.\d+)?$/.test(n)}
+function priceCustom(a,b){return normPrice(a)!==normPrice(b)}
+function textDiff(a,b){return String(a||'').trim()!==String(b||'').trim()}
+function cellCustom(row,i){return (row.inc[i]==='1')!==(row.baseInc[i]==='1')||priceCustom(row.prices[i],row.basePrices[i])||textDiff(row.plans[i],row.basePlans[i])||textDiff(row.covers[i],row.baseCovers[i])||textDiff(row.deds[i],row.baseDeds[i])}
+function rowIsCustom(row){return textDiff(row.benefit,row.baseBenefit)||row.icon!==row.baseIcon||row.inc.some((_,i)=>cellCustom(row,i))}
+function restoreCell(row,i){row.inc[i]=row.baseInc[i];row.prices[i]=row.basePrices[i];row.plans[i]=row.basePlans[i];row.covers[i]=row.baseCovers[i];row.deds[i]=row.baseDeds[i]}
+function restoreRow(row){row.benefit=row.baseBenefit;row.icon=row.baseIcon;for(let i=0;i<MENU_PKG;i++) restoreCell(row,i)}
+function priceLabel(v){const n=normPrice(v);if(n==='')return 'not included';const x=Number(n);return Number.isFinite(x)&&/^\d/.test(n)?usd2.format(x):'blank'}
+function announce(msg){const el=$('m-live');if(!el)return;el.textContent='';el.textContent=msg}
+const XSVG='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+const GRIP='<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><circle cx="9" cy="7" r="1.35"/><circle cx="15" cy="7" r="1.35"/><circle cx="9" cy="12" r="1.35"/><circle cx="15" cy="12" r="1.35"/><circle cx="9" cy="17" r="1.35"/><circle cx="15" cy="17" r="1.35"/></svg>';
+const UPSVG='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>';
+const DOWNSVG='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 10 6 6 6-6"/></svg>';
 
 function drawMenu(){
+  if(menuRec>=menuN) menuRec=Math.max(0,menuN-1);
   $('m-count').innerHTML=[1,2,3,4,5,6].map(k=>`<button type="button" data-m-n="${k}" aria-pressed="${k===menuN}">${k}</button>`).join('');
-  $('m-names').innerHTML=Array.from({length:menuN},(_,i)=>`<div class="pkname" style="--c:${MENU_COLORS[i]}"><span class="sw" aria-hidden="true"></span><input data-pk-name="${i}" maxlength="24" aria-label="Package ${i+1} name" value="${esc(pkName(i))}"></div>`).join('');
-  const head=`<div class="mp-row mp-head" style="--n:${menuN}" aria-hidden="true"><span>Product &amp; term / coverage</span>${Array.from({length:menuN},(_,i)=>`<span class="mp-hpk" style="--c:${MENU_COLORS[i]}" data-pk-lbl="${i}">${esc(pkName(i))}</span>`).join('')}<span></span></div>`;
-  $('m-rows').innerHTML=(menuRows.length?head:'')+menuRows.map((row,r)=>`<div class="mp-row" style="--n:${menuN}" data-mrow="${r}">
+  $('m-names').innerHTML=Array.from({length:menuN},(_,i)=>`<div><div class="pkname" style="--c:${MENU_COLORS[i]}"><span class="sw" aria-hidden="true"></span><input data-pk-name="${i}" maxlength="24" aria-label="Package ${i+1} name" value="${esc(pkName(i))}"></div><button type="button" class="pkrec" data-m-rec="${i}" aria-pressed="${menuRec===i}">${menuRec===i?'Recommended':'Mark recommended'}</button></div>`).join('');
+  const n=menuRows.length;
+  const head=`<div class="mp-row mp-head" style="--n:${menuN}" aria-hidden="true"><span>Priority</span><span>Product</span>${Array.from({length:menuN},(_,i)=>`<span class="mp-hpk" style="--c:${MENU_COLORS[i]}" data-pk-lbl="${i}">${esc(pkName(i))}</span>`).join('')}<span></span></div>`;
+  $('m-rows').innerHTML=(n?head:'')+menuRows.map((row,r)=>{
+    const label=rowName(row,r);
+    const benDiff=textDiff(row.benefit,row.baseBenefit);
+    const prodDiff=rowIsCustom(row);
+    const icons=Object.keys(MENU_ICON_SVG).map(k=>`<button type="button" data-m-icon-pick="${r}" data-icon="${k}" aria-pressed="${row.icon===k}" aria-label="${k} icon">${MENU_ICON_SVG[k]}</button>`).join('');
+    const cells=Array.from({length:menuN},(_,i)=>{
+      const custom=cellCustom(row,i);
+      const val=row.prices[i]===''?'':formatMoneyText(row.prices[i],2);
+      const on=row.inc[i]==='1';
+      return `<div class="field mp-cell${on?' on':''}${custom?' mp-custom':''}" style="--c:${MENU_COLORS[i]}"><span class="mp-lbl" data-pk-lbl="${i}">${esc(pkName(i))}</span><label class="mp-inc"><input type="checkbox" data-m-inc="${r},${i}" ${on?'checked':''} aria-label="Include ${esc(label)} in ${esc(pkName(i))}"> In tier</label><div class="inputwrap"><span class="pre">$</span><input id="mp-${r}-${i}" data-m-price="${r},${i}" data-min="0" data-max="1000000" inputmode="decimal" autocomplete="off" aria-label="${esc(label)} price in ${esc(pkName(i))}" value="${esc(val)}"></div><div class="inputwrap mp-sub"><input data-m-plan="${r},${i}" maxlength="24" placeholder="Plan name" aria-label="${esc(label)} plan in ${esc(pkName(i))}" value="${esc(row.plans[i])}"></div><div class="inputwrap mp-sub"><input data-m-cover="${r},${i}" maxlength="24" placeholder="Term / miles" aria-label="${esc(label)} term or miles in ${esc(pkName(i))}" value="${esc(row.covers[i])}"></div><div class="inputwrap mp-sub"><input data-m-ded="${r},${i}" maxlength="16" placeholder="Deductible" aria-label="${esc(label)} deductible in ${esc(pkName(i))}" value="${esc(row.deds[i])}"></div><button type="button" class="mp-mini" data-m-reset-price="${r},${i}"${custom?'':' hidden'}>Reset tier</button><p class="mp-def"${custom?'':' hidden'}>Default price: ${esc(priceLabel(row.basePrices[i]))}</p></div>`;
+    }).join('');
+    return `<div class="mp-row" style="--n:${menuN}" data-mrow="${r}">
+<div class="mp-order"><span class="mp-pri-label">Priority</span><span class="mp-pri" aria-hidden="true">${r+1}</span>
+<button type="button" class="iconbtn mp-drag" data-m-drag="1" aria-label="${esc('Reorder '+label+', priority '+(r+1)+' of '+n+'. Arrow keys also move it.')}">${GRIP}</button>
+<button type="button" class="iconbtn" data-m-move="up" data-m-idx="${r}" aria-label="${esc('Move '+label+' up')}"${r===0?' disabled':''}>${UPSVG}</button>
+<button type="button" class="iconbtn" data-m-move="down" data-m-idx="${r}" aria-label="${esc('Move '+label+' down')}"${r===n-1?' disabled':''}>${DOWNSVG}</button></div>
 <div class="mp-prod"><div class="inputwrap"><input data-m-name="${r}" maxlength="60" placeholder="Product name" aria-label="Product ${r+1} name" value="${esc(row.name)}"></div>
-<div class="inputwrap mp-note"><input data-m-note="${r}" maxlength="30" placeholder="Term, e.g. 5 yr" aria-label="Product ${r+1} term or coverage" value="${esc(row.note)}"></div></div>
-${Array.from({length:menuN},(_,i)=>`<div class="field mp-cell" style="--c:${MENU_COLORS[i]}"><span class="mp-lbl" data-pk-lbl="${i}">${esc(pkName(i))}</span><div class="inputwrap"><span class="pre">$</span><input id="mp-${r}-${i}" data-m-price="${r},${i}" data-min="0" data-max="1000000" inputmode="decimal" autocomplete="off" aria-label="${esc(rowName(row,r))} price in package ${i+1}" value="${esc(row.prices[i]===''?'':formatMoneyText(row.prices[i],2))}"><span class="mp-chk" aria-hidden="true">✓</span></div></div>`).join('')}
-<button type="button" class="iconbtn" data-m-del="${r}" aria-label="Remove ${esc(rowName(row,r))}">${XSVG}</button></div>`).join('');
-  $('m-add').hidden=menuRows.length>=MENU_MAX_ROWS;
+<div class="inputwrap mp-note${benDiff?' mp-custom':''}"><input data-m-benefit="${r}" maxlength="140" placeholder="One-line benefit" aria-label="Product ${r+1} benefit" value="${esc(row.benefit)}"></div>
+<div class="mp-icons" role="group" aria-label="Icon for ${esc(label)}">${icons}</div>
+<button type="button" class="mp-mini" data-m-reset="${r}"${prodDiff?'':' hidden'}>Reset product to defaults</button></div>
+${cells}
+<button type="button" class="iconbtn mp-del" data-m-del="${r}" aria-label="${esc('Remove '+label)}">${XSVG}</button></div>`;
+  }).join('');
+  $('m-add').hidden=n>=MENU_MAX_ROWS;
 }
 
+function readMoneyLoose(id){
+  const el=$(id);
+  if(!el) return {ok:false,v:0};
+  if(rawOf(el)===''){clearField(id);return {ok:true,v:0}}
+  return readField(el);
+}
 function calcMenu(){
-  const s=readSet(['m-amount','m-apr','m-term']);
-  let tax=0,taxOk=true;const te=$('m-tax');
-  if(rawOf(te)===''){clearField('m-tax')}else{const r=readField(te);if(r.ok)tax=r.v;else taxOk=false}
-  const bad=s.bad.concat(taxOk?[]:['m-tax']),ok=!bad.length;
-  const amt=s.v['m-amount'],apr=s.v['m-apr'],term=s.v['m-term'];
-  const base=ok?payment(amt,apr,term):null;const badCells=[];
+  const price=readField($('m-price'));
+  const trade=readMoneyLoose('m-trade'), cash=readMoneyLoose('m-cashreb'), fees=readMoneyLoose('m-fees');
+  const s=readSet(['m-rate1','m-term1','m-rate2','m-term2']);
+  const looseBad=[];
+  if(!price.ok) looseBad.push('m-price');
+  if(!trade.ok) looseBad.push('m-trade');
+  if(!cash.ok) looseBad.push('m-cashreb');
+  if(!fees.ok) looseBad.push('m-fees');
+  const bad=looseBad.concat(s.bad), ok=!bad.length;
+  const balance=ok?price.v-trade.v-cash.v+fees.v:null;
+  if(ok && (balance<100 || balance>10000000)) return {ok:false, custom:'Balance must be from $100 to $10,000,000. Check the sale price, trade allowance, cash and rebates, and tax and fees.', bad:[], pk:[], terms:[], balance, badCells:[]};
+  const terms=ok?[
+    {term:s.v['m-term1'], rate:s.v['m-rate1'], base:payment(balance,s.v['m-rate1'],s.v['m-term1'])},
+    {term:s.v['m-term2'], rate:s.v['m-rate2'], base:payment(balance,s.v['m-rate2'],s.v['m-term2'])}
+  ]:[];
+  const badCells=[];
   const pk=Array.from({length:menuN},(_,i)=>{
-    const cells=menuRows.map((row,r)=>{const el=$(`mp-${r}-${i}`);if(!el)return{on:false};
-      if(rawOf(el)===''){const f=el.closest('.field');f.classList.remove('invalid');el.setAttribute('aria-invalid','false');return{on:false}}
-      const x=readField(el,'money');if(!x.ok){badCells.push(`${rowName(row,r)} in ${pkName(i)}`);return{on:false,bad:true}}return{on:true,v:x.v}});
-    const any=cells.some(c=>c.on),badPk=cells.some(c=>c.bad);
-    const p={i,name:pkName(i),color:MENU_COLORS[i],cells,any,bad:badPk,tot:null,tax:null,fin:null,pay:null,inc:null,day:null,wk:null};
-    if(any&&!badPk){p.tot=cells.reduce((a,c)=>a+(c.on?c.v:0),0);p.tax=round2(p.tot*tax/100);
-      if(ok){p.fin=amt+p.tot+p.tax;p.pay=payment(p.fin,apr,term);p.inc=p.pay-base;p.day=perDay(p.inc);p.wk=perWeek(p.inc)}}
-    return p});
-  return{ok,bad,amt,apr,term,tax,base,pk,badCells}}
+    const cells=menuRows.map((row,r)=>{
+      const el=$(`mp-${r}-${i}`);
+      const included=row.inc[i]==='1';
+      if(!el) return {on:included,v:0,priced:false};
+      if(!included){const f=el.closest('.field');if(f)f.classList.remove('invalid');el.setAttribute('aria-invalid','false');return {on:false,v:0,priced:false}}
+      if(rawOf(el)===''){const f=el.closest('.field');if(f)f.classList.remove('invalid');el.setAttribute('aria-invalid','false');return {on:true,v:0,priced:false}}
+      const x=readField(el,'money');
+      if(!x.ok){badCells.push(`${rowName(row,r)} in ${pkName(i)}`);return {on:true,v:0,bad:true,priced:false}}
+      return {on:true,v:x.v,priced:true};
+    });
+    const badPk=cells.some(c=>c.bad);
+    const tot=badPk?null:cells.reduce((a,c)=>a+(c.on?c.v:0),0);
+    const pays=(ok&&tot!==null)?terms.map(t=>payment(balance+tot,t.rate,t.term)):terms.map(()=>null);
+    return {i,name:pkName(i),color:MENU_COLORS[i],cells,bad:badPk,tot,pays,rec:menuRec===i};
+  });
+  return {ok,bad,balance,terms,pk,badCells,sale:ok?price.v:null,trade:ok?trade.v:null,cash:ok?cash.v:null,fees:ok?fees.v:null};
+}
 
+function fact(k,v){return `<div><small>${k}</small><b>${v}</b></div>`}
 function renderMenu(){
   const c=calcMenu();showErr('menu',c);
-  const pe=$('m-perr');pe.classList.toggle('show',!!c.badCells.length);pe.querySelector('span').textContent=c.badCells.length?`Check the price for ${c.badCells.join(', ')}. Enter a dollar amount, or leave it blank if the package doesn’t include it.`:'';
+  const pe=$('m-perr');pe.classList.toggle('show',!!c.badCells.length);pe.querySelector('span').textContent=c.badCells.length?`Check the price for ${c.badCells.join(', ')}. Enter a dollar amount, or leave it blank to count it as $0.`:'';
   document.querySelectorAll('[data-pk-lbl]').forEach(e=>{e.textContent=pkName(+e.dataset.pkLbl)});
   c.pk.forEach(p=>p.cells.forEach((cell,r)=>{const el=$(`mp-${r}-${p.i}`);if(el)el.closest('.mp-cell').classList.toggle('on',!!cell.on)}));
-  const d=v=>v===null?'—':usd2.format(v);
-  const live=c.pk.filter(p=>p.day!==null);
-  if(c.ok){setText('m-base',usd2.format(c.base));
-    setText('m-note',`${usd0.format(c.amt)} financed at ${fix(c.apr,2)}% for ${c.term} months${c.tax?`, ${fix(c.tax,3).replace(/\.?0+$/,'')}% tax on products`:''}. Estimate only; not a financing offer.`);
-    const days=live.map(p=>p.day);setText('m-low',days.length?usd2.format(Math.min(...days)):'—');setText('m-high',days.length?usd2.format(Math.max(...days)):'—')}
-  // ----- customer-facing board -----
-  const cust=$('m-cust').value.trim(),unit=$('m-unit').value.trim();
-  $('mb-who').innerHTML=`<span><small>Customer</small>${esc(cust||' ')}</span><span><small>Boat / unit</small>${esc(unit||' ')}</span><span><small>Date</small>${new Date().toLocaleDateString('en-US',{dateStyle:'medium'})}</span>`;
-  const dl=(k,v)=>`<span><small>${k}</small><b>${v}</b></span>`;
-  $('mb-deal').innerHTML=dl('Amount financed (before protection)',c.ok?usd2.format(c.amt):'—')+dl('APR',c.ok?fix(c.apr,2)+'%':'—')+dl('Term',c.ok?`${c.term} months`:'—')+(c.tax?dl('Tax on products',fix(c.tax,3).replace(/\.?0+$/,'')+'%'):'')+dl('Payment without protection',c.ok?usd2.format(c.base):'—');
-  const rows=menuRows.map((row,r)=>({row,r})).filter(({row,r})=>row.name.trim()||c.pk.some(p=>p.cells[r].on));
-  const dayTxt=p=>p.day===null?'—':(round2(p.inc)===0?'Same as base payment':`<span>Only <b id="mp-day-${p.i}">${usd2.format(p.day)}</b></span> <span>more per day</span>`);
-  const th=c.pk.map(p=>`<th class="mb-pk" style="--c:${p.color}">${esc(p.name)}</th>`).join('');
-  const body=rows.map(({row,r})=>`<tr><td class="mb-prod"><strong>${esc(rowName(row,r))}</strong>${menuDesc(row.name)?`<small>${esc(menuDesc(row.name))}</small>`:''}</td><td class="mb-term">${esc(row.note)}</td>${c.pk.map(p=>{const cl=p.cells[r];return `<td class="mb-c${cl.on?' on':''}" style="--c:${p.color}">${cl.on?`<span class="ck">✓</span><span class="pr">${usd2.format(cl.v)}</span>`:'<span class="no">—</span>'}</td>`}).join('')}</tr>`).join('')||`<tr><td colspan="${2+c.pk.length}" class="mb-empty">Add products and prices above to build the menu.</td></tr>`;
-  const sumRow=(lbl,k,cls='')=>`<tr class="mb-sum ${cls}"><td colspan="2">${lbl}</td>${c.pk.map(p=>`<td style="--c:${p.color}" id="mp-${k}-${p.i}">${d(p[k])}</td>`).join('')}</tr>`;
-  $('mb-table').innerHTML=`<thead><tr><th class="mb-prodh">Protection coverage</th><th class="mb-termh">Term</th>${th}</tr></thead><tbody>${body}</tbody><tfoot>`+
-    sumRow('Protection products','tot')+sumRow('Tax on products','tax')+sumRow('Total amount financed','fin','mb-fin')+
-    `<tr class="mb-payrow"><td colspan="2"><strong>Estimated monthly payment</strong><small>${c.ok?`Compared with ${usd2.format(c.base)} per month without protection`:''}</small></td>${c.pk.map(p=>`<td style="--c:${p.color}"><span class="mb-pay" id="mp-pay-${p.i}">${d(p.pay)}</span></td>`).join('')}</tr>`+
-    `<tr class="mb-dayrow"><td colspan="2"></td>${c.pk.map(p=>`<td style="--c:${p.color}"><span class="mb-day">${dayTxt(p)}</span></td>`).join('')}</tr>`+
-    `<tr class="mb-small"><td colspan="2"></td>${c.pk.map(p=>`<td style="--c:${p.color}"><span class="nw"><span id="mp-inc-${p.i}">${p.inc===null?'—':'+'+usd2.format(p.inc)}</span> /mo</span><br><span class="nw"><span id="mp-wk-${p.i}">${p.wk===null?'—':usd2.format(p.wk)}</span> /wk</span></td>`).join('')}</tr></tfoot>`;
-  $('mb-table').style.setProperty('--n',c.pk.length);
-  $('mb-cards').innerHTML=c.pk.map(p=>`<article class="mb-card" style="--c:${p.color}"><header>${esc(p.name)}</header>
-<div class="mb-cpay"><strong>${d(p.pay)}</strong><span>est. per month</span></div><div class="mb-day">${dayTxt(p).replace(/ id="[^"]*"/,'')}</div>
-<ul>${rows.map(({row,r})=>{const cl=p.cells[r];return `<li class="${cl.on?'on':'off'}"><span class="ck">${cl.on?'✓':'—'}</span><span class="nm">${esc(rowName(row,r))}${row.note?`<small>${esc(row.note)}</small>`:''}</span><span class="pr">${cl.on?usd2.format(cl.v):''}</span></li>`}).join('')}</ul>
-<dl><div><dt>Protection products</dt><dd>${d(p.tot)}</dd></div>${c.tax?`<div><dt>Tax on products</dt><dd>${d(p.tax)}</dd></div>`:''}<div><dt>Total amount financed</dt><dd>${d(p.fin)}</dd></div><div><dt>Added per month / week</dt><dd>${p.inc===null?'—':'+'+usd2.format(p.inc)} / ${d(p.wk)}</dd></div></dl></article>`).join('');
+  const money=v=>v===null||v===undefined?'—':usd2.format(v);
+  if(c.ok){
+    setText('m-base',usd2.format(c.balance));
+    setText('m-note',`Sale ${usd0.format(c.sale)} − trade ${usd0.format(c.trade)} − cash & rebates ${usd0.format(c.cash)} + tax & fees ${usd0.format(c.fees)}. Estimate only; not a financing offer.`);
+    c.terms.forEach((t,i)=>{setText('m-t'+(i+1)+'-lbl',`${t.term} payments at ${fix(t.rate,2)}%`);setText('m-p'+(i+1),usd2.format(t.base))});
+  }else{setText('m-base','—');setText('m-note','');setText('m-p1','—');setText('m-p2','—')}
+  const txt=id=>{const el=$(id);return el?el.value.trim():''};
+  const show=v=>esc(v||'—');
+  const logo=$('brand-logo')?$('brand-logo').getAttribute('src'):'';
+  const rows=menuRows.map((row,r)=>({row,r})).filter(({row})=>row.name.trim()||row.benefit.trim());
+  const termBoxes=(p)=> (c.terms.length?c.terms:[{term:'—',rate:0,base:null},{term:'—',rate:0,base:null}]).map((t,ti)=>{
+    const pay=p.pays?p.pays[ti]:null;
+    const label=`${t.term} payments of ${pay===null?'—':usd2.format(pay)}`;
+    return `<label class="mv-choice"><input type="checkbox" data-choice="${p.i}-${ti}" aria-label="${esc(p.name)}: ${esc(label)}"><span>${esc(label)}</span></label>`;
+  }).join('');
+  const prev=[...document.querySelectorAll('#mb-root input[type=checkbox]')].map(el=>el.dataset.choice+':'+el.checked);
+  const root=$('mb-root');
+  if(root){
+    root.innerHTML=`<div class="mv">
+<div class="mv-top"><img class="mv-logo" alt="Stover Advantage LLC" src="${logo}"><div class="mv-brand"><strong>Stover Advantage</strong><span>Protection options</span></div>
+<div class="mv-meta"><span><small>Date</small><b>${esc(new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}))}</b></span><span><small>Sale #</small><b>${show(txt('m-sale'))}</b></span></div></div>
+<div class="mv-facts">
+<section class="mv-panel">${fact('Name',show(txt('m-cust')))}${fact('Stock #',show(txt('m-stock')))}${fact('Vehicle',show(txt('m-unit')))}${fact('Miles',show(txt('m-miles')))}${fact('Salesperson',show(txt('m-sp')))}${fact('Manager',show(txt('m-mgr')))}</section>
+<section class="mv-panel">${fact('Sale price',money(c.sale))}${fact('Trade allowance',money(c.trade))}${fact('Cash &amp; rebates',money(c.cash))}${fact('Tax &amp; fees',money(c.fees))}<div class="mv-bal"><small>Balance</small><b>${money(c.balance)}</b></div></section>
+<section class="mv-panel"><div class="mv-terms">${(c.terms.length?c.terms:[{},{}]).map((t,i)=>`<div class="mv-term"><div><small>Term</small><b>${t.term?esc(String(t.term))+' mo':'—'}</b></div><div><small>Rate</small><b>${t.rate!==undefined?esc(fix(t.rate,2))+'%':'—'}</b></div><small>Payment</small><strong>${t.base!=null?usd2.format(t.base):'—'}</strong></div>`).join('')}</div></section>
+</div>
+<div class="mv-products">${rows.map(({row,r})=>`<article class="mv-prod"><span class="mv-ico">${MENU_ICON_SVG[row.icon]||MENU_ICON_SVG.shield}</span><div><strong>${esc(row.name.trim()||rowName(row,r))}</strong><p>${esc(row.benefit||menuDesc(row.name)||'')}</p></div></article>`).join('')||'<p class="mv-empty">Add a product to describe it here.</p>'}</div>
+<div class="mv-tiers" style="--n:${Math.max(c.pk.length,1)}">${c.pk.map(p=>{
+  const items=rows.filter(({r})=>p.cells[r]&&p.cells[r].on);
+  const list=items.length?`<ul class="mv-list">${items.map(({row,r})=>{const cl=p.cells[r];const bits=[row.plans[p.i],row.covers[p.i]].filter(Boolean).join(' · ');const ded=row.deds[p.i]?`Deductible ${row.deds[p.i]}`:'';return `<li><span class="nm">${esc(row.name.trim()||rowName(row,r))}</span>${bits?`<span class="pl">${esc(bits)}</span>`:''}${ded?`<span class="meta">${esc(ded)}</span>`:''}</li>`}).join('')}</ul>`:`<p class="mv-empty">No products in this tier yet.</p>`;
+  return `<article class="mv-tier${p.rec?' rec':''}" style="--c:${p.color}"><header><strong>${esc(p.name)}</strong>${p.rec?'<em>Recommended</em>':''}</header>${list}<div class="mv-pays">${termBoxes(p)}</div><div class="mv-x" aria-hidden="true"><span>X</span><i></i></div></article>`;
+}).join('')}</div>
+<p class="mv-foot">Payments and products shown here are estimates. Coverages, exclusions, and limitations are in the contract. Buying a protection product is not required to obtain financing.</p>
+</div>`;
+    root.querySelectorAll('input[type=checkbox]').forEach(el=>{if(prev.includes(el.dataset.choice+':true')) el.checked=true});
+  }
+  syncMenuChrome();
+  syncTemplateUI();
   return c}
 function menuSummary(){const c=calcMenu();if(!c.ok)return false;
-  const live=c.pk.filter(p=>p.pay!==null);
-  return `Protection menu: ${usd0.format(c.amt)} financed at ${fix(c.apr,2)}% for ${c.term} months; payment without protection ${usd2.format(c.base)}.`+
-    (live.length?' '+live.map(p=>`${p.name}: ${usd2.format(p.pay)}/mo (only ${usd2.format(p.day)} more per day)`).join('; ')+'.':'')+
-    ' Products are optional and not required to obtain financing. Payments are estimates; final terms subject to lender approval.'}
+  const bits=c.pk.filter(p=>p.pays&&p.pays[0]!=null).map(p=>`${p.name}: ${c.terms.map((t,i)=>`${t.term} payments of ${usd2.format(p.pays[i])}`).join(' or ')}`);
+  return `Protection menu, balance ${usd2.format(c.balance)}. Without protection, ${c.terms.map(t=>`${t.term} payments of ${usd2.format(t.base)}`).join(' or ')}.`+
+    (bits.length?' '+bits.join('; ')+'.':'')+
+    ' Products are optional and not required to obtain financing. Payments are estimates; final terms are subject to lender approval.'}
+
+function syncMenuChrome(){
+  const n=menuRows.length;
+  const resetAll=$('m-reset-all');
+  if(resetAll) resetAll.disabled=!menuRows.some(rowIsCustom);
+  menuRows.forEach((row,r)=>{
+    const root=document.querySelector(`#m-rows [data-mrow="${r}"]`);
+    if(!root) return;
+    const label=rowName(row,r);
+    const drag=root.querySelector('[data-m-drag]');
+    if(drag) drag.setAttribute('aria-label',`Reorder ${label}, priority ${r+1} of ${n}. Arrow keys also move it.`);
+    const up=root.querySelector('[data-m-move="up"]');
+    const down=root.querySelector('[data-m-move="down"]');
+    if(up){up.disabled=r===0;up.setAttribute('aria-label',`Move ${label} up`)}
+    if(down){down.disabled=r===n-1;down.setAttribute('aria-label',`Move ${label} down`)}
+    const del=root.querySelector('[data-m-del]');
+    if(del) del.setAttribute('aria-label',`Remove ${label}`);
+    const ben=root.querySelector('[data-m-benefit]');
+    if(ben) ben.closest('.inputwrap').classList.toggle('mp-custom',textDiff(row.benefit,row.baseBenefit));
+    root.querySelectorAll('[data-icon]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.icon===row.icon)));
+    const prodBtn=root.querySelector(':scope > .mp-prod > [data-m-reset]');
+    if(prodBtn) prodBtn.hidden=!rowIsCustom(row);
+    for(let i=0;i<menuN;i++){
+      const el=$(`mp-${r}-${i}`);
+      if(!el) continue;
+      const custom=cellCustom(row,i);
+      const cell=el.closest('.mp-cell');
+      cell.classList.toggle('mp-custom',custom);
+      cell.classList.toggle('on',row.inc[i]==='1');
+      el.setAttribute('aria-label',`${label} price in ${pkName(i)}`);
+      const btn=cell.querySelector('[data-m-reset-price]');
+      if(btn){btn.hidden=!custom;btn.setAttribute('aria-label',`Reset ${label} in ${pkName(i)}`)}
+      const hint=cell.querySelector('.mp-def');
+      if(hint){hint.hidden=!custom;hint.textContent=custom?`Default price: ${priceLabel(row.basePrices[i])}`:''}
+    }
+  });
+}
+function reindexMenuDom(){
+  const rows=[...document.querySelectorAll('#m-rows [data-mrow]')];
+  rows.forEach((root,r)=>{
+    root.dataset.mrow=String(r);
+    const pri=root.querySelector('.mp-pri');
+    if(pri) pri.textContent=String(r+1);
+    const name=root.querySelector('[data-m-name]');
+    if(name){name.dataset.mName=String(r);name.setAttribute('aria-label',`Product ${r+1} name`)}
+    const ben=root.querySelector('[data-m-benefit]');
+    if(ben){ben.dataset.mBenefit=String(r);ben.setAttribute('aria-label',`Product ${r+1} benefit`)}
+    root.querySelectorAll('[data-m-icon-pick]').forEach(b=>{b.dataset.mIconPick=String(r)});
+    const up=root.querySelector('[data-m-move="up"]');
+    const down=root.querySelector('[data-m-move="down"]');
+    if(up){up.dataset.mIdx=String(r);up.disabled=r===0}
+    if(down){down.dataset.mIdx=String(r);down.disabled=r===rows.length-1}
+    const del=root.querySelector('[data-m-del]');
+    if(del) del.dataset.mDel=String(r);
+    const reset=root.querySelector(':scope > .mp-prod > [data-m-reset]');
+    if(reset) reset.dataset.mReset=String(r);
+    root.querySelectorAll('[data-m-price]').forEach(inp=>{
+      const i=inp.dataset.mPrice.split(',')[1];
+      inp.dataset.mPrice=`${r},${i}`;
+      inp.id=`mp-${r}-${i}`;
+    });
+    root.querySelectorAll('[data-m-inc]').forEach(el=>{const i=el.dataset.mInc.split(',')[1];el.dataset.mInc=`${r},${i}`});
+    root.querySelectorAll('[data-m-plan]').forEach(el=>{const i=el.dataset.mPlan.split(',')[1];el.dataset.mPlan=`${r},${i}`});
+    root.querySelectorAll('[data-m-cover]').forEach(el=>{const i=el.dataset.mCover.split(',')[1];el.dataset.mCover=`${r},${i}`});
+    root.querySelectorAll('[data-m-ded]').forEach(el=>{const i=el.dataset.mDed.split(',')[1];el.dataset.mDed=`${r},${i}`});
+    root.querySelectorAll('[data-m-reset-price]').forEach(btn=>{
+      const i=btn.dataset.mResetPrice.split(',')[1];
+      btn.dataset.mResetPrice=`${r},${i}`;
+    });
+  });
+}
+function focusMoveControl(j, delta, mode){
+  const row=document.querySelector(`#m-rows [data-mrow="${j}"]`);
+  if(!row) return;
+  if(mode==='drag'){const h=row.querySelector('[data-m-drag]');if(h) h.focus();return}
+  const prefer=delta<0?'up':'down';
+  const btn=row.querySelector(`[data-m-move="${prefer}"]`);
+  const el=btn&&!btn.disabled?btn:row.querySelector('[data-m-drag]');
+  if(el) el.focus();
+}
+function moveMenuRow(i, delta, mode){
+  if(!Number.isInteger(i)||menuDrag) return;
+  const j=i+delta;
+  if(j<0||j>=menuRows.length) return;
+  const [item]=menuRows.splice(i,1);
+  menuRows.splice(j,0,item);
+  drawMenu();
+  renderAll();
+  announce(`${rowName(menuRows[j], j)} moved to priority ${j+1} of ${menuRows.length}`);
+  focusMoveControl(j, delta, mode);
+}
+function onMenuPointerDown(e){
+  const handle=e.target.closest&&e.target.closest('[data-m-drag]');
+  if(!handle||!handle.closest('#m-rows')||e.button!==0||menuRows.length<2) return;
+  const row=handle.closest('[data-mrow]');
+  if(!row) return;
+  menuDrag={pointerId:e.pointerId,handle,row,startIndex:+row.dataset.mrow,startY:e.clientY,moved:false};
+  row.classList.add('mp-dragging');
+  document.body.classList.add('mp-reordering');
+  try{handle.setPointerCapture(e.pointerId)}catch(err){}
+  try{handle.focus({preventScroll:true})}catch(err){try{handle.focus()}catch(e2){}}
+  e.preventDefault();
+}
+function onMenuPointerMove(e){
+  if(!menuDrag||e.pointerId!==menuDrag.pointerId) return;
+  if(e.cancelable) e.preventDefault();
+  if(!menuDrag.moved&&Math.abs(e.clientY-menuDrag.startY)<8) return;
+  menuDrag.moved=true;
+  const row=menuDrag.row;
+  const rows=[...document.querySelectorAll('#m-rows [data-mrow]')];
+  const from=rows.indexOf(row);
+  if(from<0) return;
+  const others=rows.filter(r=>r!==row);
+  let to=others.length;
+  for(let i=0;i<others.length;i++){
+    const box=others[i].getBoundingClientRect();
+    if(e.clientY<box.top+box.height/2){to=i;break}
+  }
+  if(to===from) return;
+  const [item]=menuRows.splice(from,1);
+  menuRows.splice(to,0,item);
+  row.parentNode.insertBefore(row, others[to]||null);
+  reindexMenuDom();
+  renderMenu();
+  writeURL();
+}
+function onMenuPointerEnd(e){
+  if(!menuDrag||e.pointerId!==menuDrag.pointerId) return;
+  const drag=menuDrag;
+  menuDrag=null;
+  drag.row.classList.remove('mp-dragging');
+  document.body.classList.remove('mp-reordering');
+  if(!drag.moved) return;
+  menuSuppressClick=true;
+  setTimeout(()=>{menuSuppressClick=false},500);
+  const end=+drag.row.dataset.mrow;
+  if(end!==drag.startIndex&&menuRows[end]) announce(`${rowName(menuRows[end], end)} is now priority ${end+1} of ${menuRows.length}`);
+  try{drag.handle.focus({preventScroll:true})}catch(err){}
+}
+function onMenuKeyDown(e){
+  if(menuDrag||(e.key!=='ArrowUp'&&e.key!=='ArrowDown')) return;
+  const handle=e.target.closest&&e.target.closest('[data-m-drag]');
+  const moveBtn=e.target.closest&&e.target.closest('[data-m-move]');
+  if(!handle&&!moveBtn) return;
+  if(!e.target.closest('#panel-menu')) return;
+  e.preventDefault();
+  const host=(handle||moveBtn).closest('[data-mrow]');
+  moveMenuRow(+host.dataset.mrow, e.key==='ArrowUp'?-1:1, handle?'drag':'btn');
+}
+function rememberDefaults(announce){
+  if(menuRows.some(r=>r.prices.some(p=>!cellPriceOK(p)))){toast('Fix the highlighted prices before remembering defaults');return false}
+  menuRows.forEach(row=>{
+    row.baseBenefit=String(row.benefit||'').trim();
+    row.benefit=row.baseBenefit;
+    row.baseIcon=row.icon;
+    row.baseInc=row.inc.slice();
+    row.basePrices=row.prices.map(normPrice);
+    row.prices=row.basePrices.slice();
+    row.basePlans=row.plans.map(s=>String(s||'').trim());
+    row.plans=row.basePlans.slice();
+    row.baseCovers=row.covers.map(s=>String(s||'').trim());
+    row.covers=row.baseCovers.slice();
+    row.baseDeds=row.deds.map(s=>String(s||'').trim());
+    row.deds=row.baseDeds.slice();
+  });
+  drawMenu();
+  if(announce) toast('These prices and terms are now the defaults');
+  return true;
+}
+function newTplId(){
+  try{if(crypto.randomUUID) return crypto.randomUUID()}catch(e){}
+  return 'tpl-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8);
+}
+function snapRows(rows, useBase){
+  return (rows||[]).map(r=>{
+    const pick=(live,base)=>useBase?base:live;
+    const inc=pick(r.inc,r.baseInc)||r.inc||[];
+    const prices=pick(r.prices,r.basePrices)||r.prices||[];
+    const plans=pick(r.plans,r.basePlans)||r.plans||[];
+    const covers=pick(r.covers,r.baseCovers)||r.covers||[];
+    const deds=pick(r.deds,r.baseDeds)||r.deds||[];
+    return {
+      name:String(r.name||'').trim(),
+      benefit:String(pick(r.benefit,r.baseBenefit)||'').trim(),
+      icon:MENU_ICON_SVG[pick(r.icon,r.baseIcon)]?pick(r.icon,r.baseIcon):(MENU_ICON_SVG[r.icon]?r.icon:'shield'),
+      inc:Array.from({length:MENU_PKG},(_,i)=>inc[i]==='1'?'1':''),
+      prices:Array.from({length:MENU_PKG},(_,i)=>normPrice(prices[i])),
+      plans:Array.from({length:MENU_PKG},(_,i)=>String(plans[i]||'').trim()),
+      covers:Array.from({length:MENU_PKG},(_,i)=>String(covers[i]||'').trim()),
+      deds:Array.from({length:MENU_PKG},(_,i)=>String(deds[i]||'').trim())
+    };
+  });
+}
+function menuSnap(){return JSON.stringify({n:menuN,rec:menuRec,names:menuNames.map(s=>String(s||'').trim()),rows:snapRows(menuRows,false)})}
+function baseSnap(){return JSON.stringify({n:menuN,rec:menuRec,names:menuNames.map(s=>String(s||'').trim()),rows:snapRows(menuRows,true)})}
+function templateSnap(t){
+  const rows=(t.rows||[]).map(r=>({
+    name:r.name, benefit:r.benefit, icon:r.icon, inc:r.inc, prices:r.prices, plans:r.plans, covers:r.covers, deds:r.deds,
+    baseBenefit:r.benefit, baseIcon:r.icon, baseInc:r.inc, basePrices:r.prices, basePlans:r.plans, baseCovers:r.covers, baseDeds:r.deds
+  }));
+  return JSON.stringify({n:t.menuN,rec:Number.isInteger(t.rec)?t.rec:1,names:Array.from({length:MENU_PKG},(_,i)=>String((t.names&&t.names[i])||'').trim()),rows:snapRows(rows,false)});
+}
+function activeTemplate(){return menuTemplates.find(t=>t.id===menuTemplateId)||null}
+function selectedTemplate(){const sel=$('m-tpl-pick');return sel?menuTemplates.find(t=>t.id===sel.value)||null:null}
+function templateDirty(){const t=activeTemplate();return !!t&&menuSnap()!==templateSnap(t)}
+function normalizeTemplate(raw){
+  if(!raw||typeof raw!=='object') return null;
+  const name=String(raw.name||'').trim().slice(0,40);
+  if(!name) return null;
+  let n=Number(raw.menuN);
+  if(!Number.isInteger(n)||n<1||n>MENU_PKG) n=3;
+  const namesSrc=Array.isArray(raw.names)?raw.names:[];
+  const names=Array.from({length:MENU_PKG},(_,i)=>String(namesSrc[i]||'').slice(0,24));
+  let rec=Number(raw.rec);
+  if(!Number.isInteger(rec)||rec<-1||rec>=MENU_PKG) rec=1;
+  const rows=[];
+  for(const r of (Array.isArray(raw.rows)?raw.rows:[]).slice(0,MENU_MAX_ROWS)){
+    if(!r||typeof r!=='object') continue;
+    const ps=Array.isArray(r.prices)?r.prices:[];
+    const prices=Array.from({length:MENU_PKG},(_,i)=>{
+      const v=normPrice(ps[i]);
+      return v!==''&&/^\d+(\.\d+)?$/.test(v)&&Number(v)<=1000000?v:'';
+    });
+    const text6=(key,max)=>Array.from({length:MENU_PKG},(_,i)=>String((Array.isArray(r[key])?r[key][i]:'')||'').slice(0,max));
+    const incSrc=Array.isArray(r.inc)?r.inc:null;
+    rows.push({
+      name:String(r.name||'').slice(0,60),
+      benefit:String(r.benefit||r.note||'').slice(0,140),
+      icon:MENU_ICON_SVG[r.icon]?r.icon:'shield',
+      inc:Array.from({length:MENU_PKG},(_,i)=>incSrc?(incSrc[i]==='1'||incSrc[i]===1?'1':''):(prices[i]!==''?'1':'')),
+      prices,
+      plans:text6('plans',24),
+      covers:text6('covers',24),
+      deds:text6('deds',16)
+    });
+  }
+  const id=typeof raw.id==='string'&&/^[\w-]{1,80}$/.test(raw.id)?raw.id:newTplId();
+  const updated=typeof raw.updated==='string'&&!Number.isNaN(Date.parse(raw.updated))?raw.updated:new Date().toISOString();
+  return {id,name,updated,menuN:n,names,rec,rows};
+}
+function loadTemplateStore(){
+  menuTemplates=[];
+  try{
+    const raw=localStorage.getItem(TPL_KEY);
+    if(!raw) return;
+    const data=JSON.parse(raw);
+    const list=Array.isArray(data)?data:(data&&Array.isArray(data.templates)?data.templates:null);
+    if(!list) throw new Error('bad');
+    menuTemplates=list.map(normalizeTemplate).filter(Boolean).slice(0,TPL_MAX);
+  }catch(e){
+    menuTemplates=[];
+    toast('Saved menu templates could not be read in this browser');
+  }
+}
+function saveTemplateStore(){
+  try{localStorage.setItem(TPL_KEY,JSON.stringify({version:1,templates:menuTemplates}));return true}
+  catch(e){toast('Could not save templates in this browser. Export a JSON file as a backup.');return false}
+}
+function applyTemplateFromURL(){
+  const tid=new URLSearchParams(location.search).get('m-tpl')||'';
+  menuTemplateId=menuTemplates.some(t=>t.id===tid)?tid:'';
+}
+function drawTemplates(selectId){
+  const sel=$('m-tpl-pick');
+  if(!sel) return;
+  const keep=selectId!==undefined?selectId:sel.value;
+  sel.replaceChildren();
+  const ph=document.createElement('option');
+  ph.value='';
+  ph.textContent=menuTemplates.length?'Select a template…':'No saved templates';
+  sel.appendChild(ph);
+  menuTemplates.forEach(t=>{
+    const o=document.createElement('option');
+    o.value=t.id;
+    o.textContent=t.name;
+    sel.appendChild(o);
+  });
+  sel.value=menuTemplates.some(t=>t.id===keep)?keep:(menuTemplateId&&menuTemplates.some(t=>t.id===menuTemplateId)?menuTemplateId:'');
+}
+function tplWhen(t){
+  const d=new Date(t.updated);
+  return Number.isNaN(d.getTime())?'':` Saved ${d.toLocaleDateString('en-US',{dateStyle:'medium'})}.`;
+}
+function syncTemplateUI(){
+  const status=$('m-tpl-status');
+  if(!status) return;
+  const has=!!selectedTemplate();
+  ['m-tpl-load','m-tpl-overwrite','m-tpl-rename','m-tpl-delete'].forEach(id=>{const b=$(id);if(b) b.disabled=!has});
+  const exp=$('m-tpl-export');
+  if(exp) exp.disabled=!menuTemplates.length;
+  if(tplArm){status.textContent=tplArmMsg;return}
+  const t=activeTemplate(), picked=selectedTemplate();
+  if(t&&templateDirty()) status.textContent=`“${t.name}” is loaded, with changes for this deal. Reset prices restores the remembered defaults. Overwrite saves the menu you see into the template.`;
+  else if(t) status.textContent=`“${t.name}” is loaded. Prices and terms you change apply to this deal until you reset them or overwrite the template.`;
+  else if(picked) status.textContent=`“${picked.name}” is saved in this browser.${tplWhen(picked)} Load applies it to this deal and leaves the sale, balance, and both terms as they are.`;
+  else if(!menuTemplates.length) status.textContent='No templates saved in this browser yet. They stay on this device until you export them.';
+  else status.textContent='Choose a saved template to load, rename, overwrite, or delete it.';
+}
+function clearTplArm(){tplArm=null;tplArmMsg=''}
+function requireArm(kind, message){
+  if(tplArm===kind){clearTplArm();return true}
+  tplArm=kind;tplArmMsg=message;syncTemplateUI();return false;
+}
+function templateNameFromInput(){return $('m-tpl-name').value.trim().slice(0,40)}
+function nameTaken(name, exceptId){return menuTemplates.some(t=>t.id!==exceptId&&t.name.toLowerCase()===name.toLowerCase())}
+function writeTemplateFromCurrent(t){
+  if(!rememberDefaults(false)) return false;
+  t.menuN=menuN;
+  t.rec=menuRec;
+  t.names=menuNames.map(s=>String(s||'').slice(0,24));
+  t.rows=menuRows.map(r=>({
+    name:r.name.slice(0,60), benefit:r.benefit.slice(0,140), icon:r.icon,
+    inc:r.inc.map(x=>x==='1'?'1':''), prices:r.prices.map(normPrice),
+    plans:r.plans.map(s=>String(s||'').slice(0,24)), covers:r.covers.map(s=>String(s||'').slice(0,24)), deds:r.deds.map(s=>String(s||'').slice(0,16))
+  }));
+  t.updated=new Date().toISOString();
+  return true;
+}
+function onTplSave(){
+  clearTplArm();
+  const name=templateNameFromInput();
+  if(!name){toast('Enter a template name');$('m-tpl-name').focus();return}
+  if(nameTaken(name)){toast('That name is already used. Select it and click Overwrite, or choose a new name.');return}
+  if(menuTemplates.length>=TPL_MAX){toast(`You can save up to ${TPL_MAX} templates. Delete one, or export a backup first.`);return}
+  const t={id:newTplId(),name,updated:'',menuN,names:[],rows:[]};
+  if(!writeTemplateFromCurrent(t)) return;
+  menuTemplates.push(t);
+  if(!saveTemplateStore()){menuTemplates.pop();renderAll();return}
+  menuTemplateId=t.id;
+  drawTemplates(t.id);
+  renderAll();
+  toast(`Saved “${name}”`);
+}
+function onTplOverwrite(){
+  const t=selectedTemplate();
+  if(!t){toast('Choose a template to overwrite');return}
+  if(!requireArm('overwrite',`Click Overwrite again to replace “${t.name}” with the products, order, and prices shown now.`)) return;
+  if(!writeTemplateFromCurrent(t)) return;
+  if(!saveTemplateStore()) return;
+  menuTemplateId=t.id;
+  drawTemplates(t.id);
+  renderAll();
+  toast(`Updated “${t.name}”`);
+}
+function onTplRename(){
+  const t=selectedTemplate();
+  if(!t){toast('Choose a template to rename');return}
+  const name=templateNameFromInput();
+  if(!name){toast('Enter the new template name');$('m-tpl-name').focus();return}
+  if(nameTaken(name,t.id)){toast('Another template already uses that name');return}
+  clearTplArm();
+  t.name=name;
+  t.updated=new Date().toISOString();
+  if(!saveTemplateStore()) return;
+  drawTemplates(t.id);
+  renderAll();
+  toast(`Renamed to “${name}”`);
+}
+function onTplDelete(){
+  const t=selectedTemplate();
+  if(!t){toast('Choose a template to delete');return}
+  if(!requireArm('delete',`Click Delete again to remove “${t.name}”. This cannot be undone.`)) return;
+  const prev=menuTemplates.slice(), prevId=menuTemplateId;
+  menuTemplates=menuTemplates.filter(x=>x.id!==t.id);
+  if(menuTemplateId===t.id) menuTemplateId='';
+  if(!saveTemplateStore()){menuTemplates=prev;menuTemplateId=prevId;return}
+  drawTemplates('');
+  renderAll();
+  toast(`Deleted “${t.name}”`);
+}
+function applyTemplate(t){
+  menuN=t.menuN;
+  menuRec=Number.isInteger(t.rec)?t.rec:1;
+  if(menuRec>=menuN) menuRec=Math.max(0,menuN-1);
+  menuNames=Array.from({length:MENU_PKG},(_,i)=>String((t.names&&t.names[i])||'').slice(0,24));
+  menuRows=(t.rows||[]).map(r=>menuRow(r));
+  menuTemplateId=t.id;
+  clearTplArm();
+  drawMenu();
+  drawTemplates(t.id);
+  renderAll();
+}
+function onTplLoad(){
+  const t=selectedTemplate();
+  if(!t){toast('Choose a template to load');return}
+  if(menuTemplateId===t.id&&menuSnap()===templateSnap(t)){clearTplArm();syncTemplateUI();toast(`“${t.name}” is already loaded`);return}
+  if(menuSnap()!==templateSnap(t)&&!requireArm('load',`Click Load again to replace this menu with “${t.name}”. Prices and coverage you changed for this deal will be replaced. The sale, balance, and both terms stay as they are.`)) return;
+  applyTemplate(t);
+  toast(`Loaded “${t.name}”`);
+}
+function onTplExport(){
+  clearTplArm();syncTemplateUI();
+  if(!menuTemplates.length){toast('No templates to export');return}
+  const payload={app:'fi-calculators',kind:'menu-templates',version:1,exportedAt:new Date().toISOString(),templates:menuTemplates};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  const url=URL.createObjectURL(blob);
+  a.href=url;a.download='fi-menu-templates.json';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  toast(`Exported ${menuTemplates.length} template${menuTemplates.length===1?'':'s'}`);
+}
+function mergeTemplates(incoming){
+  let added=0, updated=0, skipped=0;
+  incoming.forEach(inc=>{
+    if(!inc){skipped++;return}
+    let idx=menuTemplates.findIndex(t=>t.id===inc.id);
+    if(idx<0) idx=menuTemplates.findIndex(t=>t.name.toLowerCase()===inc.name.toLowerCase());
+    if(idx>=0){menuTemplates[idx]={...inc,id:menuTemplates[idx].id};updated++;return}
+    if(menuTemplates.length>=TPL_MAX){skipped++;return}
+    if(menuTemplates.some(t=>t.id===inc.id)) inc.id=newTplId();
+    menuTemplates.push(inc);added++;
+  });
+  return {added,updated,skipped};
+}
+function onTemplateFile(e){
+  const file=e.target.files&&e.target.files[0];
+  e.target.value='';
+  if(!file) return;
+  if(file.size>1024*1024){toast('That file is too large to be menu templates');return}
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const data=JSON.parse(String(reader.result));
+      if(data&&typeof data==='object'&&!Array.isArray(data)){
+        if(data.kind&&data.kind!=='menu-templates'){toast('That file is not a menu template export');return}
+        if(data.version&&Number(data.version)>1){toast('This template file is from a newer version and was not imported');return}
+      }
+      const list=Array.isArray(data)?data:(data&&Array.isArray(data.templates)?data.templates:null);
+      if(!list){toast('That file is not a menu template export');return}
+      const incoming=list.map(normalizeTemplate).filter(Boolean);
+      if(!incoming.length){toast('No templates found in that file');return}
+      const before=menuTemplates.slice();
+      const res=mergeTemplates(incoming);
+      if(!saveTemplateStore()){menuTemplates=before;return}
+      clearTplArm();
+      drawTemplates();
+      renderAll();
+      const parts=[];
+      if(res.added) parts.push(`${res.added} added`);
+      if(res.updated) parts.push(`${res.updated} updated`);
+      if(res.skipped) parts.push(`${res.skipped} skipped`);
+      toast('Import: '+(parts.join(', ')||'no changes'));
+    }catch(err){toast('That file is not a menu template export')}
+  };
+  reader.onerror=()=>toast('Could not read that file');
+  reader.readAsText(file);
+}
+function menuAction(t){
+  if(t.dataset.mMove){moveMenuRow(+t.dataset.mIdx, t.dataset.mMove==='up'?-1:1, 'btn');return true}
+  if(t.dataset.mIconPick!==undefined){
+    const row=menuRows[+t.dataset.mIconPick];
+    if(row&&MENU_ICON_SVG[t.dataset.icon]) row.icon=t.dataset.icon;
+    renderAll();
+    return true;
+  }
+  if(t.dataset.mResetPrice!==undefined){
+    const [r,i]=t.dataset.mResetPrice.split(',').map(Number);
+    const row=menuRows[r]; if(!row) return true;
+    restoreCell(row,i);
+    drawMenu();renderAll();
+    return true;
+  }
+  if(t.dataset.mReset!==undefined){
+    const r=+t.dataset.mReset, row=menuRows[r]; if(!row) return true;
+    restoreRow(row);
+    drawMenu();renderAll();
+    announce(`${rowName(row,r)} reset to defaults`);
+    return true;
+  }
+  if(t.id==='m-remember'){if(rememberDefaults(true)) renderAll();return true}
+  if(t.id==='m-reset-all'){
+    if(!menuRows.some(rowIsCustom)) return true;
+    menuRows.forEach(restoreRow);
+    drawMenu();renderAll();
+    toast('Prices and terms reset to defaults');
+    return true;
+  }
+  if(t.id==='m-tpl-save'){onTplSave();return true}
+  if(t.id==='m-tpl-load'){onTplLoad();return true}
+  if(t.id==='m-tpl-overwrite'){onTplOverwrite();return true}
+  if(t.id==='m-tpl-rename'){onTplRename();return true}
+  if(t.id==='m-tpl-delete'){onTplDelete();return true}
+  if(t.id==='m-tpl-export'){onTplExport();return true}
+  if(t.id==='m-tpl-import'){$('m-tpl-file').click();return true}
+  return false;
+}
+function bindMenuInteractions(){
+  document.addEventListener('pointerdown', onMenuPointerDown);
+  document.addEventListener('pointermove', onMenuPointerMove, {passive:false});
+  document.addEventListener('pointerup', onMenuPointerEnd);
+  document.addEventListener('pointercancel', onMenuPointerEnd);
+  document.addEventListener('keydown', onMenuKeyDown);
+  $('m-tpl-file').addEventListener('change', onTemplateFile);
+  $('m-tpl-pick').addEventListener('change', ()=>{clearTplArm();syncTemplateUI()});
+}
 /* ---------- 4. Warranty ---------- */
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function repairRowHTML(rp,i){return `<div class="rep-row" data-i="${i}"><div class="field"><div class="inputwrap"><input aria-label="Repair ${i+1} name" data-rep-name="${i}" maxlength="40" placeholder="Repair name" value="${esc(rp.name)}"></div></div><div class="field"><div class="inputwrap"><span class="pre">$</span><input aria-label="Repair ${i+1} cost (example)" id="rep-cost-${i}" data-rep-cost="${i}" data-min="0" data-max="1000000" inputmode="decimal" autocomplete="off" value="${esc(formatMoneyText(rp.cost,2))}"></div><p class="ferr"></p></div><button type="button" class="iconbtn" data-rep-del="${i}" aria-label="Remove repair ${i+1}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>`}
@@ -941,8 +1692,12 @@ function curRoute(){const r=(location.hash.match(/^#\/(\w+)/)||[])[1];return ROU
 function writeURL(){const q=new URLSearchParams();for(const el of fields)q.set(el.id,rawOf(el));q.set('w-fin',SEG['w-fin']);q.set('d-mode',SEG['d-mode']);
   q.set('w-rep',repairs.map(r=>`${r.name.replace(/[~|]/g,' ')}~${String(r.cost).replace(/,/g,'')}`).join('|'));
   const clean=s=>String(s).replace(/[~|]/g,' ');
-  q.set('m-cust',$('m-cust').value);q.set('m-unit',$('m-unit').value);q.set('m-n',String(menuN));q.set('m-names',menuNames.map(clean).join('|'));
-  q.set('m-rows',menuRows.map(r=>[clean(r.name),clean(r.note),...r.prices.map(x=>clean(x).replace(/,/g,''))].join('~')).join('|'));
+  ['m-cust','m-unit','m-sale','m-stock','m-miles','m-sp','m-mgr'].forEach(id=>{const el=$(id);if(el)q.set(id,el.value)});
+  q.set('m-n',String(menuN));q.set('m-rec',String(menuRec));q.set('m-names',menuNames.map(clean).join('|'));
+  const enc=r=>{const parts=['v2',clean(r.name),clean(r.benefit),clean(r.icon)];for(let i=0;i<MENU_PKG;i++) parts.push(r.inc[i]==='1'?'1':'0',clean(normPrice(r.prices[i])),clean(r.plans[i]),clean(r.covers[i]),clean(r.deds[i]));return parts.join('~')};
+  q.set('m-rows',menuRows.map(enc).join('|'));
+  if(menuRows.some(rowIsCustom)) q.set('m-bases',menuRows.map(r=>enc({name:r.name,benefit:r.baseBenefit,icon:r.baseIcon,inc:r.baseInc,prices:r.basePrices,plans:r.basePlans,covers:r.baseCovers,deds:r.baseDeds})).join('|'));
+  if(menuTemplateId) q.set('m-tpl',menuTemplateId);
   try{history.replaceState(null,'',location.pathname+'?'+q.toString()+'#/'+curRoute())}catch(e){}}
 function readURL(){const q=new URLSearchParams(location.search);
   for(const el of fields){const k=el.id;setVal(el,q.has(k)?q.get(k):DEFAULTS[k])}
@@ -950,9 +1705,17 @@ function readURL(){const q=new URLSearchParams(location.search);
   if(q.get('d-mode')==='cash'||q.get('d-mode')==='fin')SEG['d-mode']=q.get('d-mode');
   if(q.has('w-rep')){const s=q.get('w-rep');repairs=s?s.split('|').slice(0,10).map(x=>{const[a,b='']=x.split('~');return{name:(a||'').slice(0,40),cost:b}}):[]}
   $('m-cust').value=(q.get('m-cust')||'').slice(0,60);$('m-unit').value=(q.get('m-unit')||'').slice(0,60);
+  ['m-sale','m-stock','m-miles','m-sp','m-mgr'].forEach(id=>{const el=$(id);if(el) el.value=(q.get(id)||'').slice(0,el.maxLength||60)});
+  if(!q.has('m-price')&&q.has('m-amount')) setVal($('m-price'),q.get('m-amount'));
+  if(!q.has('m-rate1')&&q.has('m-apr')) setVal($('m-rate1'),q.get('m-apr'));
+  if(!q.has('m-term1')&&q.has('m-term')) setVal($('m-term1'),q.get('m-term'));
+  if(!q.has('m-rate2')&&q.has('m-apr')) setVal($('m-rate2'),q.get('m-apr'));
+  if(!q.has('m-term2')&&q.has('m-term')) setVal($('m-term2'),q.get('m-term'));
   const mn=Number(q.get('m-n'));if(Number.isInteger(mn)&&mn>=1&&mn<=MENU_PKG)menuN=mn;
+  if(q.has('m-rec')){const rec=Number(q.get('m-rec'));if(Number.isInteger(rec)&&rec>=-1&&rec<MENU_PKG)menuRec=rec}
   if(q.has('m-names')){const a=q.get('m-names').split('|');menuNames=Array.from({length:MENU_PKG},(_,i)=>(a[i]||'').slice(0,24))}
-  if(q.has('m-rows')){const s=q.get('m-rows');menuRows=s?s.split('|').slice(0,MENU_MAX_ROWS).map(x=>{const a=x.split('~');return{name:(a[0]||'').slice(0,60),note:(a[1]||'').slice(0,30),prices:Array.from({length:MENU_PKG},(_,i)=>formatMoneyText((a[2+i]||'').trim(),2).replace(/,/g,''))}}):[]}
+  if(q.has('m-rows')){const s=q.get('m-rows');menuRows=s?s.split('|').slice(0,MENU_MAX_ROWS).map(parseMenuRow):[]}
+  if(q.get('m-bases')){const parts=q.get('m-bases').split('|');menuRows.forEach((row,ri)=>{if(parts[ri]===undefined)return;const b=parseMenuRow(parts[ri]);row.baseBenefit=b.benefit;row.baseIcon=b.icon;row.baseInc=b.inc.slice();row.basePrices=b.prices.slice();row.basePlans=b.plans.slice();row.baseCovers=b.covers.slice();row.baseDeds=b.deds.slice()})}
   if(!q.has('payment'))autoPayment();}
 
 /* ---------- Render all ---------- */
@@ -969,23 +1732,31 @@ function route(){const r=curRoute();document.body.dataset.route=r;document.docum
 /* ---------- Events ---------- */
 document.addEventListener('input',e=>{const el=e.target;
   if(el.dataset.t==='money'||el.dataset.repCost!==undefined||el.dataset.mPrice!==undefined)liveFormat(el);
-  if(el.dataset.mPrice!==undefined){const[r,i]=el.dataset.mPrice.split(',').map(Number);menuRows[r].prices[i]=rawOf(el)}
-  if(el.dataset.mName!==undefined)menuRows[+el.dataset.mName].name=el.value;
-  if(el.dataset.mNote!==undefined)menuRows[+el.dataset.mNote].note=el.value;
+  if(el.dataset.mPrice!==undefined){const[r,i]=el.dataset.mPrice.split(',').map(Number);if(menuRows[r])menuRows[r].prices[i]=rawOf(el)}
+  if(el.dataset.mInc!==undefined){const[r,i]=el.dataset.mInc.split(',').map(Number);if(menuRows[r])menuRows[r].inc[i]=el.checked?'1':''}
+  if(el.dataset.mPlan!==undefined){const[r,i]=el.dataset.mPlan.split(',').map(Number);if(menuRows[r])menuRows[r].plans[i]=el.value}
+  if(el.dataset.mCover!==undefined){const[r,i]=el.dataset.mCover.split(',').map(Number);if(menuRows[r])menuRows[r].covers[i]=el.value}
+  if(el.dataset.mDed!==undefined){const[r,i]=el.dataset.mDed.split(',').map(Number);if(menuRows[r])menuRows[r].deds[i]=el.value}
+  if(el.dataset.mName!==undefined&&menuRows[+el.dataset.mName])menuRows[+el.dataset.mName].name=el.value;
+  if(el.dataset.mBenefit!==undefined&&menuRows[+el.dataset.mBenefit])menuRows[+el.dataset.mBenefit].benefit=el.value;
   if(el.dataset.pkName!==undefined)menuNames[+el.dataset.pkName]=el.value;
   if(el.dataset.repName!==undefined)repairs[+el.dataset.repName].name=el.value;
   if(el.dataset.repCost!==undefined)repairs[+el.dataset.repCost].cost=el.value;
   if(el.id==='extra-range')setVal($('extra'),el.value);
   if(['principal','apr','term'].includes(el.id))autoPayment();
   renderAll();});
-document.addEventListener('click',e=>{const t=e.target.closest('button,a');if(!t)return;
+document.addEventListener('click',e=>{
+  if(menuSuppressClick){menuSuppressClick=false;return}
+  const t=e.target.closest('button,a');if(!t)return;
   if(t.dataset.seg){SEG[t.dataset.seg]=t.dataset.v;renderAll();return}
   if(t.dataset.set){setVal($(t.dataset.set),t.dataset.v);if(t.dataset.set==='term')autoPayment();renderAll();return}
   if(t.dataset.extra!==undefined){setVal($('extra'),t.dataset.extra);renderAll();return}
   if(t.dataset.repDel!==undefined){repairs.splice(+t.dataset.repDel,1);drawRepairs();renderAll();return}
-  if(t.dataset.mN){menuN=+t.dataset.mN;drawMenu();renderAll();return}
+  if(t.dataset.mN){menuN=+t.dataset.mN;if(menuRec>=menuN)menuRec=Math.max(0,menuN-1);drawMenu();renderAll();return}
   if(t.dataset.mDel!==undefined){menuRows.splice(+t.dataset.mDel,1);drawMenu();renderAll();return}
-  if(t.id==='m-add'){if(menuRows.length<MENU_MAX_ROWS){menuRows.push({name:'',note:'',prices:blank6()});drawMenu();renderAll();const n=document.querySelector(`[data-m-name="${menuRows.length-1}"]`);if(n)n.focus()}return}
+  if(t.id==='m-add'){if(menuRows.length<MENU_MAX_ROWS){menuRows.push(menuRow({icon:'shield'}));drawMenu();renderAll();const n=document.querySelector(`[data-m-name="${menuRows.length-1}"]`);if(n)n.focus()}return}
+  if(t.dataset.mRec!==undefined){const i=+t.dataset.mRec;menuRec=menuRec===i?-1:i;drawMenu();renderAll();return}
+  if(menuAction(t)) return;
   if(t.id==='rep-add'){if(repairs.length<10){repairs.push({name:'',cost:'0'});drawRepairs();renderAll();const n=document.querySelector(`[data-rep-name="${repairs.length-1}"]`);if(n)n.focus()}return}
   if(t.classList.contains('q')){const card=t.closest('.obj');const open=!card.classList.contains('open');card.classList.toggle('open',open);t.setAttribute('aria-expanded',String(open));return}
   if(t.dataset.goto){window.scrollTo({top:0});return}
@@ -1010,7 +1781,7 @@ let tt;function toast(t){const el=$('toast');el.textContent=t;el.classList.add('
 
 /* ---------- Boot ---------- */
 setText('yr',String(new Date().getFullYear()));
-readURL();drawRepairs();drawMenu();drawObjections();route();renderAll();
+readURL();loadTemplateStore();applyTemplateFromURL();drawRepairs();drawMenu();drawTemplates();drawObjections();bindMenuInteractions();route();renderAll();
 window.FI_READY=true;
 })();
 </script>
