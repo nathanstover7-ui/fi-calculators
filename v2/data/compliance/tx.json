@@ -1,0 +1,290 @@
+{
+  "code": "TX",
+  "name": "Texas",
+  "lastReviewed": "2026-11-20",
+  "groups": [
+    {
+      "id": "vsc",
+      "title": "Vehicle service contract / extended warranty",
+      "onDealLabel": "A vehicle service contract or extended service plan is on this deal",
+      "note": "Texas Occupations Code Chapter 1304, the Service Contract Regulatory Act, covers an agreement sold for a separate price and a stated term to repair, replace, or maintain a product, or to pay for that work. A boat or motor is a product. A warranty given without extra consideration, and not negotiated separately from the sale, is outside the chapter (section 1304.004). A licensed motor-vehicle dealer who is the provider and backs the contract with reimbursement insurance is also outside the chapter for a service contract on a motor vehicle that dealer sold (section 1304.004(b)(5)). That exemption is not written for a boat.",
+      "items": [
+        {
+          "id": "tx-vsc-form",
+          "summary": "The contract is easy to read and states the provider's name and address, the price and sale terms, the cancellation terms, any deductible, what is covered and excluded, any transfer limits, the holder's duties, and whether consequential damages or preexisting conditions are covered.",
+          "placement": "In the service contract",
+          "citation": "Tex. Occ. Code § 1304.156(a)",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-vsc-insured",
+          "conditional": true,
+          "condition": "Use this when a reimbursement insurance policy backs the contract. If it does not, mark this item not on this deal and use the full-faith statement instead.",
+          "summary": "The contract names the reimbursement insurer and its address, states that the holder may apply to that insurer if a covered service is not provided by the 61st day after proof of loss or a refund is not paid by the 46th day after cancellation, and includes a statement substantially similar to the statutory insured-obligations sentence.",
+          "quote": "Obligations of the provider under this service contract are insured under a service contract reimbursement insurance policy.",
+          "placement": "In the service contract",
+          "citation": "Tex. Occ. Code § 1304.156(d)",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-vsc-faith",
+          "conditional": true,
+          "condition": "Use this only when the contract is not insured under a reimbursement insurance policy.",
+          "summary": "The contract includes a statement substantially similar to the statutory full-faith-and-credit sentence.",
+          "quote": "Obligations of the provider under this service contract are backed by the full faith and credit of the provider.",
+          "placement": "In the service contract",
+          "citation": "Tex. Occ. Code § 1304.156(e)",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-vsc-cancel",
+          "summary": "The holder may cancel at any time. Before the 31st day the refund is the full price minus claims, with no cancellation fee. On or after the 31st day the refund is prorated by mileage, time, or another measure stated in the contract, minus claims, and any cancellation fee is not more than $50.",
+          "placement": "In the service contract",
+          "citation": "Tex. Occ. Code § 1304.1581",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-vsc-copy",
+          "summary": "The buyer receives a receipt, or other written proof of purchase, and a copy of the contract within a reasonable time after the purchase.",
+          "placement": "Delivered to the buyer",
+          "citation": "Tex. Occ. Code § 1304.154",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-vsc-optional",
+          "summary": "Buying the service contract is not a condition of the loan or of the sale of the property.",
+          "placement": "Sales process. This is a prohibition, not a legend that must be printed on the contract.",
+          "citation": "Tex. Occ. Code § 1304.161(b)",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "gap",
+      "title": "GAP / debt cancellation",
+      "onDealLabel": "A GAP waiver or debt cancellation agreement is on this deal",
+      "note": "Finance Code Chapter 354 applies to a debt cancellation agreement, including a GAP waiver, that includes insurance coverage as part of what the buyer owes the holder, on a retail installment contract under Chapter 345 or 348. A covered vehicle includes a boat, personal watercraft, and a personal watercraft trailer (section 354.001). The agreement is not insurance (section 354.002). On a Chapter 348 highway motor-vehicle contract, section 348.124(d) also requires a separate notice that the buyer does not have to buy the agreement to purchase the vehicle. A boat is not a motor vehicle under section 348.001, so that separate notice is not listed as a boat item.",
+      "items": [
+        {
+          "id": "tx-gap-not-required",
+          "summary": "The agreement states that buying it is not required to obtain the extension of credit and will not be a factor in the credit decision.",
+          "placement": "In the debt cancellation agreement",
+          "citation": "Tex. Fin. Code § 354.004(12)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.354.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-gap-cancel-sentence",
+          "summary": "The agreement states, in the statutory sentence or substantially similar language, that certain amounts the buyer owes will be cancelled on a total loss or theft of the covered vehicle.",
+          "quote": "YOU WILL CANCEL CERTAIN AMOUNTS I OWE UNDER THIS CONTRACT IN THE CASE OF A TOTAL LOSS OR THEFT OF THE COVERED VEHICLE AS STATED IN THE DEBT CANCELLATION AGREEMENT.",
+          "placement": "In the debt cancellation agreement",
+          "citation": "Tex. Fin. Code § 354.004(16)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.354.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-gap-terms",
+          "summary": "The agreement identifies the seller, holder, and any administrator, the buyer, the cost and term, how and how soon to make a claim, how the cancelled amount and any refund are calculated, the 30-day full-refund right, and that a complaint may be filed with the Office of Consumer Credit Commissioner, with that office's address, phone number, and website.",
+          "placement": "In the debt cancellation agreement",
+          "citation": "Tex. Fin. Code § 354.004(1)-(5), (10)-(11), (13)-(15)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.354.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-gap-exclusions",
+          "summary": "Every exclusion is either one of the exclusions listed in section 354.003(a) or is written in plain, easy-to-read language.",
+          "placement": "In the debt cancellation agreement",
+          "citation": "Tex. Fin. Code § 354.003",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.354.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-gap-price",
+          "summary": "The charge is a single payment and is not more than 5 percent of the amount financed.",
+          "placement": "Price of the agreement. This is a statutory cap, not a legend.",
+          "citation": "Tex. Fin. Code §§ 354.002(b), 354.006(e)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.354.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-gap-copy",
+          "summary": "The buyer receives a true and correct copy of the agreement by the 10th day after the contract date.",
+          "placement": "Delivered to the buyer",
+          "citation": "Tex. Fin. Code § 354.006(a)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.354.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-gap-form",
+          "summary": "The form was submitted to the consumer credit commissioner and was not denied. A form that is not denied by the 45th day, or the 90th day if extended, is treated as approved.",
+          "placement": "Form approval before use. Not a line on the buyer's copy.",
+          "citation": "Tex. Fin. Code § 354.005",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.354.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-gap-no-stack",
+          "summary": "The agreement is not offered when the contract is already protected by GAP insurance, and buying it is not required to get the credit.",
+          "placement": "Sales process. This is a prohibition, not a contract legend.",
+          "citation": "Tex. Fin. Code § 354.006(c)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.354.htm",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "title": "Service contract",
+      "onDealLabel": "Another service contract (not the extended service plan above) is on this deal",
+      "note": "Use this group for a separate Chapter 1304 service contract, such as accessories, electronics, tire and wheel, or appearance coverage sold for a separate price. The contract-form duties are the same Act as the vehicle service contract group. An agreement for scheduled maintenance only is a maintenance agreement and is outside the chapter (section 1304.004). A depreciation-benefit program on a vehicle has extra limits in section 1304.003(e): it cannot be required for the loan or lease, and the buyer may cancel within 30 days without a penalty. Those extra limits were verified; apply them in the contract when that program is the product sold.",
+      "items": [
+        {
+          "id": "tx-sc-form",
+          "summary": "The contract is easy to read and states the provider's name and address, the price and sale terms, the cancellation terms, any deductible, what is covered and excluded, any transfer limits, the holder's duties, and whether consequential damages or preexisting conditions are covered.",
+          "placement": "In the service contract",
+          "citation": "Tex. Occ. Code § 1304.156(a)",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-sc-insured",
+          "conditional": true,
+          "condition": "Use this when a reimbursement insurance policy backs this contract.",
+          "summary": "The contract names the reimbursement insurer, states the holder's direct-claim rights if service or a refund is late, and includes a statement substantially similar to the statutory insured-obligations sentence.",
+          "quote": "Obligations of the provider under this service contract are insured under a service contract reimbursement insurance policy.",
+          "placement": "In the service contract",
+          "citation": "Tex. Occ. Code § 1304.156(d)",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-sc-faith",
+          "conditional": true,
+          "condition": "Use this only when this contract is not insured under a reimbursement insurance policy.",
+          "summary": "The contract includes a statement substantially similar to the statutory full-faith-and-credit sentence.",
+          "quote": "Obligations of the provider under this service contract are backed by the full faith and credit of the provider.",
+          "placement": "In the service contract",
+          "citation": "Tex. Occ. Code § 1304.156(e)",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-sc-cancel",
+          "summary": "The holder may cancel at any time, with a full refund and no fee before the 31st day, and a prorated refund and a fee of not more than $50 after that, using a remaining-term measure disclosed in the contract.",
+          "placement": "In the service contract",
+          "citation": "Tex. Occ. Code § 1304.1581",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-sc-copy",
+          "summary": "The buyer receives a receipt and a copy of this contract within a reasonable time after purchase.",
+          "placement": "Delivered to the buyer",
+          "citation": "Tex. Occ. Code § 1304.154",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-sc-optional",
+          "summary": "Buying this service contract is not a condition of the loan or of the sale.",
+          "placement": "Sales process. This is a prohibition, not a printed legend.",
+          "citation": "Tex. Occ. Code § 1304.161(b)",
+          "url": "https://statutes.capitol.texas.gov/Docs/OC/htm/OC.1304.htm",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "doc",
+      "title": "Documentary fees",
+      "onDealLabel": "A documentary fee is charged on this deal",
+      "note": "For a boat, boat motor, or boat trailer, the duties below are Finance Code section 345.251 and the maximum in 7 Texas Administrative Code section 86.201. The dollar amounts are from the compilation of that rule current through June 27, 2025: $200 for covered watercraft only (a boat or boat motor), and $250 if the same contract also includes a covered land vehicle such as a boat trailer. Confirm the current rule before charging the fee. Chapter 348's notice and posting rule is for a highway motor vehicle. Section 348.001's definition of motor vehicle excludes a boat trailer and does not include a boat, so that posting rule is not a boat-deal item.",
+      "items": [
+        {
+          "id": "tx-doc-cap",
+          "summary": "The documentary fee is charged to cash buyers and credit buyers, is itemized by itself, and does not exceed the finance commission maximum: $200 on a watercraft-only contract, or $250 if that contract also includes a covered land vehicle, under the rule compilation current through June 27, 2025.",
+          "placement": "Itemized charge on the buyer's order or retail installment contract",
+          "citation": "Tex. Fin. Code § 345.251(a)-(b); 7 Tex. Admin. Code § 86.201(d)-(e)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.345.htm",
+          "sources": [
+            {"citation": "Tex. Fin. Code § 345.251", "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.345.htm"},
+            {"citation": "7 Tex. Admin. Code § 86.201 (compilation through June 27, 2025)", "url": "https://regulations.justia.com/states/texas/title-7/part-5/chapter-86/subchapter-b/section-86-201/"}
+          ],
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-doc-notice",
+          "summary": "Near the fee, the document shows the amount and the statutory documentary-fee notice in bold, capitals, underline, or other conspicuous type.",
+          "quote": "A DOCUMENTARY FEE IS NOT AN OFFICIAL FEE. A DOCUMENTARY FEE IS NOT REQUIRED BY LAW, BUT MAY BE CHARGED TO BUYERS FOR HANDLING DOCUMENTS RELATING TO THE SALE. A DOCUMENTARY FEE MAY NOT EXCEED A REASONABLE AMOUNT AGREED TO BY THE PARTIES THAT IS NOT MORE THAN THE MAXIMUM AMOUNT ALLOWED BY THE STATE. THIS NOTICE IS REQUIRED BY LAW.",
+          "placement": "On the worksheet, buyer's order, or retail installment contract, near the fee",
+          "citation": "Tex. Fin. Code § 345.251(c)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.345.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-doc-language",
+          "conditional": true,
+          "condition": "Use this when the spoken sales presentation is mainly in a different language than the contract.",
+          "summary": "The buyer also receives the section 345.251(c) notice in writing in the language mainly used in the spoken presentation.",
+          "placement": "Separate written statement given to the buyer",
+          "citation": "Tex. Fin. Code § 345.251(d)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.345.htm",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "tx-doc-highway",
+          "conditional": true,
+          "condition": "Use this only for a highway motor vehicle retail installment sale under Finance Code Chapter 348. Do not use it for a boat or boat trailer.",
+          "summary": "The buyer's order and the retail installment contract state the documentary fee and the Chapter 348 notice in conspicuous type near the amount, and the same notice is posted where the vehicle sale is finalized.",
+          "quote": "A DOCUMENTARY FEE IS NOT AN OFFICIAL FEE. A DOCUMENTARY FEE IS NOT REQUIRED BY LAW, BUT MAY BE CHARGED TO BUYERS FOR HANDLING DOCUMENTS RELATING TO THE SALE. A DOCUMENTARY FEE MAY NOT EXCEED A REASONABLE AMOUNT AGREED TO BY THE PARTIES. THIS NOTICE IS REQUIRED BY LAW.",
+          "placement": "Buyer's order, retail installment contract, and a posting visible where the sale is finalized",
+          "citation": "Tex. Fin. Code § 348.006(c)-(d)",
+          "url": "https://statutes.capitol.texas.gov/Docs/FI/htm/FI.348.htm",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "federal",
+      "title": "Federal — optional products in a credit sale",
+      "onDealLabel": "An optional product is being financed, or its charge is being left out of the finance charge",
+      "note": "Regulation Z applies in every state. A charge for debt cancellation written with the credit sale is a finance charge unless the exclusion conditions are met. The same is true of voluntary credit life, accident, health, or loss-of-income insurance. These items are the written disclosures and signature required to keep a qualifying voluntary charge out of the finance charge.",
+      "items": [
+        {
+          "id": "fed-gap-tila",
+          "summary": "For GAP or other debt-cancellation coverage for amounts above the value of the collateral, the writing says the coverage is not required, states the fee for the initial term (and the term, if it is shorter than the credit), and the consumer signs or initials a request for the coverage after receiving those disclosures.",
+          "placement": "In writing, before the consumer agrees. Signed or initialed request.",
+          "citation": "12 C.F.R. §§ 1026.4(b)(10), 1026.4(d)(3)",
+          "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.4",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "fed-credit-ins",
+          "conditional": true,
+          "condition": "Use this when credit life, accident, health, or loss-of-income insurance is sold with the credit.",
+          "summary": "The writing says that credit life, accident, health, or loss-of-income insurance is not required, states the premium for the initial term (and the term, if shorter than the credit), and the consumer signs or initials a request for the insurance after receiving those disclosures.",
+          "placement": "In writing, before the consumer agrees. Signed or initialed request.",
+          "citation": "12 C.F.R. § 1026.4(d)(1)",
+          "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.4",
+          "lastReviewed": "2026-11-20"
+        },
+        {
+          "id": "fed-property-ins",
+          "conditional": true,
+          "condition": "Use this when property insurance is sold through the creditor and its premium is left out of the finance charge.",
+          "summary": "The writing says property insurance may be obtained from a person the consumer chooses, and, if it is obtained through the creditor, states the premium for the initial term and the term if it is shorter than the credit.",
+          "placement": "In writing with the credit disclosures",
+          "citation": "12 C.F.R. § 1026.4(d)(2)",
+          "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.4",
+          "lastReviewed": "2026-11-20"
+        }
+      ]
+    }
+  ]
+}
