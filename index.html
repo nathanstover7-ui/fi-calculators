@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#022450">
-<meta name="description" content="F&amp;I Calculators for marine finance: payment, loan vs. investment, pick your rate, warranty vs. repair, cost per day, and use cases.">
+<meta name="description" content="F&amp;I Calculators for marine finance: payment, loan vs. investment, pick your rate, warranty vs. repair, cost per day, customer protection menu, and use cases.">
 <title>F&amp;I Calculators | Stover Advantage LLC</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23022450'/%3E%3Cpath d='M12 40c7-5 13-5 20 0s13 5 20 0' fill='none' stroke='%2301708E' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M20 30 32 20l12 10' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
@@ -33,9 +33,9 @@ a{color:var(--teal)}
 .brand-by{margin:3px 0 0;font-size:.86rem;color:var(--muted)}
 .brand-by strong{color:var(--navy);font-weight:700}
 .tabbar{position:sticky;top:0;z-index:20;background:var(--navy);box-shadow:0 6px 20px rgba(2,36,80,.18)}
-.tabs{max-width:1180px;margin:auto;padding:8px 20px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs{max-width:1260px;margin:auto;padding:8px 16px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex:1 0 auto;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:#c9d6e8;font-weight:650;font-size:.92rem;padding:11px 14px;border-radius:12px;white-space:nowrap;transition:background .15s,color .15s}
+.tab{flex:1 0 auto;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:#c9d6e8;font-weight:650;font-size:.9rem;padding:11px 10px;border-radius:12px;white-space:nowrap;transition:background .15s,color .15s}
 .tab .num{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;background:rgba(255,255,255,.1);font-size:.72rem;font-weight:800}
 .tab:hover{background:rgba(255,255,255,.08);color:#fff}
 .tab[aria-selected="true"]{background:#fff;color:var(--navy)}
@@ -155,6 +155,119 @@ footer .fbrand{font-weight:700;color:var(--navy)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);opacity:0;background:var(--navy);color:#fff;padding:12px 18px;border-radius:12px;font-weight:650;box-shadow:0 10px 30px rgba(2,36,80,.3);transition:.25s;pointer-events:none;z-index:50}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .print-stamp{display:none;color:#617185;font-size:.8rem;margin:0 0 12px}
+/* ---------- Customer menu ---------- */
+.opt{font-weight:600;color:#8a98a9;font-size:.74rem;margin-left:4px}
+.pkcount{display:grid;grid-template-columns:repeat(6,1fr);background:var(--navy-pale);border-radius:12px;padding:4px;gap:4px;margin-bottom:14px}
+.pkcount button{border:0;background:transparent;border-radius:9px;font-weight:800;color:#4a5b70;min-height:42px}
+.pkcount button[aria-pressed="true"]{background:#fff;color:var(--navy);box-shadow:0 1px 4px rgba(2,36,80,.12)}
+.pknames{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.pkname{display:flex;align-items:center;gap:10px;border:1.5px solid color-mix(in srgb,var(--c) 30%,#fff);background:color-mix(in srgb,var(--c) 6%,#fff);border-radius:12px;padding:0 0 0 12px;transition:border-color .15s,box-shadow .15s}
+.pkname:focus-within{border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 15%,transparent)}
+.pkname .sw{flex:0 0 14px;height:14px;border-radius:4px;background:var(--c)}
+.pkname input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:10px 12px 10px 0;font-weight:750;color:var(--c);min-height:44px}
+.mprod{margin-top:22px}
+.mprod .alert{margin-bottom:12px}
+.mp-row{display:grid;grid-template-columns:minmax(230px,2.6fr) repeat(var(--n),minmax(92px,1fr)) 40px;gap:8px;align-items:center;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.mp-row:last-of-type{border-bottom:0}
+.mp-prod .mp-note{margin-top:6px}
+.mp-prod .mp-note input{min-height:38px!important;padding:7px 10px!important;font-size:.88rem!important;font-weight:600;color:#3e5068}
+.mp-cell:not(.on) .pre{opacity:.4}
+.mp-head{margin-bottom:8px;padding-bottom:0;border-bottom:0;align-items:end}
+.mp-head>span{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#5d6e82;padding:0 2px}
+.mp-head .mp-hpk{background:var(--c);color:#fff;text-align:center;border-radius:9px;padding:7px 4px;letter-spacing:.02em;text-transform:none;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp-row .field{margin:0}
+.mp-row .inputwrap input{font-size:.95rem;min-height:44px;padding:10px 10px}
+.mp-row .inputwrap .pre{padding-left:10px}
+.mp-row .inputwrap .pre+input{padding-left:3px}
+.mp-lbl{display:none}
+.mp-chk{display:none;padding:0 9px 0 0;color:var(--c);font-weight:900}
+.mp-cell.on .inputwrap{border-color:color-mix(in srgb,var(--c) 55%,#fff);background:color-mix(in srgb,var(--c) 7%,#fff)}
+.mp-cell.on .mp-chk{display:block}
+.mp-cell .inputwrap:focus-within{border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 14%,transparent)}
+.mp-cell.invalid .inputwrap{border-color:var(--err)}
+.mp-prod input{font-weight:750!important}
+.menu-board{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.mb-head{display:flex;align-items:center;gap:16px;background:var(--navy);color:#fff;padding:16px 24px;border-bottom:4px solid var(--teal)}
+.mb-shield{height:46px;width:auto;flex:0 0 auto}
+.mb-title{display:flex;flex-direction:column;line-height:1.15}
+.mb-title strong{font-size:1.3rem;font-weight:800;letter-spacing:.02em}
+.mb-title span{color:#9fd4e4;font-size:.9rem;font-weight:600}
+.mb-who{margin-left:auto;display:flex;gap:22px;text-align:left}
+.mb-who span{display:flex;flex-direction:column;font-weight:700;font-size:.92rem;min-width:70px}
+.mb-who small,.mb-deal small{font-size:.66rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#9fb6cc}
+.mb-deal{display:flex;flex-wrap:wrap;gap:8px 28px;padding:14px 24px;border-bottom:1px solid var(--line);background:#f8fafc}
+.mb-deal span{display:flex;flex-direction:column}
+.mb-deal small{color:#6a7a8e}
+.mb-deal b{color:var(--navy);font-variant-numeric:tabular-nums}
+.mb-deal span:last-child b{color:var(--teal)}
+.mb-table-wrap{padding:8px 24px 20px;overflow-x:auto}
+.mb-table{width:100%;border-collapse:separate;border-spacing:6px 0;font-variant-numeric:tabular-nums;table-layout:fixed}
+.mb-table th,.mb-table td{white-space:normal;border:0;padding:10px 8px}
+.mb-table th{background:none;font-size:.7rem;color:#5d6e82;vertical-align:bottom;border-bottom:2px solid var(--navy)}
+.mb-table .mb-prodh{width:24%}.mb-table .mb-termh{width:9.5%}
+.mb-table th.mb-pk{background:var(--c);color:#fff;text-align:center;font-size:1.02rem;letter-spacing:.01em;text-transform:none;border-radius:10px 10px 0 0;border-bottom:0;padding:14px 6px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mb-table tbody td{border-top:1px solid var(--line)}
+.mb-table tbody tr:first-child td{border-top:0}
+.mb-prod strong{display:block;color:var(--ink);font-size:.93rem}
+.mb-prod small{display:block;color:#6a7a8e;font-size:.76rem;line-height:1.35;margin-top:2px}
+.mb-term{color:#3e5068;font-size:.86rem;text-align:center}
+.mb-c,.mb-sum td:not(:first-child),.mb-dayrow td:not(:first-child),.mb-small td:not(:first-child){background:color-mix(in srgb,var(--c) 7%,#fff);text-align:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mb-table tbody td.mb-c{border-top:1px solid color-mix(in srgb,var(--c) 18%,#fff)}
+.mb-c .ck{display:block;color:var(--c);font-size:1.25rem;font-weight:900;line-height:1}
+.mb-c .pr{display:block;color:#55657a;font-size:.78rem;margin-top:3px}
+.mb-c .no{color:#c3cad2;font-weight:700}
+.mb-empty{text-align:center;color:#7a8a9c;padding:24px!important}
+.mb-sum td{padding:5px 8px;font-size:.84rem;color:#55657a}
+.mb-sum:first-child td{padding-top:14px;border-top:2px solid var(--line)}
+.mb-sum.mb-fin td{padding-bottom:12px}
+.mb-sum.mb-fin td:not(:first-child){color:var(--ink);font-weight:700}
+.mb-payrow td{padding:0 4px;vertical-align:middle}
+.mb-payrow td:first-child{padding:10px 8px}
+.mb-payrow strong{display:block;color:var(--navy);font-size:1.15rem}
+.mb-payrow small{display:block;color:#6a7a8e;font-size:.8rem}
+.mb-pay{display:block;background:var(--c);color:#fff;font-size:calc(2.1rem - var(--n,3)*.16rem);white-space:nowrap;font-weight:800;letter-spacing:-.02em;padding:12px 2px;border-radius:10px;text-align:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mb-day{display:inline-block;background:color-mix(in srgb,var(--c) 15%,#fff);color:var(--c);font-weight:800;font-size:.8rem;padding:5px 10px;border-radius:10px;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mb-day b{font-weight:900}
+.mb-table .mb-day{display:block;padding:6px 4px;font-size:.74rem}.mb-table .mb-day>span{display:block}.mb-table .mb-day b{font-size:1.05rem}
+.mb-small .nw{white-space:nowrap}
+.mb-dayrow td{padding:10px 4px 4px}
+.mb-small td{font-size:.76rem;color:#6a7a8e;padding:2px 4px 12px;line-height:1.5;border-radius:0 0 10px 10px}
+.mb-cards{display:none}
+.mb-sign{display:none}
+.mb-disc{margin:0;padding:14px 24px 18px;text-align:center;font-weight:700;color:#55657a;font-size:.84rem;border-top:1px solid var(--line)}
+@media (max-width:860px){
+  .mp-row:not(.mp-head){display:flex;flex-wrap:wrap;gap:8px;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;background:#fbfdff}
+  .mp-head{display:none}
+  .mp-prod{order:0;flex:1 1 calc(100% - 56px);min-width:0}
+  .mp-row .iconbtn{order:1;flex:0 0 40px;height:46px}
+  .mp-cell{order:3;flex:0 1 calc(33.333% - 5.34px);min-width:0}
+  .mp-cell .inputwrap .pre{padding-left:8px}.mp-cell .inputwrap input{padding:10px 4px 10px 2px}.mp-chk{padding-right:6px}
+  .mp-prod input{font-size:.92rem!important}
+  .mp-lbl{display:block;font-size:.72rem;font-weight:800;color:var(--c);margin:0 0 3px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mb-table-wrap{display:none}
+  .mb-cards{display:grid;gap:14px;padding:16px}
+  .mb-card{border:1.5px solid color-mix(in srgb,var(--c) 30%,#fff);border-radius:16px;overflow:hidden;background:color-mix(in srgb,var(--c) 4%,#fff)}
+  .mb-card header{background:var(--c);color:#fff;font-weight:800;font-size:1.05rem;padding:10px 16px}
+  .mb-cpay{display:flex;align-items:baseline;gap:8px;padding:14px 16px 4px}
+  .mb-cpay strong{font-size:2rem;font-weight:800;color:var(--c);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .mb-cpay span{color:#6a7a8e;font-size:.82rem;font-weight:650}
+  .mb-card>.mb-day{margin:0 16px 10px}
+  .mb-card ul{list-style:none;margin:0;padding:0 16px}
+  .mb-card li{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:8px;align-items:start;padding:9px 0;border-top:1px solid color-mix(in srgb,var(--c) 14%,#fff);font-size:.9rem}
+  .mb-card li .ck{color:var(--c);font-weight:900}
+  .mb-card li.off{color:#a3aebb}.mb-card li.off .ck{color:#c3cad2}
+  .mb-card li .nm{font-weight:700}.mb-card li.on .nm{color:var(--ink)}
+  .mb-card li small{display:block;font-weight:600;color:#7a8a9c;font-size:.76rem}
+  .mb-card li .pr{color:#55657a;font-size:.82rem;font-variant-numeric:tabular-nums}
+  .mb-card dl{margin:4px 0 0;padding:10px 16px 14px;background:color-mix(in srgb,var(--c) 7%,#fff);display:grid;gap:3px}
+  .mb-card dl div{display:flex;justify-content:space-between;gap:10px;font-size:.82rem}
+  .mb-card dt{color:#6a7a8e}.mb-card dd{margin:0;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .mb-head{padding:14px 16px;flex-wrap:wrap}
+  .mb-shield{height:38px}
+  .mb-who{margin-left:0;width:100%;gap:14px;flex-wrap:wrap}.mb-who span{min-width:0}
+  .mb-deal{padding:12px 16px;gap:8px 18px}
+  .mb-disc{padding:12px 16px 16px}
+}
 @media (max-width:900px){.grid{grid-template-columns:1fr}}
 @media (max-width:640px){
   .masthead-inner{padding:10px 16px;gap:12px}
@@ -180,6 +293,37 @@ footer .fbrand{font-weight:700;color:var(--navy)}
   .grid{grid-template-columns:1fr 1.4fr}
   .print-stamp{display:block!important}
   .obj .ans{display:block}
+}
+@page menu{size:letter landscape;margin:.35in}
+@media print{
+  body[data-route="menu"] .masthead,body[data-route="menu"] footer,body[data-route="menu"] .print-stamp{display:none!important}
+  #panel-menu>*:not(.menu-board){display:none!important}
+  #panel-menu .menu-board{page:menu;margin:0;border:0;box-shadow:none;border-radius:0;font-size:12px}
+  .menu-board .mb-head,.menu-board .mb-deal{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .menu-board .mb-table-wrap{display:block!important;padding:4px 0 10px;overflow:visible}
+  .menu-board .mb-cards{display:none!important}
+  .menu-board .mb-head{flex-wrap:nowrap}.menu-board .mb-who{margin-left:auto;width:auto}
+  .menu-board .mb-sign{display:block;padding:4px 4px 0;break-inside:avoid}
+  .mb-sign h4{margin:0 0 4px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:4px}
+  .mb-sign p{margin:0 0 6px;color:#55657a;font-size:.8rem}
+  .sig-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 28px}
+  .sig{border-bottom:1px solid #6b7785;height:34px;margin-bottom:16px;position:relative}
+  .sig span{position:absolute;top:100%;left:0;font-size:.66rem;color:#6a7a8e;margin-top:2px}
+  .menu-board .mb-disc{border-top:0;padding:10px 0 0}
+  .mb-table tr,.mb-table td{break-inside:avoid}
+  html[data-route="menu"]{font-size:10.5px}
+  html[data-route="menu"] main{padding:0}
+  .menu-board .mb-head{padding:10px 16px}.menu-board .mb-shield{height:36px}
+  .menu-board .mb-deal{padding:8px 16px}
+  .menu-board .mb-table th,.menu-board .mb-table td{padding:5px 6px}
+  .menu-board .mb-table th.mb-pk{padding:9px 4px}
+  .menu-board .mb-c .ck{display:inline;font-size:1.05rem;margin-right:5px}.menu-board .mb-c .pr{display:inline;font-size:.8rem}
+  .menu-board .mb-table .mb-prodh{width:29%}.menu-board .mb-table .mb-termh{width:9%}
+  .menu-board .mb-sum td{padding:3px 6px}
+  .menu-board .mb-payrow td{padding:2px 4px}
+  .menu-board .mb-pay{padding:8px 2px}
+  .menu-board .mb-small td{padding:2px 4px 8px}
+  .sig{height:22px;margin-bottom:13px}
 }
 </style>
 <link rel="manifest" href="manifest.webmanifest">
@@ -210,7 +354,8 @@ footer .fbrand{font-weight:700;color:var(--navy)}
     <a class="tab" role="tab" id="tab-rate" href="#/rate" aria-controls="panel-rate"><span class="num">3</span>Pick Your Rate</a>
     <a class="tab" role="tab" id="tab-warranty" href="#/warranty" aria-controls="panel-warranty"><span class="num">4</span>Warranty vs. Repair Cost</a>
     <a class="tab" role="tab" id="tab-perday" href="#/perday" aria-controls="panel-perday"><span class="num">5</span>Cost Per Day</a>
-    <a class="tab" role="tab" id="tab-usecase" href="#/usecase" aria-controls="panel-usecase"><span class="num">6</span>Use Case</a>
+    <a class="tab" role="tab" id="tab-menu" href="#/menu" aria-controls="panel-menu"><span class="num">6</span>Customer Menu</a>
+    <a class="tab" role="tab" id="tab-usecase" href="#/usecase" aria-controls="panel-usecase"><span class="num">7</span>Use Case</a>
   </div>
 </nav>
 
@@ -445,7 +590,83 @@ footer .fbrand{font-weight:700;color:var(--navy)}
   </div>
 </section>
 
-<!-- ========== 6. OBJECTIONS ========== -->
+<!-- ========== 6. CUSTOMER MENU ========== -->
+<section class="panel" id="panel-menu" role="tabpanel" aria-labelledby="tab-menu" hidden>
+  <div class="panel-head">
+    <div><p class="eyebrow">Calculator 6</p><h2>Customer Menu</h2>
+      <p class="lede">Build a good-better-best protection menu. Enter the deal, choose how many packages to show, and price each product in the packages that include it. Each package shows its estimated payment and the added cost per day.</p></div>
+    <div class="actions"><button class="btn" data-share="menu" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>Share</button><button class="btn" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>Deal</h3><p class="sub">Amount financed before any protection products.</p>
+      <div class="row2">
+        <div class="field"><label for="m-cust">Customer <span class="opt">optional</span></label><div class="inputwrap"><input id="m-cust" data-menu-text maxlength="60" autocomplete="off" placeholder="Name"></div></div>
+        <div class="field"><label for="m-unit">Boat / unit <span class="opt">optional</span></label><div class="inputwrap"><input id="m-unit" data-menu-text maxlength="60" autocomplete="off" placeholder="Year, make, model"></div></div>
+      </div>
+      <div class="field"><label for="m-amount">Amount financed</label><div class="inputwrap"><span class="pre">$</span><input id="m-amount" data-t="money" data-min="100" data-max="10000000" inputmode="decimal" autocomplete="off"></div><p class="ferr"></p></div>
+      <div class="row2">
+        <div class="field"><label for="m-apr">APR</label><div class="inputwrap"><input id="m-apr" data-t="pct" data-min="0" data-max="40" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p></div>
+        <div class="field"><label for="m-term">Loan term</label><div class="inputwrap"><input id="m-term" data-t="int" data-min="1" data-max="360" inputmode="numeric" autocomplete="off"><span class="suf">mo</span></div><p class="ferr"></p></div>
+      </div>
+      <p class="hint">9.0% is a starter example. Replace it with the lender’s quoted rate.</p>
+      <div class="chips" data-chips="m-term" data-vals="60,120,180,240" data-suffix=" mo"></div>
+      <div class="field" style="margin-top:16px"><label for="m-tax">Sales tax on products <span class="opt">optional</span></label><div class="inputwrap"><input id="m-tax" data-t="pct" data-min="0" data-max="20" inputmode="decimal" autocomplete="off"><span class="suf">%</span></div><p class="ferr"></p><p class="hint">Leave at 0 if products aren’t taxed. Tax is added to the amount financed.</p></div>
+    </div>
+    <div class="stack">
+      <div class="alert" id="err-menu" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
+      <div class="stack" id="res-menu">
+        <div class="card hero" aria-live="polite">
+          <span class="k">Payment without protection</span>
+          <strong class="big" id="m-base">—</strong>
+          <p class="note" id="m-note"></p>
+          <div class="metrics">
+            <div class="metric"><span>Lowest package, per day</span><strong id="m-low">—</strong></div>
+            <div class="metric"><span>Top package, per day</span><strong id="m-high">—</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Packages</h3><p class="sub">Show 1 to 6 packages. Tap a name to rename it.</p>
+        <div class="pkcount" role="group" aria-label="Number of packages" id="m-count"></div>
+        <div class="pknames" id="m-names"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mprod" id="m-prod-card">
+    <h3>Products &amp; prices</h3><p class="sub">Enter each product’s price in the packages that include it. Leave a price blank when a package doesn’t include that product. Nothing is pre-priced.</p>
+    <div class="alert" id="m-perr" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span></span></div>
+    <div class="mp-grid" id="m-rows"></div>
+    <button class="addbtn" id="m-add" type="button">+ Add a product</button>
+  </div>
+
+  <div class="menu-board" id="menu-board" aria-label="Customer protection menu">
+    <div class="mb-head">
+      <img class="mb-shield" alt="" src="data:image/png;base64,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">
+      <div class="mb-title"><strong>STOVER ADVANTAGE LLC</strong><span>Protection Plan Options</span></div>
+      <div class="mb-who" id="mb-who"></div>
+    </div>
+    <div class="mb-deal" id="mb-deal"></div>
+    <div class="mb-table-wrap"><table class="mb-table" id="mb-table"></table></div>
+    <div class="mb-cards" id="mb-cards"></div>
+    <div class="mb-sign">
+      <h4>Customer acknowledgement</h4>
+      <p>I have reviewed the optional protection plans shown above. I understand these products are optional and are not required to obtain financing.</p>
+      <div class="sig-grid">
+        <div class="sig"><span>Selected package</span></div><div class="sig"><span>Decline all optional products · customer initials</span></div><div></div>
+        <div class="sig"><span>Customer signature / Date</span></div><div class="sig"><span>Co-buyer signature / Date</span></div><div class="sig"><span>F&amp;I manager signature / Date</span></div>
+      </div>
+    </div>
+    <p class="mb-disc">Products are optional and not required to obtain financing. Payments are estimates; final terms subject to lender approval.</p>
+  </div>
+  <details class="disc" style="margin-top:18px"><summary>How this menu is calculated</summary><div class="body">
+    <p>Payment without protection uses the standard payment formula on the amount financed at the APR and term entered (amount ÷ term when the APR is 0%). For each package: products total = the sum of the prices entered in that package; tax = products total × the sales tax rate, rounded to the cent; total financed = amount + products + tax; the package payment uses the same formula on the total financed.</p>
+    <p>Increase = package payment − payment without protection. Per day = increase × 12 ÷ 365. Per week = increase × 12 ÷ 52. A blank price means the package does not include that product; a package with no prices shows dashes.</p>
+    <p>Prices, terms and coverage come from the product provider’s current rate card and contract. Products are optional and not required to obtain financing. Payments are estimates; final terms subject to lender approval.</p></div></details>
+</section>
+
+<!-- ========== 7. USE CASE (objections) ========== -->
 <section class="panel" id="panel-usecase" role="tabpanel" aria-labelledby="tab-usecase" hidden>
   <div class="panel-head">
     <div><p class="eyebrow">Talk track</p><h2>Use Case</h2>
@@ -482,12 +703,13 @@ const perWeek=m=>m*12/52, perDay=m=>m*12/365;
 /* ---------- Defaults & state ---------- */
 const DEFAULTS={'standard-amount':49297,'standard-rate':9,'standard-years':15,'cash-amount':100000,'cash-rate':9,'cash-months':180,'cash-return':5,
  principal:49297,apr:9,term:15,payment:null,extra:100,'w-price':3000,'w-apr':9,'w-term':180,'w-years':5,
- 'd-amount':100000,'d-addon':2500,'d-apr':9,'d-term':180,'d-years':10};
+ 'd-amount':100000,'d-addon':2500,'d-apr':9,'d-term':180,'d-years':10,
+ 'm-amount':100000,'m-apr':9,'m-term':180,'m-tax':0};
 const DEFAULT_REPAIRS=[['Powerhead / engine',12000],['Lower unit',4500],['Electronics',3000],['Trim / tilt',1800]];
 const SEG={'w-fin':'1','d-mode':'fin'};
 let repairs=DEFAULT_REPAIRS.map(([n,c])=>({name:n,cost:String(c)}));
 const fields=[...document.querySelectorAll('input[data-t]')];
-const ROUTES=['payment','cash','rate','warranty','perday','usecase'];
+const ROUTES=['payment','cash','rate','warranty','perday','menu','usecase'];
 
 /* ---------- Input formatting & parsing ---------- */
 const group=s=>s.replace(/\B(?=(\d{3})+(?!\d))/g,',');
@@ -580,6 +802,88 @@ function renderRate(){const c=calcRate();if(!showErr('rate',c))return c;
   const opts=[...new Set([0,...presets,ex])].sort((a,b)=>a-b);
   $('rows').innerHTML=opts.map(x=>{const s=schedule(p,r,pay+x,n+12),rate=equivalentRate(p,s.interest,n),cur=x===ex;return `<tr class="${cur?'current':''}" data-x="${x}"><td>${x?'+'+money(x):'—'}${cur?' · now':''}</td><td>${fix(rate,2)}%</td><td>${duration(s.months)}</td><td>${duration(base.months-s.months)}</td><td>${money(s.interest)}</td><td>${money(base.interest-s.interest)}</td></tr>`}).join('');
   chart(base,chosen,p);return c}
+/* ---------- 6. Customer menu ---------- */
+const MENU_COLORS=['#022450','#9A7520','#5B6B7C','#01708E','#7A2E3B','#3E6B48'];   // navy, gold, slate, teal, burgundy, green (same as the spreadsheet)
+const MENU_NAMES={1:['Protection Plan'],2:['Best','Better'],3:['Best','Better','Good'],4:['Platinum','Gold','Silver','Select'],5:['Platinum','Gold','Silver','Select','Basic'],6:['Platinum','Gold','Silver','Select','Basic','Custom']};
+const MENU_PRESETS=[['Extended Service Plan - Boat Motor/Engine','Helps cover engine and drivetrain repairs after the factory warranty'],
+ ['Extended Service Plan - Accessories/Electronics','Helps cover repairs to onboard electronics, gauges and accessories'],
+ ['GAP (Guaranteed Asset Protection)','May help cover what you owe beyond insurance after a total loss'],
+ ['Tire & Wheel (Trailer)','Helps cover trailer tire and wheel damage from road hazards']];
+const MENU_PKG=6,MENU_MAX_ROWS=8;
+const blank6=()=>Array(MENU_PKG).fill('');
+let menuN=3,menuNames=blank6(),menuRows=MENU_PRESETS.map(([name])=>({name,note:'',prices:blank6()}));
+const menuDesc=n=>{const p=MENU_PRESETS.find(x=>x[0]===String(n).trim());return p?p[1]:''};
+const pkName=i=>(menuNames[i]||'').trim()||MENU_NAMES[menuN][i];
+const rowName=(r,i)=>r.name.trim()||`Product ${i+1}`;
+const round2=x=>Math.round(x*100+1e-7)/100;
+const XSVG='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+
+function drawMenu(){
+  $('m-count').innerHTML=[1,2,3,4,5,6].map(k=>`<button type="button" data-m-n="${k}" aria-pressed="${k===menuN}">${k}</button>`).join('');
+  $('m-names').innerHTML=Array.from({length:menuN},(_,i)=>`<div class="pkname" style="--c:${MENU_COLORS[i]}"><span class="sw" aria-hidden="true"></span><input data-pk-name="${i}" maxlength="24" aria-label="Package ${i+1} name" value="${esc(pkName(i))}"></div>`).join('');
+  const head=`<div class="mp-row mp-head" style="--n:${menuN}" aria-hidden="true"><span>Product &amp; term / coverage</span>${Array.from({length:menuN},(_,i)=>`<span class="mp-hpk" style="--c:${MENU_COLORS[i]}" data-pk-lbl="${i}">${esc(pkName(i))}</span>`).join('')}<span></span></div>`;
+  $('m-rows').innerHTML=(menuRows.length?head:'')+menuRows.map((row,r)=>`<div class="mp-row" style="--n:${menuN}" data-mrow="${r}">
+<div class="mp-prod"><div class="inputwrap"><input data-m-name="${r}" maxlength="60" placeholder="Product name" aria-label="Product ${r+1} name" value="${esc(row.name)}"></div>
+<div class="inputwrap mp-note"><input data-m-note="${r}" maxlength="30" placeholder="Term, e.g. 5 yr" aria-label="Product ${r+1} term or coverage" value="${esc(row.note)}"></div></div>
+${Array.from({length:menuN},(_,i)=>`<div class="field mp-cell" style="--c:${MENU_COLORS[i]}"><span class="mp-lbl" data-pk-lbl="${i}">${esc(pkName(i))}</span><div class="inputwrap"><span class="pre">$</span><input id="mp-${r}-${i}" data-m-price="${r},${i}" data-min="0" data-max="1000000" inputmode="decimal" autocomplete="off" aria-label="${esc(rowName(row,r))} price in package ${i+1}" value="${esc(row.prices[i]===''?'':formatMoneyText(row.prices[i],2))}"><span class="mp-chk" aria-hidden="true">✓</span></div></div>`).join('')}
+<button type="button" class="iconbtn" data-m-del="${r}" aria-label="Remove ${esc(rowName(row,r))}">${XSVG}</button></div>`).join('');
+  $('m-add').hidden=menuRows.length>=MENU_MAX_ROWS;
+}
+
+function calcMenu(){
+  const s=readSet(['m-amount','m-apr','m-term']);
+  let tax=0,taxOk=true;const te=$('m-tax');
+  if(rawOf(te)===''){clearField('m-tax')}else{const r=readField(te);if(r.ok)tax=r.v;else taxOk=false}
+  const bad=s.bad.concat(taxOk?[]:['m-tax']),ok=!bad.length;
+  const amt=s.v['m-amount'],apr=s.v['m-apr'],term=s.v['m-term'];
+  const base=ok?payment(amt,apr,term):null;const badCells=[];
+  const pk=Array.from({length:menuN},(_,i)=>{
+    const cells=menuRows.map((row,r)=>{const el=$(`mp-${r}-${i}`);if(!el)return{on:false};
+      if(rawOf(el)===''){const f=el.closest('.field');f.classList.remove('invalid');el.setAttribute('aria-invalid','false');return{on:false}}
+      const x=readField(el,'money');if(!x.ok){badCells.push(`${rowName(row,r)} in ${pkName(i)}`);return{on:false,bad:true}}return{on:true,v:x.v}});
+    const any=cells.some(c=>c.on),badPk=cells.some(c=>c.bad);
+    const p={i,name:pkName(i),color:MENU_COLORS[i],cells,any,bad:badPk,tot:null,tax:null,fin:null,pay:null,inc:null,day:null,wk:null};
+    if(any&&!badPk){p.tot=cells.reduce((a,c)=>a+(c.on?c.v:0),0);p.tax=round2(p.tot*tax/100);
+      if(ok){p.fin=amt+p.tot+p.tax;p.pay=payment(p.fin,apr,term);p.inc=p.pay-base;p.day=perDay(p.inc);p.wk=perWeek(p.inc)}}
+    return p});
+  return{ok,bad,amt,apr,term,tax,base,pk,badCells}}
+
+function renderMenu(){
+  const c=calcMenu();showErr('menu',c);
+  const pe=$('m-perr');pe.classList.toggle('show',!!c.badCells.length);pe.querySelector('span').textContent=c.badCells.length?`Check the price for ${c.badCells.join(', ')}. Enter a dollar amount, or leave it blank if the package doesn’t include it.`:'';
+  document.querySelectorAll('[data-pk-lbl]').forEach(e=>{e.textContent=pkName(+e.dataset.pkLbl)});
+  c.pk.forEach(p=>p.cells.forEach((cell,r)=>{const el=$(`mp-${r}-${p.i}`);if(el)el.closest('.mp-cell').classList.toggle('on',!!cell.on)}));
+  const d=v=>v===null?'—':usd2.format(v);
+  const live=c.pk.filter(p=>p.day!==null);
+  if(c.ok){setText('m-base',usd2.format(c.base));
+    setText('m-note',`${usd0.format(c.amt)} financed at ${fix(c.apr,2)}% for ${c.term} months${c.tax?`, ${fix(c.tax,3).replace(/\.?0+$/,'')}% tax on products`:''}. Estimate only; not a financing offer.`);
+    const days=live.map(p=>p.day);setText('m-low',days.length?usd2.format(Math.min(...days)):'—');setText('m-high',days.length?usd2.format(Math.max(...days)):'—')}
+  // ----- customer-facing board -----
+  const cust=$('m-cust').value.trim(),unit=$('m-unit').value.trim();
+  $('mb-who').innerHTML=`<span><small>Customer</small>${esc(cust||' ')}</span><span><small>Boat / unit</small>${esc(unit||' ')}</span><span><small>Date</small>${new Date().toLocaleDateString('en-US',{dateStyle:'medium'})}</span>`;
+  const dl=(k,v)=>`<span><small>${k}</small><b>${v}</b></span>`;
+  $('mb-deal').innerHTML=dl('Amount financed (before protection)',c.ok?usd2.format(c.amt):'—')+dl('APR',c.ok?fix(c.apr,2)+'%':'—')+dl('Term',c.ok?`${c.term} months`:'—')+(c.tax?dl('Tax on products',fix(c.tax,3).replace(/\.?0+$/,'')+'%'):'')+dl('Payment without protection',c.ok?usd2.format(c.base):'—');
+  const rows=menuRows.map((row,r)=>({row,r})).filter(({row,r})=>row.name.trim()||c.pk.some(p=>p.cells[r].on));
+  const dayTxt=p=>p.day===null?'—':(round2(p.inc)===0?'Same as base payment':`<span>Only <b id="mp-day-${p.i}">${usd2.format(p.day)}</b></span> <span>more per day</span>`);
+  const th=c.pk.map(p=>`<th class="mb-pk" style="--c:${p.color}">${esc(p.name)}</th>`).join('');
+  const body=rows.map(({row,r})=>`<tr><td class="mb-prod"><strong>${esc(rowName(row,r))}</strong>${menuDesc(row.name)?`<small>${esc(menuDesc(row.name))}</small>`:''}</td><td class="mb-term">${esc(row.note)}</td>${c.pk.map(p=>{const cl=p.cells[r];return `<td class="mb-c${cl.on?' on':''}" style="--c:${p.color}">${cl.on?`<span class="ck">✓</span><span class="pr">${usd2.format(cl.v)}</span>`:'<span class="no">—</span>'}</td>`}).join('')}</tr>`).join('')||`<tr><td colspan="${2+c.pk.length}" class="mb-empty">Add products and prices above to build the menu.</td></tr>`;
+  const sumRow=(lbl,k,cls='')=>`<tr class="mb-sum ${cls}"><td colspan="2">${lbl}</td>${c.pk.map(p=>`<td style="--c:${p.color}" id="mp-${k}-${p.i}">${d(p[k])}</td>`).join('')}</tr>`;
+  $('mb-table').innerHTML=`<thead><tr><th class="mb-prodh">Protection coverage</th><th class="mb-termh">Term</th>${th}</tr></thead><tbody>${body}</tbody><tfoot>`+
+    sumRow('Protection products','tot')+sumRow('Tax on products','tax')+sumRow('Total amount financed','fin','mb-fin')+
+    `<tr class="mb-payrow"><td colspan="2"><strong>Estimated monthly payment</strong><small>${c.ok?`Compared with ${usd2.format(c.base)} per month without protection`:''}</small></td>${c.pk.map(p=>`<td style="--c:${p.color}"><span class="mb-pay" id="mp-pay-${p.i}">${d(p.pay)}</span></td>`).join('')}</tr>`+
+    `<tr class="mb-dayrow"><td colspan="2"></td>${c.pk.map(p=>`<td style="--c:${p.color}"><span class="mb-day">${dayTxt(p)}</span></td>`).join('')}</tr>`+
+    `<tr class="mb-small"><td colspan="2"></td>${c.pk.map(p=>`<td style="--c:${p.color}"><span class="nw"><span id="mp-inc-${p.i}">${p.inc===null?'—':'+'+usd2.format(p.inc)}</span> /mo</span><br><span class="nw"><span id="mp-wk-${p.i}">${p.wk===null?'—':usd2.format(p.wk)}</span> /wk</span></td>`).join('')}</tr></tfoot>`;
+  $('mb-table').style.setProperty('--n',c.pk.length);
+  $('mb-cards').innerHTML=c.pk.map(p=>`<article class="mb-card" style="--c:${p.color}"><header>${esc(p.name)}</header>
+<div class="mb-cpay"><strong>${d(p.pay)}</strong><span>est. per month</span></div><div class="mb-day">${dayTxt(p).replace(/ id="[^"]*"/,'')}</div>
+<ul>${rows.map(({row,r})=>{const cl=p.cells[r];return `<li class="${cl.on?'on':'off'}"><span class="ck">${cl.on?'✓':'—'}</span><span class="nm">${esc(rowName(row,r))}${row.note?`<small>${esc(row.note)}</small>`:''}</span><span class="pr">${cl.on?usd2.format(cl.v):''}</span></li>`}).join('')}</ul>
+<dl><div><dt>Protection products</dt><dd>${d(p.tot)}</dd></div>${c.tax?`<div><dt>Tax on products</dt><dd>${d(p.tax)}</dd></div>`:''}<div><dt>Total amount financed</dt><dd>${d(p.fin)}</dd></div><div><dt>Added per month / week</dt><dd>${p.inc===null?'—':'+'+usd2.format(p.inc)} / ${d(p.wk)}</dd></div></dl></article>`).join('');
+  return c}
+function menuSummary(){const c=calcMenu();if(!c.ok)return false;
+  const live=c.pk.filter(p=>p.pay!==null);
+  return `Protection menu: ${usd0.format(c.amt)} financed at ${fix(c.apr,2)}% for ${c.term} months; payment without protection ${usd2.format(c.base)}.`+
+    (live.length?' '+live.map(p=>`${p.name}: ${usd2.format(p.pay)}/mo (only ${usd2.format(p.day)} more per day)`).join('; ')+'.':'')+
+    ' Products are optional and not required to obtain financing. Payments are estimates; final terms subject to lender approval.'}
 /* ---------- 4. Warranty ---------- */
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function repairRowHTML(rp,i){return `<div class="rep-row" data-i="${i}"><div class="field"><div class="inputwrap"><input aria-label="Repair ${i+1} name" data-rep-name="${i}" maxlength="40" placeholder="Repair name" value="${esc(rp.name)}"></div></div><div class="field"><div class="inputwrap"><span class="pre">$</span><input aria-label="Repair ${i+1} cost (example)" id="rep-cost-${i}" data-rep-cost="${i}" data-min="0" data-max="1000000" inputmode="decimal" autocomplete="off" value="${esc(formatMoneyText(rp.cost,2))}"></div><p class="ferr"></p></div><button type="button" class="iconbtn" data-rep-del="${i}" aria-label="Remove repair ${i+1}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>`}
@@ -636,28 +940,39 @@ function renderObjections(){for(const o of OBJ){const v=o.key();setText('obj-key
 function curRoute(){const r=(location.hash.match(/^#\/(\w+)/)||[])[1];return ROUTES.includes(r)?r:'payment'}
 function writeURL(){const q=new URLSearchParams();for(const el of fields)q.set(el.id,rawOf(el));q.set('w-fin',SEG['w-fin']);q.set('d-mode',SEG['d-mode']);
   q.set('w-rep',repairs.map(r=>`${r.name.replace(/[~|]/g,' ')}~${String(r.cost).replace(/,/g,'')}`).join('|'));
+  const clean=s=>String(s).replace(/[~|]/g,' ');
+  q.set('m-cust',$('m-cust').value);q.set('m-unit',$('m-unit').value);q.set('m-n',String(menuN));q.set('m-names',menuNames.map(clean).join('|'));
+  q.set('m-rows',menuRows.map(r=>[clean(r.name),clean(r.note),...r.prices.map(x=>clean(x).replace(/,/g,''))].join('~')).join('|'));
   try{history.replaceState(null,'',location.pathname+'?'+q.toString()+'#/'+curRoute())}catch(e){}}
 function readURL(){const q=new URLSearchParams(location.search);
   for(const el of fields){const k=el.id;setVal(el,q.has(k)?q.get(k):DEFAULTS[k])}
   if(q.get('w-fin')==='0'||q.get('w-fin')==='1')SEG['w-fin']=q.get('w-fin');
   if(q.get('d-mode')==='cash'||q.get('d-mode')==='fin')SEG['d-mode']=q.get('d-mode');
   if(q.has('w-rep')){const s=q.get('w-rep');repairs=s?s.split('|').slice(0,10).map(x=>{const[a,b='']=x.split('~');return{name:(a||'').slice(0,40),cost:b}}):[]}
+  $('m-cust').value=(q.get('m-cust')||'').slice(0,60);$('m-unit').value=(q.get('m-unit')||'').slice(0,60);
+  const mn=Number(q.get('m-n'));if(Number.isInteger(mn)&&mn>=1&&mn<=MENU_PKG)menuN=mn;
+  if(q.has('m-names')){const a=q.get('m-names').split('|');menuNames=Array.from({length:MENU_PKG},(_,i)=>(a[i]||'').slice(0,24))}
+  if(q.has('m-rows')){const s=q.get('m-rows');menuRows=s?s.split('|').slice(0,MENU_MAX_ROWS).map(x=>{const a=x.split('~');return{name:(a[0]||'').slice(0,60),note:(a[1]||'').slice(0,30),prices:Array.from({length:MENU_PKG},(_,i)=>formatMoneyText((a[2+i]||'').trim(),2).replace(/,/g,''))}}):[]}
   if(!q.has('payment'))autoPayment();}
 
 /* ---------- Render all ---------- */
-function renderAll(){renderStandard();renderCash();renderRate();renderWarranty();renderPerDay();renderObjections();
+function renderAll(){renderStandard();renderCash();renderRate();renderWarranty();renderPerDay();renderMenu();renderObjections();
   document.querySelectorAll('[data-seg]').forEach(b=>b.setAttribute('aria-pressed',String(SEG[b.dataset.seg]===b.dataset.v)));
   document.querySelectorAll('[data-chips]').forEach(box=>{const id=box.dataset.chips,cur=rawOf($(id));box.innerHTML=box.dataset.vals.split(',').map(v=>`<button type="button" class="chip ${cur===v?'active':''}" data-set="${id}" data-v="${v}" aria-pressed="${cur===v}">${v}${box.dataset.suffix}</button>`).join('')});
   writeURL();}
 
 /* ---------- Routing ---------- */
-function route(){const r=curRoute();
+function route(){const r=curRoute();document.body.dataset.route=r;document.documentElement.dataset.route=r;
   for(const x of ROUTES){const on=x===r;$('panel-'+x).hidden=!on;const t=$('tab-'+x);t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;if(on&&t.scrollIntoView)t.scrollIntoView({block:'nearest',inline:'center'})}
   document.title=`${$('tab-'+r).textContent.replace(/^\d/,'')} | F&I Calculators`;}
 
 /* ---------- Events ---------- */
 document.addEventListener('input',e=>{const el=e.target;
-  if(el.dataset.t==='money'||el.dataset.repCost!==undefined)liveFormat(el);
+  if(el.dataset.t==='money'||el.dataset.repCost!==undefined||el.dataset.mPrice!==undefined)liveFormat(el);
+  if(el.dataset.mPrice!==undefined){const[r,i]=el.dataset.mPrice.split(',').map(Number);menuRows[r].prices[i]=rawOf(el)}
+  if(el.dataset.mName!==undefined)menuRows[+el.dataset.mName].name=el.value;
+  if(el.dataset.mNote!==undefined)menuRows[+el.dataset.mNote].note=el.value;
+  if(el.dataset.pkName!==undefined)menuNames[+el.dataset.pkName]=el.value;
   if(el.dataset.repName!==undefined)repairs[+el.dataset.repName].name=el.value;
   if(el.dataset.repCost!==undefined)repairs[+el.dataset.repCost].cost=el.value;
   if(el.id==='extra-range')setVal($('extra'),el.value);
@@ -668,6 +983,9 @@ document.addEventListener('click',e=>{const t=e.target.closest('button,a');if(!t
   if(t.dataset.set){setVal($(t.dataset.set),t.dataset.v);if(t.dataset.set==='term')autoPayment();renderAll();return}
   if(t.dataset.extra!==undefined){setVal($('extra'),t.dataset.extra);renderAll();return}
   if(t.dataset.repDel!==undefined){repairs.splice(+t.dataset.repDel,1);drawRepairs();renderAll();return}
+  if(t.dataset.mN){menuN=+t.dataset.mN;drawMenu();renderAll();return}
+  if(t.dataset.mDel!==undefined){menuRows.splice(+t.dataset.mDel,1);drawMenu();renderAll();return}
+  if(t.id==='m-add'){if(menuRows.length<MENU_MAX_ROWS){menuRows.push({name:'',note:'',prices:blank6()});drawMenu();renderAll();const n=document.querySelector(`[data-m-name="${menuRows.length-1}"]`);if(n)n.focus()}return}
   if(t.id==='rep-add'){if(repairs.length<10){repairs.push({name:'',cost:'0'});drawRepairs();renderAll();const n=document.querySelector(`[data-rep-name="${repairs.length-1}"]`);if(n)n.focus()}return}
   if(t.classList.contains('q')){const card=t.closest('.obj');const open=!card.classList.contains('open');card.classList.toggle('open',open);t.setAttribute('aria-expanded',String(open));return}
   if(t.dataset.goto){window.scrollTo({top:0});return}
@@ -680,8 +998,9 @@ function summary(tab){
   if(tab==='cash'){const c=calcCash();return c.ok&&`Cash vs. financing: ${$('cash-summary').textContent}`}
   if(tab==='rate'){const c=calcRate();return c.ok&&`Loan scenario: ${money(c.p)} financed at ${fix(c.r,2)}% for ${c.term} years. ${money(c.ex)} extra each month could save about ${money(c.saved)} in interest and pay off in ${duration(c.chosen.months)}. Estimate only; contract rate does not change.`}
   if(tab==='warranty'){const c=calcWarranty();return c.ok&&`Coverage cost: ${usd2.format(c.monthly)} per month, about ${usd2.format(c.daily)} per day. Repair costs shown are examples; get real quotes and review the contract terms.`}
+  if(tab==='menu')return menuSummary();
   if(tab==='perday'){const c=calcPerDay();return c.ok&&`Cost breakdown: ${usd2.format(c.mt)} per month, ${usd2.format(c.wt)} per week, ${usd2.format(c.dt)} per day. Estimate only; not a financing offer.`}
-  return 'F&I Calculators: payment, loan vs. investment, pick your rate, warranty vs. repair cost, and cost-per-day illustrations.'}
+  return 'F&I Calculators: payment, loan vs. investment, pick your rate, warranty vs. repair cost, cost-per-day illustrations, and a customer protection menu.'}
 async function share(tab){const s=summary(tab);if(!s){toast('Fix the highlighted inputs to share this scenario');return}
   const url=location.href,text=`${s} ${url}`;
   try{if(navigator.share&&/^https?:$/.test(location.protocol)){await navigator.share({title:'F&I Calculators',text:s,url});return}
@@ -691,7 +1010,7 @@ let tt;function toast(t){const el=$('toast');el.textContent=t;el.classList.add('
 
 /* ---------- Boot ---------- */
 setText('yr',String(new Date().getFullYear()));
-readURL();drawRepairs();drawObjections();route();renderAll();
+readURL();drawRepairs();drawMenu();drawObjections();route();renderAll();
 window.FI_READY=true;
 })();
 </script>
