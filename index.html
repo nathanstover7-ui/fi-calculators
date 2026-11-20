@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#022450">
-<meta name="description" content="F&amp;I Calculators for marine finance: payment, loan vs. investment, pick your rate, warranty vs. repair, cost per day, customer protection menu, and use cases.">
+<meta name="description" content="F&amp;I Calculators for marine finance: payment, loan vs. investment, pick your rate, warranty vs. repair, cost per day, customer protection menu, use cases, and a Texas bank and credit union finder.">
 <title>F&amp;I Calculators | Stover Advantage LLC</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23022450'/%3E%3Cpath d='M12 40c7-5 13-5 20 0s13 5 20 0' fill='none' stroke='%2301708E' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M20 30 32 20l12 10' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
@@ -326,6 +326,7 @@ footer .fbrand{font-weight:700;color:var(--navy)}
   .sig{height:22px;margin-bottom:13px}
 }
 </style>
+<link rel="stylesheet" href="css/lenders.css">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="icon" type="image/png" href="icon-192.png">
@@ -356,6 +357,7 @@ footer .fbrand{font-weight:700;color:var(--navy)}
     <a class="tab" role="tab" id="tab-perday" href="#/perday" aria-controls="panel-perday"><span class="num">5</span>Cost Per Day</a>
     <a class="tab" role="tab" id="tab-menu" href="#/menu" aria-controls="panel-menu"><span class="num">6</span>Customer Menu</a>
     <a class="tab" role="tab" id="tab-usecase" href="#/usecase" aria-controls="panel-usecase"><span class="num">7</span>Use Case</a>
+    <a class="tab" role="tab" id="tab-lenders" href="#/lenders" aria-controls="panel-lenders"><span class="num">8</span>Bank &amp; Credit Union Finder</a>
   </div>
 </nav>
 
@@ -676,6 +678,9 @@ footer .fbrand{font-weight:700;color:var(--navy)}
   <div class="obj-grid" id="obj-grid"></div>
   <p class="fine" style="margin-top:18px">Talking points only. Never quote or promise a rate, approval, return, or savings. Follow your dealership’s compliance policies and applicable law.</p>
 </section>
+
+<!-- ========== 8. BANK & CREDIT UNION FINDER ========== -->
+<section class="panel" id="panel-lenders" role="tabpanel" aria-labelledby="tab-lenders" hidden></section>
 </main>
 
 <footer>
@@ -709,7 +714,7 @@ const DEFAULT_REPAIRS=[['Powerhead / engine',12000],['Lower unit',4500],['Electr
 const SEG={'w-fin':'1','d-mode':'fin'};
 let repairs=DEFAULT_REPAIRS.map(([n,c])=>({name:n,cost:String(c)}));
 const fields=[...document.querySelectorAll('input[data-t]')];
-const ROUTES=['payment','cash','rate','warranty','perday','menu','usecase'];
+const ROUTES=['payment','cash','rate','warranty','perday','menu','usecase','lenders'];
 
 /* ---------- Input formatting & parsing ---------- */
 const group=s=>s.replace(/\B(?=(\d{3})+(?!\d))/g,',');
@@ -1014,6 +1019,7 @@ readURL();drawRepairs();drawMenu();drawObjections();route();renderAll();
 window.FI_READY=true;
 })();
 </script>
+<script src="js/lenders.js"></script>
 <script>if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("sw.js");</script>
 </body>
 </html>
