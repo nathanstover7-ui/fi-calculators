@@ -1,0 +1,248 @@
+{
+  "code": "TX",
+  "name": "Texas",
+  "lenders": [
+    {
+      "name": "TDECU (Texas Dow Employees Credit Union)",
+      "verticals": [
+        "Powersports",
+        "Boats/Marine",
+        "RVs",
+        "Cars/Auto"
+      ],
+      "offer": "Indirect retail financing completed at the dealership for autos, boats, RVs, motorcycles, and ATVs/UTVs; advertised auto terms up to 84 months and boat/RV terms up to 179 months; available through hundreds of Texas dealerships.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.tdecu.org/loans-and-credit-cards/auto-loans/",
+        "https://www.tdecu.org/loans-and-credit-cards/recreational-vehicle-loans/"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Randolph-Brooks Federal Credit Union (RBFCU)",
+      "verticals": [
+        "Powersports",
+        "Boats/Marine",
+        "RVs",
+        "Cars/Auto"
+      ],
+      "offer": "Preferred Dealers / Dealer Direct: members can apply and close auto, motorcycle, RV, and boat loans at participating dealers, with a decision in minutes and no extra application fee versus applying at the credit union.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.rbfcu.org/loans/auto-loans/preferred-dealers"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "A+ Federal Credit Union",
+      "verticals": [
+        "Powersports",
+        "RVs",
+        "Cars/Auto"
+      ],
+      "offer": "Published partner-dealership program with car, truck, RV, motorcycle, and power sports dealers across Texas; members can finance through listed partner lots (auto and RV partners are named by region on the official list).",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://aplusfcu.org/loans/vehicle-loans/partner-dealerships"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Huntington Bank (RV & Marine Finance)",
+      "verticals": [
+        "Powersports",
+        "Boats/Marine",
+        "RVs"
+      ],
+      "offer": "Dealer-arranged/indirect specialty financing for RVs, boats, and powersports; consumer site lists Texas residents as eligible, with RV/boat terms up to 180 months and powersports up to 72 months. A Huntington RV & Marine dealer-support directory (dated April 18, 2022) lists dealer support contacts and a Texas relationship manager — re-verify current dealer coverage.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.huntington.com/Personal/auto-loans-overview/rv-boat-powersport-loans",
+        "https://www.huntington.com/-/media/pdf/rv-marine-finance-directory.pdf"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "U.S. Bank",
+      "verticals": [
+        "Boats/Marine",
+        "RVs",
+        "Cars/Auto"
+      ],
+      "offer": "Auto: franchise dealer retail and lease finance via Dealertrack/RouteOne, including eContracting and dealer reserve. RV/boat: dealers that use U.S. Bank as a lender can participate in the U.S. Bank RV and Boat Marketplace (nationwide; article dated July 11, 2023 — confirm current enrollment).",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.usbank.com/vehicle-loans/auto-loans/dealer-finance.html",
+        "https://www.usbank.com/about-us-bank/company-blog/article-library/us-bank-launches-rv-and-boat-marketplace.html"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Aqua Finance",
+      "verticals": [
+        "Boats/Marine",
+        "RVs"
+      ],
+      "offer": "Dealer installment contracts for boats, motors/re-powers, personal watercraft, motorhomes, and towable RVs; applications through AppOne or Dealertrack, with no prepayment penalties advertised. Company history states it expanded consumer financing to dealers in all 50 states (including Texas); confirm current Texas dealer enrollment.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.aquafinance.com/dealers/recreation/",
+        "https://www.aquafinance.com/about/",
+        "https://www.aquafinance.com/dealers/"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Trident Funding",
+      "verticals": [
+        "Boats/Marine",
+        "RVs"
+      ],
+      "offer": "Dealer/broker referral program (Finance Advantage): matches boat and RV deals to a network of 40+ lenders; Trident handles underwriting, processing, and title/registration. Official location page lists Texas among served states. This is a dealer-facing marketplace/referral model, not necessarily Trident holding the paper itself.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.tridentfunding.com/about-us/",
+        "https://www.tridentfunding.com/locations/connecticut-ct/",
+        "https://www.boatsgroup.com/solutions/build-your-brokerage/"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Sheffield Financial (a division of Truist Bank)",
+      "verticals": [
+        "Powersports",
+        "Boats/Marine"
+      ],
+      "offer": "Dealer retail installment financing for powersports, marine, golf cars, trailers, and outdoor power equipment; dealer enrollment, dealer portal applications, online prequalification, and advertised 15-minute credit decisions / 24-hour funding. National program; Texas powersports dealers have published Sheffield as a finance option.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.sheffieldfinancial.com/dealers",
+        "https://www.sheffieldfinancial.com/become-dealer"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Roadrunner Financial",
+      "verticals": [
+        "Powersports"
+      ],
+      "offer": "Dealer powersports and outdoor power equipment retail financing: online applications with instant decisions, digital contracts, and programs for first-time, non-prime, and prime buyers on new and used units; dealers must be approved and sign a dealer agreement.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://roadrunnerfinancial.com/dealer/"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "FreedomRoad Financial (loan production office of Old Second National Bank)",
+      "verticals": [
+        "Powersports"
+      ],
+      "offer": "National powersports retail loans originated through dealers (including authorized Triumph, Husqvarna, and KTM dealers, plus other OEM dealer programs); advertised quick decisions, flexible terms on new and used products, and 7-day dealer support. Texas dealer promotions have offered FreedomRoad financing.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.frf1.com/",
+        "https://www.frf1.com/dealers/become-a-dealer.html"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Yamaha Motor Finance Corporation, U.S.A. (Yamaha Financial Services)",
+      "verticals": [
+        "Powersports",
+        "Boats/Marine"
+      ],
+      "offer": "Captive financing solutions for Yamaha dealers and Yamaha customers nationwide, supporting retail purchases of Yamaha products (powersports and marine).",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.yamaha-motor-finance.com/about-us/"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Honda Financial Services",
+      "verticals": [
+        "Powersports"
+      ],
+      "offer": "Captive retail financing for Honda Powersports products; official guidance is to apply at an authorized Honda dealer or through Honda Financial Services (subject to credit approval).",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://powersports.honda.com/en/faqs"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Security Service Federal Credit Union",
+      "verticals": [
+        "Cars/Auto"
+      ],
+      "offer": "San Antonio-based credit union whose current auto-loan page directs members to shorten financing by shopping within its trusted dealer network (operates in Texas, Colorado, and Utah). Current page confirms a dealer network; it does not publish a full dealer list or other-vehicle dealer terms on that page.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.ssfcu.org/loans-and-credit/auto-loans/"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Shell Federal Credit Union",
+      "verticals": [
+        "Cars/Auto"
+      ],
+      "offer": "Preferred-dealer program through Shell FCU Member Auto Center: official list of 86 participating Houston-area auto dealers; members can get pre-approved and complete financing with the listed dealer representatives.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://shellfcu.memberautocenter.com/PrintableDealerList",
+        "https://www.shellfcu.org/Products/AutoLoans"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Ally Auto (Ally Financial)",
+      "verticals": [
+        "Cars/Auto"
+      ],
+      "offer": "National dealer platform for personal auto financing, specialty vehicle financing, wholesale inventory/floorplan financing, and dealer loans, plus F&I and dealer-rewards programs.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.ally.com/dealer/"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Santander Consumer USA",
+      "verticals": [
+        "Cars/Auto"
+      ],
+      "offer": "Indirect auto purchase and lease financing through a dealer portal (Dealertrack eContracting); advertises about 14,000 active franchise dealer relationships and 135 dealer relationship managers across the U.S., with same-day funding on complete contract packages.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://santanderconsumerusa.com/dealers"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "Toyota Financial Services (Toyota Motor Credit Corporation)",
+      "verticals": [
+        "Cars/Auto"
+      ],
+      "offer": "Captive retail installment and lease financing, plus other financial services, for authorized Toyota and Lexus dealers and their customers in most of the United States (including Texas Toyota/Lexus stores).",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://www.toyotafinancial.com/us/en/about_us/company_overview.html/"
+      ],
+      "lastVerified": "2026-11-20"
+    },
+    {
+      "name": "GM Financial",
+      "verticals": [
+        "Cars/Auto"
+      ],
+      "offer": "Captive dealer financing platform for GM dealers (GMF Connect / Approval Center): submit and rehash retail deals, check contract status, and access dealer programs and inventory tools.",
+      "dealerFacing": "Yes, dealer/indirect program confirmed",
+      "sourceUrls": [
+        "https://dealers.gmfinancial.com/en-us/home.html"
+      ],
+      "lastVerified": "2026-11-20"
+    }
+  ]
+}
