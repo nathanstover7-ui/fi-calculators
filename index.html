@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#022450">
-<meta name="description" content="F&amp;I Calculators for marine finance: payment, loan vs. investment, pick your rate, warranty vs. repair, cost per day, customer protection menu, and use cases.">
+<meta name="description" content="F&amp;I Calculators for marine finance: payment, loan vs. investment, pick your rate, warranty vs. repair, cost per day, customer protection menu, use cases, and a sourced F&amp;I compliance checklist.">
 <title>F&amp;I Calculators | Stover Advantage LLC</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23022450'/%3E%3Cpath d='M12 40c7-5 13-5 20 0s13 5 20 0' fill='none' stroke='%2301708E' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M20 30 32 20l12 10' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
@@ -235,6 +235,48 @@ footer .fbrand{font-weight:700;color:var(--navy)}
 .mb-cards{display:none}
 .mb-sign{display:none}
 .mb-disc{margin:0;padding:14px 24px 18px;text-align:center;font-weight:700;color:#55657a;font-size:.84rem;border-top:1px solid var(--line)}
+/* ---------- Compliance checklist ---------- */
+.cc-disc{background:#fff8ec;border:1px solid #f4dfb8;color:#6b4306;border-radius:14px;padding:14px 16px;font-size:.88rem;margin-bottom:18px}
+.cc-disc strong{color:#6b4306}
+.cc-setup .row2{align-items:end}
+.cc-state{width:100%;border:1.5px solid #cfd9e4;border-radius:12px;background:#fff;padding:12px 14px;font-weight:650;min-height:48px}
+.cc-state:focus{border-color:var(--teal);outline:0;box-shadow:0 0 0 4px rgba(1,112,142,.13)}
+.cc-banner{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.cc-banner p{margin:0;color:var(--muted);font-size:.88rem}
+.cc-group{margin-bottom:16px}
+.cc-group.off{opacity:.72}
+.cc-group h3{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.cc-note{margin:0 0 14px;color:#3e5068;font-size:.86rem}
+.cc-item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px 10px;padding:12px 0;border-top:1px solid var(--line)}
+.cc-item:first-of-type{border-top:0}
+.cc-item input{width:20px;height:20px;margin-top:2px;accent-color:var(--teal)}
+.cc-sum{font-weight:650;color:var(--ink)}
+.cc-where{margin:4px 0 0;color:#3e5068;font-size:.86rem}
+.cc-where b{color:var(--navy)}
+.cc-quote{margin:6px 0 0;padding:8px 10px;background:var(--navy-pale);border-radius:8px;font-size:.8rem;color:#24364d}
+.cc-src{margin:6px 0 0;font-size:.75rem;color:#617185}
+.cc-src a{font-weight:650}
+.cc-cond{margin:6px 0 0;font-size:.8rem;color:#6b4306}
+.cc-na{margin-top:6px}
+.cc-na button{border:0;background:transparent;color:var(--teal);font-weight:700;font-size:.78rem;padding:0;min-height:0}
+.cc-item.na{opacity:.55}
+.cc-item.na .cc-sum{text-decoration:line-through}
+.cc-ok{display:none;align-items:flex-start;gap:10px;background:#e8f6ee;border:1px solid #b7e0c6;color:#0d5c32;border-radius:14px;padding:14px 16px;font-weight:650;font-size:.92rem;margin-bottom:14px}
+.cc-ok.show{display:flex}
+.cc-ok svg{flex:0 0 18px;width:18px;height:18px;margin-top:2px}
+.cc-flag{margin-bottom:14px}
+.cc-flag ul{margin:8px 0 0;padding-left:18px}
+.cc-flag li{margin:2px 0}
+.cc-sign h3{margin-bottom:4px}
+.cc-lines{display:grid;gap:12px}
+.cc-line{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;align-items:end}
+.cc-line span{font-size:.78rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#5d6e82}
+.cc-line input{border:0;border-bottom:1.5px solid #6b7785;border-radius:0;background:transparent;padding:6px 2px;font-weight:650;min-height:36px;width:100%}
+.cc-line input:focus{outline:0;border-bottom-color:var(--teal)}
+.cc-sigline{border-bottom:1.5px solid #6b7785;height:36px}
+.cc-print-only{display:none}
+.cc-box{display:none}
+@media (max-width:640px){.cc-line{grid-template-columns:1fr}}
 @media (max-width:860px){
   .mp-row:not(.mp-head){display:flex;flex-wrap:wrap;gap:8px;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;background:#fbfdff}
   .mp-head{display:none}
@@ -325,6 +367,27 @@ footer .fbrand{font-weight:700;color:var(--navy)}
   .menu-board .mb-small td{padding:2px 4px 8px}
   .sig{height:22px;margin-bottom:13px}
 }
+@page checklist{size:letter portrait;margin:.6in}
+@media print{
+  body[data-route="compliance"] .masthead,
+  body[data-route="compliance"] footer,
+  body[data-route="compliance"] .tabbar,
+  body[data-route="compliance"] .print-stamp,
+  body[data-route="compliance"] .no-print,
+  body[data-route="compliance"] .cc-na,
+  body[data-route="compliance"] .cc-setup{display:none!important}
+  body[data-route="compliance"] main{max-width:none;padding:0}
+  #panel-compliance{page:checklist}
+  #panel-compliance .cc-print-only{display:block!important}
+  #panel-compliance .cc-item input{visibility:hidden;position:absolute;width:0;height:0;margin:0}
+  #panel-compliance .cc-box{display:inline-block;width:13px;height:13px;border:1.5px solid #111;margin-top:3px;background:#fff}
+  #panel-compliance .cc-group.off{opacity:1}
+  #panel-compliance .cc-item.na{opacity:1}
+  #panel-compliance .cc-item.na .cc-sum{text-decoration:none}
+  #panel-compliance .cc-disc,#panel-compliance .cc-quote,#panel-compliance .card{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #panel-compliance .cc-item,#panel-compliance .cc-sign{break-inside:avoid}
+  #panel-compliance .cc-sign{margin-top:8px}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
@@ -356,6 +419,7 @@ footer .fbrand{font-weight:700;color:var(--navy)}
     <a class="tab" role="tab" id="tab-perday" href="#/perday" aria-controls="panel-perday"><span class="num">5</span>Cost Per Day</a>
     <a class="tab" role="tab" id="tab-menu" href="#/menu" aria-controls="panel-menu"><span class="num">6</span>Customer Menu</a>
     <a class="tab" role="tab" id="tab-usecase" href="#/usecase" aria-controls="panel-usecase"><span class="num">7</span>Use Case</a>
+    <a class="tab" role="tab" id="tab-compliance" href="#/compliance" aria-controls="panel-compliance"><span class="num">8</span>Compliance Checklist</a>
   </div>
 </nav>
 
@@ -676,6 +740,46 @@ footer .fbrand{font-weight:700;color:var(--navy)}
   <div class="obj-grid" id="obj-grid"></div>
   <p class="fine" style="margin-top:18px">Talking points only. Never quote or promise a rate, approval, return, or savings. Follow your dealership’s compliance policies and applicable law.</p>
 </section>
+
+<!-- ========== 8. COMPLIANCE CHECKLIST ========== -->
+<section class="panel" id="panel-compliance" role="tabpanel" aria-labelledby="tab-compliance" hidden>
+  <div class="panel-head">
+    <div><p class="eyebrow">Checklist 8</p><h2>Compliance Checklist</h2>
+      <p class="lede">Set the dealership’s state once. The checklist then loads only that state’s sourced F&amp;I disclosures. Texas and Illinois are available.</p></div>
+    <div class="actions no-print"><button class="btn" id="cc-change" type="button" hidden>Change state</button><button class="btn" id="cc-print" data-print type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>Print</button></div>
+  </div>
+  <div class="cc-disc" id="cc-disclaimer"><strong>Informational only. Not legal advice.</strong> This checklist is not a complete statement of the law and is not a substitute for counsel. Statutes and rules change. Confirm every item against the current text of the cited law before you rely on it.</div>
+  <div class="card cc-setup" id="cc-setup">
+    <h3>Dealership state</h3>
+    <p class="sub">Choose the state where the deal is written. The choice is saved on this browser. No state file is loaded until you save it.</p>
+    <div class="row2">
+      <div class="field"><label for="cc-state">State</label>
+        <select id="cc-state" class="cc-state"><option value="">Select a state</option><option value="TX">Texas</option><option value="IL">Illinois</option></select>
+      </div>
+      <div class="field"><button class="btn primary" id="cc-save" type="button">Save and load checklist</button></div>
+    </div>
+    <p class="hint" id="cc-setup-msg">Only Texas and Illinois are loaded. Other states are not offered.</p>
+  </div>
+  <div id="cc-work" hidden>
+    <div class="cc-print-only" id="cc-print-head"></div>
+    <div class="alert cc-flag no-print" id="cc-flag" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><div><strong>Deal not complete.</strong> <span id="cc-flag-text"></span><ul id="cc-flag-list"></ul></div></div>
+    <div class="cc-ok no-print" id="cc-ok" role="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span id="cc-ok-text"></span></div>
+    <p class="cc-banner no-print" id="cc-loaded"></p>
+    <div id="cc-groups"></div>
+    <div class="card cc-sign">
+      <h3>Deal sign-off</h3>
+      <p class="sub no-print">These lines print with the checklist. The boxes on the printed page are empty so they can be checked by hand.</p>
+      <div class="cc-lines">
+        <label class="cc-line"><span>Deal / unit</span><input id="cc-deal" maxlength="80" autocomplete="off"></label>
+        <label class="cc-line"><span>Customer</span><input id="cc-customer" maxlength="80" autocomplete="off"></label>
+        <label class="cc-line"><span>Date</span><input id="cc-date" maxlength="40" autocomplete="off"></label>
+        <div class="cc-line"><span>F&amp;I manager</span><div class="cc-sigline" aria-hidden="true"></div></div>
+      </div>
+    </div>
+    <div class="actions no-print" style="margin-top:16px"><button class="btn primary" id="cc-complete" type="button">Mark Deal Complete</button></div>
+    <div class="cc-print-only" id="cc-print-sources"></div>
+  </div>
+</section>
 </main>
 
 <footer>
@@ -709,7 +813,7 @@ const DEFAULT_REPAIRS=[['Powerhead / engine',12000],['Lower unit',4500],['Electr
 const SEG={'w-fin':'1','d-mode':'fin'};
 let repairs=DEFAULT_REPAIRS.map(([n,c])=>({name:n,cost:String(c)}));
 const fields=[...document.querySelectorAll('input[data-t]')];
-const ROUTES=['payment','cash','rate','warranty','perday','menu','usecase'];
+const ROUTES=['payment','cash','rate','warranty','perday','menu','usecase','compliance'];
 
 /* ---------- Input formatting & parsing ---------- */
 const group=s=>s.replace(/\B(?=(\d{3})+(?!\d))/g,',');
@@ -964,10 +1068,12 @@ function renderAll(){renderStandard();renderCash();renderRate();renderWarranty()
 /* ---------- Routing ---------- */
 function route(){const r=curRoute();document.body.dataset.route=r;document.documentElement.dataset.route=r;
   for(const x of ROUTES){const on=x===r;$('panel-'+x).hidden=!on;const t=$('tab-'+x);t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;if(on&&t.scrollIntoView)t.scrollIntoView({block:'nearest',inline:'center'})}
-  document.title=`${$('tab-'+r).textContent.replace(/^\d/,'')} | F&I Calculators`;}
+  document.title=`${$('tab-'+r).textContent.replace(/^\d/,'')} | F&I Calculators`;
+  if(r==='compliance'&&window.ccShow)window.ccShow();}
 
 /* ---------- Events ---------- */
 document.addEventListener('input',e=>{const el=e.target;
+  if(el.closest&&el.closest('#panel-compliance'))return;
   if(el.dataset.t==='money'||el.dataset.repCost!==undefined||el.dataset.mPrice!==undefined)liveFormat(el);
   if(el.dataset.mPrice!==undefined){const[r,i]=el.dataset.mPrice.split(',').map(Number);menuRows[r].prices[i]=rawOf(el)}
   if(el.dataset.mName!==undefined)menuRows[+el.dataset.mName].name=el.value;
@@ -989,7 +1095,7 @@ document.addEventListener('click',e=>{const t=e.target.closest('button,a');if(!t
   if(t.id==='rep-add'){if(repairs.length<10){repairs.push({name:'',cost:'0'});drawRepairs();renderAll();const n=document.querySelector(`[data-rep-name="${repairs.length-1}"]`);if(n)n.focus()}return}
   if(t.classList.contains('q')){const card=t.closest('.obj');const open=!card.classList.contains('open');card.classList.toggle('open',open);t.setAttribute('aria-expanded',String(open));return}
   if(t.dataset.goto){window.scrollTo({top:0});return}
-  if(t.dataset.print!==undefined){setText('print-stamp',`F&I Calculators · Stover Advantage LLC · Printed ${new Date().toLocaleString('en-US',{dateStyle:'medium',timeStyle:'short'})}. Estimates only; not a financing offer.`);window.print();return}
+  if(t.dataset.print!==undefined){const compliance=curRoute()==='compliance';setText('print-stamp',compliance?'':`F&I Calculators · Stover Advantage LLC · Printed ${new Date().toLocaleString('en-US',{dateStyle:'medium',timeStyle:'short'})}. Estimates only; not a financing offer.`);if(compliance&&window.ccBeforePrint)window.ccBeforePrint();window.print();return}
   if(t.dataset.share){share(t.dataset.share)}});
 document.querySelector('.tabs').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const i=ROUTES.indexOf(curRoute());const n=ROUTES[(i+(e.key==='ArrowRight'?1:ROUTES.length-1))%ROUTES.length];location.hash='#/'+n;$('tab-'+n).focus()});
 window.addEventListener('hashchange',()=>{route();writeURL()});
@@ -1007,6 +1113,108 @@ async function share(tab){const s=summary(tab);if(!s){toast('Fix the highlighted
     if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text)}else{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}
     toast('Scenario and link copied')}catch(e){if(e.name!=='AbortError')toast('Sharing is unavailable on this device')}}
 let tt;function toast(t){const el=$('toast');el.textContent=t;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2600)}
+
+/* ---------- 8. Compliance checklist ---------- */
+const CC_KEY='fi-dealership-state';
+let ccData=null,ccCode='',ccOn={},ccOff={},ccChecked={};
+function ccSources(item){return item.sources&&item.sources.length?item.sources:[{citation:item.citation,url:item.url}]}
+function ccClearStatus(){$('cc-flag').classList.remove('show');$('cc-ok').classList.remove('show')}
+function ccApplicable(){const out=[];if(!ccData)return out;for(const g of ccData.groups){if(ccOn[g.id]===false)continue;for(const item of g.items){if(item.conditional&&ccOff[item.id])continue;out.push(Object.assign({group:g.title},item))}}return out}
+function ccFillPrint(){
+  if(!ccData)return;
+  const deal=$('cc-deal').value.trim(),cust=$('cc-customer').value.trim(),date=$('cc-date').value.trim();
+  const blank='____________________';
+  $('cc-print-head').innerHTML=`<p style="margin:0 0 2px;color:#24364d"><strong>${esc(ccData.name)}</strong> · reviewed ${esc(ccData.lastReviewed)}</p><p style="margin:0 0 8px;color:#24364d">Deal / unit: ${esc(deal||blank)}<br>Customer: ${esc(cust||blank)}<br>Date: ${esc(date||blank)}</p>`;
+  const seen=new Map();
+  for(const g of ccData.groups)for(const item of g.items)for(const s of ccSources(item))if(s.url)seen.set(s.url,s.citation);
+  $('cc-print-sources').innerHTML=`<h3 style="margin:18px 0 6px;color:#022450;font-size:1rem">Sources</h3><ul style="margin:0;padding-left:18px;font-size:.8rem">${[...seen].map(([url,cite])=>`<li><a href="${esc(url)}">${esc(cite)}</a></li>`).join('')}</ul>`;
+}
+function ccRender(){
+  $('cc-loaded').innerHTML=`<span><strong>${esc(ccData.name)}</strong> checklist loaded from <code>data/compliance/${esc(ccData.code.toLowerCase())}.json</code>. Last reviewed ${esc(ccData.lastReviewed)}. Other states are not loaded.</span>`;
+  ccFillPrint();
+  $('cc-groups').innerHTML=ccData.groups.map(g=>{
+    const on=ccOn[g.id]!==false;
+    const items=g.items.map(item=>{
+      const na=!!(item.conditional&&ccOff[item.id]);
+      const src=ccSources(item).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.citation)}</a>`).join(' · ');
+      return `<div class="cc-item${na?' na':''}"><div><input type="checkbox" id="cci-${esc(item.id)}" data-cc-item="${esc(item.id)}" ${ccChecked[item.id]?'checked':''} ${na?'disabled':''} aria-label="${esc(item.summary)}"><span class="cc-box" aria-hidden="true"></span></div><div><label class="cc-sum" for="cci-${esc(item.id)}">${esc(item.summary)}</label><p class="cc-where"><b>Where it goes:</b> ${esc(item.placement)}</p>${item.quote?`<p class="cc-quote">${esc(item.quote)}</p>`:''}${item.conditional?`<p class="cc-cond">${esc(item.condition)}</p>`:''}<p class="cc-src">Reviewed ${esc(item.lastReviewed)}. ${src}</p>${item.conditional?`<p class="cc-na no-print"><button type="button" data-cc-na="${esc(item.id)}">${na?'Put back on this deal':'Not on this deal'}</button></p>`:''}</div></div>`}).join('');
+    return `<section class="card cc-group${on?'':' off'}" data-cc-group="${esc(g.id)}"><h3>${esc(g.title)}<button type="button" class="btn cc-toggle no-print" data-cc-toggle="${esc(g.id)}" aria-pressed="${on}">${esc(g.onDealLabel)}</button></h3><p class="cc-note">${esc(g.note)}</p>${items}</section>`}).join('');
+}
+function ccFlag(text,items){
+  $('cc-ok').classList.remove('show');
+  const flag=$('cc-flag');flag.classList.add('show');
+  $('cc-flag-text').textContent=text;
+  $('cc-flag-list').innerHTML=(items||[]).map(item=>`<li>${esc(item.group)}: ${esc(item.summary)}</li>`).join('');
+  flag.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function ccMark(){
+  if(!ccData){ccFlag('Load a state checklist before marking the deal complete.');return}
+  const need=ccApplicable();
+  if(!need.length){ccFlag('Nothing is marked as required on this deal. Turn a product on, or put a conditional item back on this deal.');return}
+  const missing=need.filter(item=>!ccChecked[item.id]);
+  if(missing.length){ccFlag(`${missing.length} required ${missing.length===1?'item is':'items are'} still unchecked. The deal is not marked complete.`,missing);return}
+  $('cc-flag').classList.remove('show');
+  $('cc-ok').classList.add('show');
+  $('cc-ok-text').textContent=`${ccData.name} checklist is complete for the products marked on this deal. This confirmation is not a legal sign-off.`;
+  $('cc-ok').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function ccShowSetup(msg){
+  $('cc-setup').hidden=false;
+  if(!ccData)$('cc-work').hidden=true;
+  $('cc-change').hidden=!localStorage.getItem(CC_KEY);
+  if(msg)$('cc-setup-msg').textContent=msg;
+}
+async function ccLoad(code){
+  const url=new URL('data/compliance/'+code.toLowerCase()+'.json',document.baseURI);
+  const res=await fetch(url.href);
+  if(!res.ok)throw new Error('HTTP '+res.status);
+  const data=await res.json();
+  if(!data||data.code!==code||!Array.isArray(data.groups)||!data.groups.length)throw new Error('unexpected file');
+  ccData=data;ccCode=code;ccOn={};ccOff={};ccChecked={};
+  for(const g of data.groups)ccOn[g.id]=true;
+  if(!$('cc-date').value)$('cc-date').value=new Date().toLocaleDateString('en-US',{dateStyle:'medium'});
+  ccClearStatus();ccRender();
+  $('cc-setup').hidden=true;$('cc-work').hidden=false;$('cc-change').hidden=false;
+}
+window.ccShow=function(){
+  let saved='';try{saved=localStorage.getItem(CC_KEY)||''}catch(e){saved=''}
+  if(saved!=='TX'&&saved!=='IL'){ccShowSetup('Select the dealership’s state. The checklist stays empty until a state is saved.');return}
+  $('cc-state').value=saved;
+  if(ccCode===saved&&ccData){$('cc-setup').hidden=true;$('cc-work').hidden=false;$('cc-change').hidden=false;return}
+  ccLoad(saved).catch(err=>{ccData=null;ccCode='';ccShowSetup('The '+saved+' checklist file did not load ('+err.message+'). No requirements are shown.')});
+};
+window.ccBeforePrint=ccFillPrint;
+window.addEventListener('beforeprint',()=>{if(document.body.dataset.route==='compliance')ccFillPrint()});
+$('cc-deal').addEventListener('input',ccFillPrint);
+$('cc-customer').addEventListener('input',ccFillPrint);
+$('cc-date').addEventListener('input',ccFillPrint);
+$('panel-compliance').addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t||t.dataset.print!==undefined)return;
+  if(t.id==='cc-save'){
+    const code=$('cc-state').value;
+    if(code!=='TX'&&code!=='IL'){$('cc-setup-msg').textContent='Select Texas or Illinois.';return}
+    try{localStorage.setItem(CC_KEY,code)}catch(err){$('cc-setup-msg').textContent='This browser did not save the state. The checklist was not loaded.';return}
+    ccLoad(code).catch(err=>{$('cc-setup-msg').textContent='Could not load the '+code+' file ('+err.message+'). No requirements were filled in.';$('cc-setup').hidden=false});
+    return;
+  }
+  if(t.id==='cc-change'){ccShowSetup('Choose Texas or Illinois and save. The checklist on screen stays until the new file loads.');$('cc-state').focus();return}
+  if(t.id==='cc-complete'){ccMark();return}
+  if(t.dataset.ccToggle){
+    const id=t.dataset.ccToggle;ccOn[id]=t.getAttribute('aria-pressed')!=='true';
+    t.setAttribute('aria-pressed',String(ccOn[id]));
+    t.closest('.cc-group').classList.toggle('off',!ccOn[id]);
+    ccClearStatus();return;
+  }
+  if(t.dataset.ccNa){
+    const id=t.dataset.ccNa;ccOff[id]=!ccOff[id];
+    const row=t.closest('.cc-item');row.classList.toggle('na',!!ccOff[id]);
+    const box=row.querySelector('input');box.disabled=!!ccOff[id];
+    if(ccOff[id]){box.checked=false;ccChecked[id]=false}
+    t.textContent=ccOff[id]?'Put back on this deal':'Not on this deal';
+    ccClearStatus();
+  }
+});
+$('cc-groups').addEventListener('change',e=>{const el=e.target;if(!el.dataset.ccItem)return;ccChecked[el.dataset.ccItem]=el.checked;ccClearStatus()});
 
 /* ---------- Boot ---------- */
 setText('yr',String(new Date().getFullYear()));
